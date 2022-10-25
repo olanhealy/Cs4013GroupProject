@@ -22,7 +22,7 @@ There are many requirements when managing a restaurant chain. Some ones we will 
 ------------------------------------------------
 ## CRC diagrams
 
-![](images/CRC Cards.drawio (4).png)
+![](images/images/CRC_cards.png)
 ------------------------------------------------
 ## Activity Diagrams
 1. PLACE ORDER: steps required to place an order in the restaurant
