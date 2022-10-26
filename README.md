@@ -2,7 +2,7 @@
 ## Team Members:
 1. Olan Healy:    21318204
 2. Kevin Collins: 21344256
-3. Adam Clarke:   20228805
+3. Adam Clarke:   20228805 //gone dropped out
 4. Sean Capilis:  21342342
 
 
@@ -19,6 +19,26 @@ There are many requirements when managing a restaurant chain. Some ones we will 
 8. They will need to have a system so as they customers can pay by cash or card.
 9. They will need to have a system which keeps track of reservations in case any walk in customers can be seated
 
+
+------------------------------------------------
+## Use case 
+
+The four main actors in our system are the Manager, Customer, Waiter/ess and the Chef.
+__Manager:__ Mainly responsible for taking in table bookings and setting the menu items.
+__Customer:__ Mainly responsible for making a table booking, using the menu to pay for the food and eating the food.
+__Waiter/ess:__ Mainly responsible for distributing the menus, taking food orders, sending orders to chef and distributing
+orders to the customers.
+__Chef:__ Mainly responsible for cooking the food ordered by the customers.
+
+ Some of the main components of the use case are:
+1. __Cancel/update bookings:__ Making sure bookings are cancelled if requested and updating availability. 
+2. __Set Tables:__ Make sure the correct number of seats for required customers are there.
+3. __Book table:__ Add in a table booking.
+4. __Order food:__ Customer orders food and order is sent to Chef via waiter/ess.
+5. __Cook food:__ Cook the customers food. 
+6. __Eat food:__ Customer eats the food cooked by the chef and distributed by the waiter/ess.
+7. __Pay for food:__ Customer pays for the food they consumed on their table.
+![](images/UseCase_.png)
 ------------------------------------------------
 ## CRC diagrams
 
