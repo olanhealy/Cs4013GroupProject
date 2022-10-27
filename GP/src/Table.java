@@ -3,15 +3,22 @@ package GP.src;
 public class Table {
     private int tableNumber;
     private int numberOfSeats;
-    private boolean available;
+
+    private String disability;
+
+    private String kidsSeat;
+
+    private  boolean available;
 
 
-    public  Table(int tableNumber, int numberOfSeats, boolean available) {
+
+    public  Table(int tableNumber, int numberOfSeats) {
         this.tableNumber = tableNumber;
         this.numberOfSeats = numberOfSeats;
-        this.available = false;
-
+        available = false;
     }
+
+
 
     public int getTableNumber( ) {
         return tableNumber;
@@ -27,11 +34,26 @@ public class Table {
         this.numberOfSeats = numberOfSeats;
     }
 
-    public void tableAvailable() {
-        available = true;
+
+
+    public boolean isAvailable() {
+        return available;
     }
-    public void tableNotAvailable() {
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    @Override
+    public  String toString() {
+        return "Table number: " + getTableNumber() + ", Number of seats: " + getNumberOfSeats() + ", Is there seats available: " + isAvailable() ;
+    }
+    public void sitTable() {
         available = false;
     }
+    public void emptyTable() {
+        available = true;
+    }
+
 
 }

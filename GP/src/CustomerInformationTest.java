@@ -1,3 +1,5 @@
+package GP.src;
+
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 
@@ -16,7 +18,7 @@ public class CustomerInformationTest {
         burgerMacBookings.addBooking(booking2);
         burgerMacBookings.addBooking(booking3);
 
-        System.out.println(burgerMacBookings.toString());
+        System.out.println(burgerMacBookings);
     }
 
 
