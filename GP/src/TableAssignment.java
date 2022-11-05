@@ -1,45 +1,21 @@
-package GP.src;
-
-import java.util.Scanner;
-
 public class TableAssignment {
-    Scanner scanner = new Scanner(System.in);
-    private  int tableCount = 0;
 
-    Table [] table = new Table[20];
-
-
-    public TableAssignment() {
-        System.out.println("Hello this is YUM restaurant, would you like to make a booking?");
-        String yesNo = scanner.next();
-        if(yesNo.equals("Yes") ) {
-            System.out.println("How many seats do you need? ");
-            int numberOfSeatsNeeded = scanner.nextInt();
-            addTable(numberOfSeatsNeeded);
-            displayTables();
-        } else if (yesNo.equals("No")) {
-            System.exit(0);
-
-        }
-
-
-    }
-
-        public void addTable (int numberOfSeats) {
-            table[tableCount] = new Table(tableCount, numberOfSeats);
-            table[tableCount].setAvailable(true);
-             tableCount++;
-        }
-    public void displayTables()
-    {
-        for(int i = 0;i<tableCount;i++)
-        {
-            System.out.println(table[i].toString());
+    public TableAssignment(Restaurant restaurant, CustomerInformation customer){ //TODO create way of seating party of 4 of 5 table if no 4s available
+        for (int i = 0; i <  restaurant.getSeatLayout().size(); i++){
+            if (customer.getNumberOfGuests() == restaurant.getSeatLayout().get(i).getNumberOfSeats()){
+                seatTable(customer, restaurant.getSeatLayout().get(i));
+                break;
+            }
         }
     }
 
+    public void seatTable(CustomerInformation customer, Table table) {
+        if (table.getAvailability() == true && table.getNumberOfSeats() >= customer.getNumberOfGuests()){
+            table.setTableFull();
+            System.out.println(customer.getName()+ " has been seated on table " + table.getTableNumber() );
 
-
-
+        }else{
+            System.out.println("Table not available");
+        }
     }
-
+}

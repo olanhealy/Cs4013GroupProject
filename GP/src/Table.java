@@ -1,59 +1,49 @@
-package GP.src;
+import java.util.Scanner;
 
 public class Table {
-    private int tableNumber;
-    private int numberOfSeats;
 
-    private String disability;
+    private int tableNo, numberOfSeats;
+    private boolean available;
 
-    private String kidsSeat;
+    Scanner scanner = new Scanner(System.in);
 
-    private  boolean available;
-
-
-
-    public  Table(int tableNumber, int numberOfSeats) {
-        this.tableNumber = tableNumber;
+    public Table(int tableNo, int numberOfSeats) {
+        this.tableNo = tableNo;
         this.numberOfSeats = numberOfSeats;
-        available = false;
+        this.available = true;
     }
 
-
-
-    public int getTableNumber( ) {
-        return tableNumber;
+    //getters
+    public int getTableNumber() {
+        return this.tableNo;
     }
-    public void  setTableNumber(int tableNumber) {
-        this.tableNumber = tableNumber;
-    }
-
     public int getNumberOfSeats() {
-        return numberOfSeats;
+        return this.numberOfSeats;
+    }
+    public boolean getAvailability() {return this.available;}
+
+    //setters
+    public void setTableNumber(int tableNo) {
+        this.tableNo = tableNo;
     }
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
-
-
-
-    public boolean isAvailable() {
-        return available;
-    }
-
     public void setAvailable(boolean available) {
         this.available = available;
     }
 
+
+    public void setTableFull() {
+        this.available = false;
+    }
+    public void setTableEmpty() { this.available = true; }
+
     @Override
-    public  String toString() {
-        return "Table number: " + getTableNumber() + ", Number of seats: " + getNumberOfSeats() + ", Is there seats available: " + isAvailable() ;
+    public String toString() {
+        return "Table{" +
+                "tableNo=" + tableNo +
+                ", numberOfSeats=" + numberOfSeats +
+                ", available=" + available + "} \n";
     }
-    public void sitTable() {
-        available = false;
-    }
-    public void emptyTable() {
-        available = true;
-    }
-
-
 }
