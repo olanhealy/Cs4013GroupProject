@@ -1,3 +1,4 @@
+package GP.src;
 import java.util.ArrayList;
 
 public class CustomerInformationTest {
@@ -15,7 +16,7 @@ public class CustomerInformationTest {
         burgerMacBookings.addBooking(booking3);
 
         System.out.println(burgerMacBookings);
-<<<<<<< HEAD
+
 
         System.out.println(burgerMacBookings.checkBooking("John Francis", "0873416741"));
 
@@ -27,9 +28,9 @@ public class CustomerInformationTest {
         System.out.println(burgerMacBookings.checkBooking("John Francis", "0873416741"));
 
 
-    }
-}
-=======
+
+
+
         Menu menu = new Menu();
         MenuItem hello = new MenuItem("garlic bread", 8.0, "starters");
         MenuItem hello1 = new MenuItem("burger and chips", 16.50, "mains");
@@ -64,4 +65,4 @@ public class CustomerInformationTest {
 
 
 } */
->>>>>>> fb6c74de85ebfcefb92454753b9f09d938bee43f
+

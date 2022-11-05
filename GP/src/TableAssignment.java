@@ -1,3 +1,4 @@
+package GP.src;
 public class TableAssignment {
 
     public TableAssignment(Restaurant restaurant, CustomerInformation customer){ //TODO create way of seating party of 4 of 5 table if no 4s available

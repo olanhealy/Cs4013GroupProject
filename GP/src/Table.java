@@ -1,3 +1,4 @@
+package GP.src;
 import java.util.Scanner;
 
 public class Table {

@@ -1,3 +1,4 @@
+package GP.src;
 public class TestTable {
     public static void main(String args[]) {
         Restaurant restaurant = new Restaurant(24);
