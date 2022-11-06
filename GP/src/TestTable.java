@@ -14,7 +14,7 @@ public class TestTable {
         Restaurant restaurant = new Restaurant(10);
         BookingsList Bookings = new BookingsList();
 
-        String path = "C:\\College\\Year2_Sem1\\CS4013\\Bookings.csv";
+        String path = "CSV files/Bookings.csv";
         String line = "";
 
         try {
