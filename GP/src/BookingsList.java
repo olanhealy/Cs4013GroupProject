@@ -11,6 +11,10 @@ public class BookingsList {
         customers = new ArrayList<CustomerInformation>();
     }
 
+    public ArrayList<CustomerInformation> getBookingList() {
+        return customers;
+    }
+
     //adds a booking (CustomerInformation Object)
     public void addBooking(CustomerInformation booking) {
         customers.add(booking);

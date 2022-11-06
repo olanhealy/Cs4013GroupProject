@@ -1,4 +1,6 @@
 package GP.src;
+import GP.src.Table;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -25,7 +27,6 @@ public class Restaurant {
     public void addTable(int tableNo, int numberOfSeats) {
         seatLayout.add(new Table (tableNo, numberOfSeats));
     }
-
 
     @Override
     public String toString() {

@@ -42,9 +42,9 @@ public class Table {
 
     @Override
     public String toString() {
-        return "Table{" +
+        return "\n Table{" +
                 "tableNo=" + tableNo +
                 ", numberOfSeats=" + numberOfSeats +
-                ", available=" + available + "} \n";
+                ", available=" + available + "}";
     }
 }

@@ -3,12 +3,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public class CustomerInformation {
 
     Scanner scanner;
     private String name, timeOfArrival, occasion, allergies, specialRequests;
     private String phoneNumber;
-    private int numberOfGuests;
+    private String numberOfGuests;
     //private Date timeOfArrival;
 
     public String getName() {
@@ -20,11 +22,11 @@ public class CustomerInformation {
     }
 
     public int getNumberOfGuests() {
-        return numberOfGuests;
+        return parseInt(numberOfGuests);
     }
 
     //collects all info from customer
-    public CustomerInformation(String name, String phoneNumber, String timeOfArrival, int numberOfGuests, String occasion, String allergies, String specialRequests){
+    public CustomerInformation(String name, String phoneNumber, String timeOfArrival, String numberOfGuests, String occasion, String allergies, String specialRequests){
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.timeOfArrival = timeOfArrival;
