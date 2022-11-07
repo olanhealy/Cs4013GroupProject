@@ -3,33 +3,14 @@ package GP.src;
 import java.util.ArrayList;
 
 public class Menu {
-    private ArrayList<MenuItem> menuItems = new ArrayList<>();
 
-    public void addMenuItem(MenuItem food) {
-        menuItems.add(food);
+    ArrayList<Course> courses = new ArrayList();
 
+    public ArrayList<Course> getCourses() {
+        return courses;
     }
 
-    public void removeMenuItem(MenuItem food) {
-        menuItems.remove(food);
-    }
-
-    public ArrayList<MenuItem> getMenuItems() {
-        return menuItems;
-    }
-
-    public void showMenu() {
-        for (MenuItem menuItem : menuItems) {
-            System.out.println(menuItem);
-        }
-    }
-
-    public String toString() {
-        StringBuilder str = new StringBuilder("\n***MENU***\n");
-        for (MenuItem item : menuItems) {
-            str.append(item.toString()).append("\n***\n");
-        }
-        return str.toString();
+    public void addCourse(String name){
+        getCourses().add(new Course(name));
     }
 }
-

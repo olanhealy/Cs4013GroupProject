@@ -7,7 +7,6 @@ import java.util.Random;
 public class Restaurant {
 
     private ArrayList<Table> seatLayout = new ArrayList<>();
-
     public ArrayList<Table> getSeatLayout() {
         return seatLayout;
     }
