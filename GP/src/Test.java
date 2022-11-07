@@ -5,11 +5,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+//Yum Restaurant
+
 public class Test {
     public static void main(String args[]) {
-        Restaurant restaurant = new Restaurant(10);
-        BookingsList Bookings = new BookingsList();
 
+        // creates restaurant and bookilist
+        Restaurant yumLimerick = new Restaurant(4);
+        BookingsList Bookings = yumLimerick.addBookingsList();
+
+        //Reads CSV file to create bookings
         String path = "CSV files/Bookings.csv";
         String line = "";
 
@@ -28,23 +33,34 @@ public class Test {
             e.printStackTrace();
         }
 
+        //takes walkin booking
+        Bookings.addBooking(Bookings.takeWalkIn("5"));
         System.out.println(Bookings);
 
+        //assigns bookings to tables
         for(int i = 0; i < Bookings.getBookingList().size(); i++ ){
-            TableAssignment assign = new TableAssignment(restaurant, Bookings.getBookingList().get(i));
+            TableAssignment assign = new TableAssignment(yumLimerick, Bookings.getBookingList().get(i));
         }
 
-        System.out.println(restaurant);
-        restaurant.getSeatLayout().get(3).setTableEmpty();
-        System.out.println(restaurant);
+
 
         //-------------------------------------------------------------------------------------------------
 
-        Menu menu = new Menu();
-        menu.addCourse("Starters");
-        System.out.println(menu.getCourses().get(0).getItems());
-        menu.getCourses().get(0).addMenuItem(new MenuItem("Soup",3.00 ));
-        menu.getCourses().get(0).addMenuItem(new MenuItem("Prawns",5.00));
-        menu.getCourses().get(0).showMenu();
+        //adds menu
+        yumLimerick.addMenu("Al la Carte");
+
+        //adds course
+        yumLimerick.getMenus().get(0).addCourse("Starters");
+        System.out.println(yumLimerick.getMenus().get(0).getCourses().get(0));
+
+        //adds foodItems
+        yumLimerick.getMenus().get(0).getCourses().get(0).addMenuItem(new MenuItem("Soup",3.00 ));
+        yumLimerick.getMenus().get(0).getCourses().get(0).addMenuItem(new MenuItem("Prawns",5.00));
+
+        //shows menu
+        yumLimerick.getMenus().get(0).getCourses().get(0).showMenu();
+
+        //Order order = new Order(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
+
     }
 }

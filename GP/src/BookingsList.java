@@ -1,5 +1,6 @@
 package GP.src;
 import javax.swing.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class BookingsList {
@@ -42,6 +43,13 @@ public class BookingsList {
                 customers.remove(i);
             }
         }
+    }
+
+    public CustomerInformation takeWalkIn(String numberOfGuests){
+
+        int time = LocalDateTime.now().getHour();
+        CustomerInformation customer = new CustomerInformation("WalkIn","N/A", Integer.toString(time) , numberOfGuests, "N/A", "N/A","N/A");
+        return customer;
     }
 
     @Override

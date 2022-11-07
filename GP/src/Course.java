@@ -3,11 +3,11 @@ package GP.src;
 import java.util.ArrayList;
 
 public class Course {
-
+    
     private String name ;
     private ArrayList<MenuItem> items = new ArrayList();
 
-    public Course(String name){
+    public Course(String name){ //TODO Optimize: See if a 'extends' can be adopted between Menu and Course
         this.name = name;
     }
 

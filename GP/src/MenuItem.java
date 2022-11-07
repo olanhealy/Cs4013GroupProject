@@ -5,8 +5,6 @@ import java.util.ArrayList;
 public class MenuItem {
     private String name;
     private double price;
-
-
     private ArrayList<Course> Menu = new ArrayList<>();
 
     public MenuItem(String name, double price) {

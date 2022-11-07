@@ -1,4 +1,5 @@
 package GP.src;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -7,23 +8,16 @@ import static java.lang.Integer.parseInt;
 
 public class CustomerInformation {
 
-    Scanner scanner;
-    private String name, timeOfArrival, occasion, allergies, specialRequests;
-    private String phoneNumber;
-    private String numberOfGuests;
-    //private Date timeOfArrival;
+    private String name, phoneNumber, numberOfGuests, timeOfArrival, occasion, allergies, specialRequests;
 
     public String getName() {
         return name;
     }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-    public int getNumberOfGuests() {
-        return parseInt(numberOfGuests);
-    }
+    public int getNumberOfGuests() { return parseInt(numberOfGuests); }
+    public int getTimeOfArrival() { return parseInt(timeOfArrival); }
 
     //collects all info from customer
     public CustomerInformation(String name, String phoneNumber, String timeOfArrival, String numberOfGuests, String occasion, String allergies, String specialRequests){
@@ -35,6 +29,8 @@ public class CustomerInformation {
         this.allergies = allergies;
         this.specialRequests = specialRequests;
     }
+
+
 
     @Override
     public String toString() {
