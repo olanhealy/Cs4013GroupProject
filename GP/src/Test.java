@@ -76,5 +76,7 @@ public class Test {
 
         Order order = new Order();
         order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
+
+        System.out.println(order.toString());
     }
 }

@@ -7,6 +7,11 @@ public class Order {
     private Course course;
     private Table table;
     private Menu menu;
+    private ArrayList<String> orderItems = new ArrayList();
+
+    public ArrayList getOrderItems() {
+        return orderItems;
+    }
 
     public Course getCourse() {
         return course;
@@ -35,7 +40,9 @@ public class Order {
             for (int j = 0; j < courseAmt; j++){
                 System.out.println("Order: " + menu.getCourses().get(j).getName());
                 try {
-                    menu.getCourses().get(j).getMenuItemPos(scanner.next());
+                    String itemSearch = scanner.next();
+                    menu.getCourses().get(j).getMenuItemPos(itemSearch);
+                    getOrderItems().add(itemSearch);
                 } catch (NullPointerException ne){
                     System.out.println("Item not in menu");
                 }
@@ -43,4 +50,10 @@ public class Order {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderItems=" + orderItems +
+                '}';
+    }
 }

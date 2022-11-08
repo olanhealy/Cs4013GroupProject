@@ -9,7 +9,7 @@ public class Course {
 
     public int getMenuItemPos (String menuItem) throws NullPointerException{
         for (int i = 0; i < getItems().size(); i++){
-            if(menuItem == getItems().get(i).getName()){
+            if(menuItem.equals(getItems().get(i).getName())){
                 return items.indexOf(i);
             }
         }
