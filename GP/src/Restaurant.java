@@ -20,13 +20,13 @@ public class Restaurant {
 
     public Restaurant(int numberOfTables) {
 
-        //Random rand = new Random();//instance of random class
-        //int upperbound = 8;
+        /*Random rand = new Random();//instance of random class
+        int upperbound = 8;
 
-        //for(int i = 1; i <= numberOfTables; i++){
-        //    int int_random = (rand.nextInt(upperbound)) + 1;
-        //    addTable(i, int_random ); //TODO generate multiple size tables
-        //}
+        for(int i = 1; i <= numberOfTables; i++){
+            int int_random = (rand.nextInt(upperbound)) + 1;
+            addTable(i, int_random ); //TODO generate multiple size tables
+        }*/
 
         addTable(1, 1);
         addTable(2, 2);

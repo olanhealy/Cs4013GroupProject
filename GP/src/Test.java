@@ -60,7 +60,7 @@ public class Test {
         //shows menu
         yumLimerick.getMenus().get(0).getCourses().get(0).showMenu();
 
-        //Order order = new Order(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
+        Order order = new Order(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
 
     }
 }

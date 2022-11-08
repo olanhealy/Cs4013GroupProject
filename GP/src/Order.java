@@ -4,29 +4,29 @@ import java.util.Scanner;
 
 public class Order {
 
+    private Course course;
     private Table table;
-    MenuItem[][] customerOrders;
+    int i=0;
+    int j= 0;
 
     public Order(Table table, Menu menu){
-        int j = 0;
+
+        int courseAmt = menu.getCourses().size();
         boolean order = true;
         this.table = table;
+
+        MenuItem[][] customerOrders = new MenuItem[table.getNumberOfSeats()][courseAmt];
+
         Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i <= table.getTableNumber(); i++){
-            System.out.println("Please Input Customer "+ i + "'s Order");
-            while(order = true){
-                System.out.println("Enter Menu Number followed by Item Number");
-                int course = scanner.nextInt();
-                int item = scanner.nextInt();
-                customerOrders[i][j] = menu.getCourses().get(course).getItems().get(item); //TODO Fix error - Null point exception
-                j += 1;
-                System.out.println("Order Complete? (Y/N)");
-                String answer = scanner.next();
-                if(answer == "Y") {
-                    order = false;
-                }
+        for (i = 1; i <= table.getTableNumber(); i++){
+            for (j = 1; j < courseAmt; j++){
+                getMenuItem();
             }
-            j = 0;
         }
+    }
+
+    public MenuItem getMenuItem(Course course){
+        this.course = course;
+        course.getItems()
     }
 }

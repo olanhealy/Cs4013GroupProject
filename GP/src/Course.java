@@ -7,6 +7,15 @@ public class Course {
     private String name ;
     private ArrayList<MenuItem> items = new ArrayList();
 
+    private int getMenuItemPos (String menuItem) throws NullPointerException{
+        for (int i = 0; i < getItems().size(); i++){
+            if(menuItem == getItems().get(i).getName()){
+                return items.indexOf(i);
+            }
+        }
+        
+    }
+
     public Course(String name){ //TODO Optimize: See if a 'extends' can be adopted between Menu and Course
         this.name = name;
     }
