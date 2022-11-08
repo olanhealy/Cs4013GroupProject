@@ -2,9 +2,9 @@ package GP.src;
 
 import java.util.ArrayList;
 
-public class OrderStatus extends FoodOrder {
+public class OrderStatus  {
 
-	private String status;
+	/*private String status;
 	
 	public OrderStatus(String status) {
 		super(getOrder(), getTableNum());
@@ -14,5 +14,5 @@ public class OrderStatus extends FoodOrder {
 	@Override
 	public String toString() {
 		return super.toString() + status;
-	}
+	}*/
 }

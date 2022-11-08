@@ -1,7 +1,7 @@
 package GP.src;
 
 public class Payment{
-
+/*
 	private MenuItem item;
 	
 	private Table table;
@@ -44,6 +44,6 @@ public class Payment{
 			total = total + item.getPrice();
 		}
 	}
-
+*/
 }
 

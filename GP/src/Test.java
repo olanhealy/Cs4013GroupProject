@@ -51,16 +51,30 @@ public class Test {
 
         //adds course
         yumLimerick.getMenus().get(0).addCourse("Starters");
-        System.out.println(yumLimerick.getMenus().get(0).getCourses().get(0));
+        yumLimerick.getMenus().get(0).addCourse("Mains");
+        yumLimerick.getMenus().get(0).addCourse("Desserts");
+        yumLimerick.getMenus().get(0).addCourse("Drinks");
 
         //adds foodItems
         yumLimerick.getMenus().get(0).getCourses().get(0).addMenuItem(new MenuItem("Soup",3.00 ));
         yumLimerick.getMenus().get(0).getCourses().get(0).addMenuItem(new MenuItem("Prawns",5.00));
 
+        yumLimerick.getMenus().get(0).getCourses().get(1).addMenuItem(new MenuItem("Steak",5.00));
+        yumLimerick.getMenus().get(0).getCourses().get(1).addMenuItem(new MenuItem("Chicken",5.00));
+
+        yumLimerick.getMenus().get(0).getCourses().get(2).addMenuItem(new MenuItem("Brownie",5.00));
+        yumLimerick.getMenus().get(0).getCourses().get(2).addMenuItem(new MenuItem("Sundae",5.00));
+
+        yumLimerick.getMenus().get(0).getCourses().get(3).addMenuItem(new MenuItem("Guiness",5.00));
+        yumLimerick.getMenus().get(0).getCourses().get(3).addMenuItem(new MenuItem("Rioja",5.00));
+
         //shows menu
         yumLimerick.getMenus().get(0).getCourses().get(0).showMenu();
+        yumLimerick.getMenus().get(0).getCourses().get(1).showMenu();
+        yumLimerick.getMenus().get(0).getCourses().get(2).showMenu();
+        yumLimerick.getMenus().get(0).getCourses().get(3).showMenu();
 
-        Order order = new Order(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
-
+        Order order = new Order();
+        order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
     }
 }
