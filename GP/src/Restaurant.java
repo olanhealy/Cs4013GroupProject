@@ -18,6 +18,27 @@ public class Restaurant {
         return menus;
     }
 
+    public Menu getMenu (int menuId){
+        return getMenus().get(menuId);
+    }
+    public Course getCourse (int menuId, int courseID){
+        return getMenus().get(menuId).getCourses().get(courseID);
+    }
+    public MenuItem getMenuItem (int menuId, int courseID, int menuItemID){
+        return getMenus().get(menuId).getCourses().get(courseID).getItems().get(menuItemID);
+    }
+
+    public ArrayList<Course> getCourselist (int menuId){
+        return getMenus().get(menuId).getCourses();
+    }
+
+    public ArrayList<MenuItem> getMenuItemList (int menuId, int courseID){
+        return getMenus().get(menuId).getCourses().get(courseID).getItems();
+    }
+
+
+
+
     public Restaurant(int numberOfTables) {
 
         /*Random rand = new Random();//instance of random class

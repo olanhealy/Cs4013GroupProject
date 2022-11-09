@@ -7,23 +7,21 @@ public class Order {
     private Course course;
     private Table table;
     private Menu menu;
-    private ArrayList<String> orderItems = new ArrayList();
-    private setStatus status;
+    private ArrayList<MenuItem> orderItems = new ArrayList<MenuItem>();
 
-    public ArrayList getOrderItems() {
-        return orderItems;
+    public ArrayList getOrderItems() { return orderItems; }
+    public Course getCourse() { return course; }
+    public Table getTable() { return table; }
+    public Menu getMenu() {return menu; }
+    public ArrayList<MenuItem> getOrders(){
+        return getOrders();
     }
 
-    public Course getCourse() {
-        return course;
+    public boolean setStatus(String status) {
+        return(status.equals("ORDERED"));
     }
-
-    public Table getTable() {
-        return table;
-    }
-
-    public Menu getMenu() {
-        return menu;
+    public boolean checkStatusChef(String status) {
+        return(status.equals("READY")); //links to chef
     }
 
     public Order(){
@@ -42,31 +40,29 @@ public class Order {
                 System.out.println("Order: " + menu.getCourses().get(j).getName());
                 try {
                     String itemSearch = scanner.next();
-                    menu.getCourses().get(j).getMenuItemPos(itemSearch);
-                    getOrderItems().add(itemSearch);
+                    int check = menu.getCourses().get(j).getMenuItemPos(itemSearch);
+                    orderItems.add(getMenuItem(menu, i, j, check));
+
+                    //getOrderItems().add(menu.getCourses().get(j).getItems().get(check));
                 } catch (NullPointerException ne){
                     System.out.println("Item not in menu");
+                    j--;
                 }
             }
         }
     }
 
-    public ArrayList<MenuItem> getOrders(){
-        return getOrders();
+    public MenuItem getMenuItem(Menu menu ,int i, int j, int item){
+        MenuItem menuItem = menu.getCourses().get(j).getItems().get(item);
+        return menuItem;
     }
+
     public enum setStatus {
         ORDERED, READY, SERVED
     }
-    public setStatus getStatus() {
-        return status;
-    }
-    public boolean setStatus(String status) {
-        return(status.equals("ORDERED"));
-    }
-    public boolean checkStatusChef(String status) {
-        return(status.equals("READY")); //links to chef
-    }
-
+    //    public setStatus getStatus() {
+//        return status;
+//    }
 
     public void showOrder() {
         System.out.println("Order for table " + table.getTableNumber());
@@ -77,12 +73,16 @@ public class Order {
             }
         }
     }
-}
 
     @Override
     public String toString() {
-        return "Order{" +
-                "orderItems=" + orderItems +
-                '}';
+        String value = "Order{" +
+                "orderItems=" ;
+        int size = getOrderItems().size();
+        for(int i = 0 ; i < size; i++){
+            String newVal = orderItems.get(i).getName();
+            value = value + newVal;
+        }
+        return value;
     }
 }
