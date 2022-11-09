@@ -2,7 +2,9 @@ import java.time.LocalDate;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 public class Bill{
-
+	
+	private Course course;
+	
 	private MenuItem item;
 	
 	private Table table;
@@ -14,8 +16,8 @@ public class Bill{
 	public Bill(Table table, String paymentMethod) {
 		this.table = table;
 		this.paymentMethod = paymentMethod;
-		for(int i = 0; i < Course.getItems().size(); i++) {
-			item = Course.getItems().get(i);
+		for(int i = 0; i < course.getItems().size(); i++) {
+			item = course.getItems().get(i);
 			total = total + item.getPrice();
 		}
 	}
@@ -25,7 +27,7 @@ public class Bill{
 	}
 	
 	public String toString() {
-		return table.toString() +" \n"+ paymentMethod + "\n $" + total;
+		return table.toString() +" "+ paymentMethod + " $" + total;
 	}
 	
 	public double Pay(double tender) {
