@@ -1,7 +1,6 @@
-package GP.src;
 
 public class Payment{
-/*
+
 	private MenuItem item;
 	
 	private Table table;
@@ -16,6 +15,18 @@ public class Payment{
 		this.table = table;
 		this.paymentMethod = paymentMethod;
 	}
+	
+	public void calculateTotal() {
+		for(int i = 0; i < Course.getItems().size(); i++) {
+			item = Course.getItems().get(i);
+			total = total + item.getPrice();
+		}
+	}
+	
+	public double getTotal() {
+		return total;
+	}
+
 	
 	public double PaymentProcess(String paymentMethod) {
 		if(paymentMethod == "Cash") {
@@ -37,13 +48,5 @@ public class Payment{
 		}
 		return 0;
 	}
-	
-	public void calculateTotal() {
-		for(int i = 0; i < FoodOrder.getOrder().size(); i++) {
-			item = FoodOrder.getMenuItem(i);
-			total = total + item.getPrice();
-		}
-	}
-*/
 }
 
