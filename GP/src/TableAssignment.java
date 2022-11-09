@@ -2,14 +2,25 @@ package GP.src;
 
 import java.time.LocalDateTime;
 
+/**
+ * This class assigns customers to tables based on the number of guests and time
+ * @author Kevin Collins
+ */
 public class TableAssignment {
 
     private int time;
 
-    public int getTime() {
-        return time;
-    }
+    //getters
+    public int getTime() { return time;}
 
+    /**
+     * Assigns guest to a table
+     * <p>
+     *     If the current time equals time of booking then assigns table
+     * </p>
+     * @param restaurant restaurant in which takes place
+     * @param customer customer that's being seated info
+     */
     public TableAssignment(Restaurant restaurant, CustomerInformation customer) { //TODO create way of seating party of 4 of 5 table if no 4s available
         this.time = LocalDateTime.now().getHour();
         //int time = 16;
@@ -23,6 +34,12 @@ public class TableAssignment {
         }
     }
 
+    /**
+     * Has additional functionality if time is required to be manually added (pre-seat)
+     * @param restaurant restaurant in which takes place
+     * @param customer customer that's being seated info
+     * @param time manual time inputted inb
+     */
     public TableAssignment(Restaurant restaurant,CustomerInformation customer,int time){
             this.time = time;
             if (getTime() == customer.getTimeOfArrival()) {
@@ -35,7 +52,11 @@ public class TableAssignment {
             }
         }
 
-
+    /**
+     * Seats table if available  and guests can fit
+     * @param customer customer being seated
+     * @param table table at which being seated
+     */
     public void seatTable(CustomerInformation customer, Table table) {
         if (table.getAvailability() == true && table.getNumberOfSeats() >= customer.getNumberOfGuests()){
             table.setTableFull();

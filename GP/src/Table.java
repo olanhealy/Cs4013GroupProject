@@ -1,6 +1,10 @@
 package GP.src;
 import java.util.Scanner;
 
+/**
+ * This class deals with the creation of tables in a restaurant
+ * @author Kevin Collins
+ */
 public class Table {
 
     private int tableNo, numberOfSeats;
@@ -15,29 +19,23 @@ public class Table {
     }
 
     //getters
-    public int getTableNumber() {
-        return this.tableNo;
-    }
-    public int getNumberOfSeats() {
-        return this.numberOfSeats;
-    }
+    public int getTableNumber() { return this.tableNo; }
+    public int getNumberOfSeats() { return this.numberOfSeats; }
     public boolean getAvailability() {return this.available;}
 
     //setters
-    public void setTableNumber(int tableNo) {
-        this.tableNo = tableNo;
-    }
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
-    }
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
+    public void setTableNumber(int tableNo) { this.tableNo = tableNo; }
+    public void setNumberOfSeats(int numberOfSeats) { this.numberOfSeats = numberOfSeats; }
+    public void setAvailable(boolean available) { this.available = available; }
 
+    /**
+     * Used to mark a table as full
+     */
+    public void setTableFull() {this.available = false; }
 
-    public void setTableFull() {
-        this.available = false;
-    }
+    /**
+     * Used to mark a table as empty
+     */
     public void setTableEmpty() { this.available = true; }
 
     @Override

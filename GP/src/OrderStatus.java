@@ -2,6 +2,7 @@ package GP.src;
 
 import java.util.ArrayList;
 
+//TODO Olan - javaDoc
 public class OrderStatus  {
 
 	/*private String status;

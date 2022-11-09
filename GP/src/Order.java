@@ -2,6 +2,10 @@ package GP.src;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class deals with taking Orders and checking on order status
+ * @author Kevin Collins
+ */
 public class Order {
 
     private Course course;
@@ -9,24 +13,17 @@ public class Order {
     private Menu menu;
     private ArrayList<MenuItem> orderItems = new ArrayList<MenuItem>();
 
+    //getters
     public ArrayList getOrderItems() { return orderItems; }
-    public Course getCourse() { return course; }
-    public Table getTable() { return table; }
-    public Menu getMenu() {return menu; }
-    public ArrayList<MenuItem> getOrders(){
-        return getOrders();
-    }
+    public ArrayList<MenuItem> getOrders(){ return getOrders(); }
 
-    public boolean setStatus(String status) {
-        return(status.equals("ORDERED"));
-    }
-    public boolean checkStatusChef(String status) {
-        return(status.equals("READY")); //links to chef
-    }
-
-    public Order(){
-    }
-
+    //TODO decide on system of inputting/passing orders
+    //TODO make system to add passed orders to Arraylist
+    /**
+     * Takes an order of MenuItems for each seat at the table
+     * @param table Table at which order is being taken
+     * @param menu Menu in which order taken from
+     */
     public void takeOrder(Table table, Menu menu){
         this.table = table;
         this.menu = menu;
@@ -52,27 +49,45 @@ public class Order {
         }
     }
 
+    //TODO check implementation in takeOrder method
     public MenuItem getMenuItem(Menu menu ,int i, int j, int item){
         MenuItem menuItem = menu.getCourses().get(j).getItems().get(item);
         return menuItem;
     }
 
+    //TODO check if valid after class is finalized
+    /**
+     * Shows the Order for the table
+     */
+    public void showOrder() {
+        System.out.println("Order for table " + this.table.getTableNumber());
+        for (int i = 0; i < this.table.getNumberOfSeats(); i++) {
+            for (int j = 0; j < this.menu.getCourses().size(); j++) {
+                System.out.println(this.menu.getCourses().get(j).getName());
+                System.out.println(this.menu.getCourses().get(j).getItems().get(i));
+            }
+        }
+    }
+
+    //TODO Olan - javaDoc
+    /**
+     *
+     * @param status
+     * @return
+     * @autor Olan Healy
+     */
+    public boolean setStatus(String status) {
+        return(status.equals("ORDERED"));
+    }
+    public boolean checkStatusChef(String status) {
+        return(status.equals("READY")); //links to chef
+    }
     public enum setStatus {
         ORDERED, READY, SERVED
     }
     //    public setStatus getStatus() {
 //        return status;
 //    }
-
-    public void showOrder() {
-        System.out.println("Order for table " + table.getTableNumber());
-        for (int i = 0; i < table.getNumberOfSeats(); i++) {
-            for (int j = 0; j < menu.getCourses().size(); j++) {
-                System.out.println(menu.getCourses().get(j).getName());
-                System.out.println(menu.getCourses().get(j).getItems().get(i));
-            }
-        }
-    }
 
     @Override
     public String toString() {
