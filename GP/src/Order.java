@@ -1,4 +1,5 @@
 package GP.src;
+import javax.print.attribute.SetOfIntegerSyntax;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +12,10 @@ public class Order {
     private Course course;
     private Table table;
     private Menu menu;
+    private setStatus status; //OLAN: used for setting order status
+
     private ArrayList<MenuItem> orderItems = new ArrayList<MenuItem>();
+
 
     //getters
     public ArrayList getOrderItems() { return orderItems; }
@@ -47,6 +51,7 @@ public class Order {
                 }
             }
         }
+
     }
 
     //TODO check implementation in takeOrder method
@@ -65,29 +70,49 @@ public class Order {
             for (int j = 0; j < this.menu.getCourses().size(); j++) {
                 System.out.println(this.menu.getCourses().get(j).getName());
                 System.out.println(this.menu.getCourses().get(j).getItems().get(i));
+                status = setStatus.ORDERED;
             }
         }
     }
 
-    //TODO Olan - javaDoc
     /**
-     *
-     * @param status
-     * @return
-     * @autor Olan Healy
+     *enum used as these variables are unchangeable and are used to set the status of the order
+     *@author Olan Healy
      */
-    public boolean setStatus(String status) {
-        return(status.equals("ORDERED"));
-    }
-    public boolean checkStatusChef(String status) {
-        return(status.equals("READY")); //links to chef
-    }
     public enum setStatus {
         ORDERED, READY, SERVED
     }
-    //    public setStatus getStatus() {
-//        return status;
-//    }
+    /**
+     * Sets the status of the order
+     * @author Olan Healy
+     */
+    public setStatus getStatus() {
+        return status;
+    }
+
+
+    /**
+     *
+     * @param status
+     * @return status for chef to know to start cooking food
+     *@author Olan Healy
+     */
+
+    public boolean checkStatusChef(String status) {
+        return(status.equals("ORDERED")); //links to chef
+    }
+    /**
+     *
+     * @param status
+     * @return status for waiter to know to serve food
+     *@author Olan Healy
+     */
+
+    public boolean setStatus(String status) {
+        return(status.equals("READY"));
+    }
+
+
 
     @Override
     public String toString() {

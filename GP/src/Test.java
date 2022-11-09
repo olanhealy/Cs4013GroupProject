@@ -78,5 +78,12 @@ public class Test {
         //order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
 
         //System.out.println(order.toString());
+
+
+
+
+        StaffLogin login = new StaffLogin();
+        login.system();
+
     }
 }

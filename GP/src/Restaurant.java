@@ -15,6 +15,7 @@ public class Restaurant {
 
     private ArrayList<Table> seatLayout = new ArrayList<>();
     private ArrayList<Menu> menus = new ArrayList<>();
+    private ArrayList<Staff> staff = new ArrayList<>();
 
     //Different Accessors to access from restaurant object
     public ArrayList<Table> getSeatLayout() { return seatLayout; }
@@ -72,6 +73,10 @@ public class Restaurant {
     public BookingsList addBookingsList(){
         BookingsList booking = new BookingsList();
         return booking;
+    }
+
+    public ArrayList<Staff> getStaff() {
+        return staff;
     }
 
     @Override
