@@ -8,6 +8,7 @@ public class Order {
     private Table table;
     private Menu menu;
     private ArrayList<String> orderItems = new ArrayList();
+    private setStatus status;
 
     public ArrayList getOrderItems() {
         return orderItems;
@@ -49,6 +50,34 @@ public class Order {
             }
         }
     }
+
+    public ArrayList<MenuItem> getOrders(){
+        return getOrders();
+    }
+    public enum setStatus {
+        ORDERED, READY, SERVED
+    }
+    public setStatus getStatus() {
+        return status;
+    }
+    public boolean setStatus(String status) {
+        return(status.equals("ORDERED"));
+    }
+    public boolean checkStatusChef(String status) {
+        return(status.equals("READY")); //links to chef
+    }
+
+
+    public void showOrder() {
+        System.out.println("Order for table " + table.getTableNumber());
+        for (int i = 0; i < table.getNumberOfSeats(); i++) {
+            for (int j = 0; j < menu.getCourses().size(); j++) {
+                System.out.println(menu.getCourses().get(j).getName());
+                System.out.println(menu.getCourses().get(j).getItems().get(i));
+            }
+        }
+    }
+}
 
     @Override
     public String toString() {
