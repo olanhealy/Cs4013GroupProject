@@ -54,7 +54,6 @@ public class StaffLogin {
      */
 
     public void system() {
-
         System.out.println("Please enter your staff ID");
         int id = staff.nextInt();
         System.out.println("Please enter your password");
@@ -65,7 +64,7 @@ public class StaffLogin {
             } else {
                 System.out.println("Incorrect password or ID");
 
-                if (staff instanceof Waiter) { //if staff is instance of waiter go to this
+               /** if (staff instanceof Waiter) { //if staff is instance of waiter go to this
                     System.out.println("A)dd order, V)iew order T)ake booking, S)ee bookings, P)ayment, Q)uit");
                     String input = staff.next(); //why is this not working?
                     switch (input) {
@@ -116,18 +115,19 @@ public class StaffLogin {
                 }
 
                 }
-
-
-
-
+        }
+    } */
+    }
         }
     }
-
-
-
-
-
 }
+
+
+
+
+
+
+
 
 
 

@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 package GP.src;
 
-=======
- package GP.src;
->>>>>>> 3cbb591815c991bb3d528d45727338979223239f
+
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.LocalDate;    
