@@ -1,3 +1,5 @@
+package GP.src;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
@@ -13,6 +15,8 @@ public class Bill{
 	private String paymentMethod;
 	
 	private double total;
+
+
 	
 	public Bill(Table table, String paymentMethod, Course course) {
 		this.table = table;

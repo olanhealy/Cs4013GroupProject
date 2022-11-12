@@ -78,9 +78,13 @@ public class Test {
         order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
 
         System.out.println(order.toString());
+        //Payment payment = new Payment();
+        //payment.pay(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
+
+    }
 
         //StaffLogin login = new StaffLogin();
         //login.system();
 
     }
-}
+
