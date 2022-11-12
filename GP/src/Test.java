@@ -74,16 +74,13 @@ public class Test {
         yumLimerick.getMenus().get(0).getCourses().get(2).showMenu();
         yumLimerick.getMenus().get(0).getCourses().get(3).showMenu();
 
-        //Order order = new Order();
-        //order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
+        Order order = new Order();
+        order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
 
-        //System.out.println(order.toString());
+        System.out.println(order.toString());
 
-
-
-
-        StaffLogin login = new StaffLogin();
-        login.system();
+        //StaffLogin login = new StaffLogin();
+        //login.system();
 
     }
 }

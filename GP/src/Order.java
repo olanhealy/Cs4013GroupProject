@@ -22,7 +22,6 @@ public class Order {
     public ArrayList<MenuItem> getOrders(){ return getOrders(); }
 
     //TODO decide on system of inputting/passing orders
-    //TODO make system to add passed orders to Arraylist
     /**
      * Takes an order of MenuItems for each seat at the table
      * @param table Table at which order is being taken
@@ -36,15 +35,20 @@ public class Order {
         MenuItem[][] customerOrders = new MenuItem[table.getNumberOfSeats()][courseAmt];
         Scanner scanner = new Scanner(System.in);
 
+        //for amount of seats at table
         for (int i = 0; i < table.getNumberOfSeats(); i++){
+            //for amount of courses
             for (int j = 0; j < courseAmt; j++){
+                //prints course name
                 System.out.println("Order: " + menu.getCourses().get(j).getName());
                 try {
+                    //seaches for item in course
                     String itemSearch = scanner.next();
+                    //returns item index in course
                     int check = menu.getCourses().get(j).getMenuItemPos(itemSearch);
-                    orderItems.add(getMenuItem(menu, i, j, check));
-
-                    //getOrderItems().add(menu.getCourses().get(j).getItems().get(check));
+                    //adds item to order array
+                    MenuItem clone = getMenuItem(menu, j, check);
+                    orderItems.add(clone);//getOrderItems().add(menu.getCourses().get(j).getItems().get(check));
                 } catch (NullPointerException ne){
                     System.out.println("Item not in menu");
                     j--;
@@ -54,8 +58,7 @@ public class Order {
 
     }
 
-    //TODO check implementation in takeOrder method
-    public MenuItem getMenuItem(Menu menu ,int i, int j, int item){
+    public MenuItem getMenuItem(Menu menu , int j, int item){
         MenuItem menuItem = menu.getCourses().get(j).getItems().get(item);
         return menuItem;
     }
@@ -131,11 +134,10 @@ public class Order {
 
     @Override
     public String toString() {
-        String value = "Order{" +
-                "orderItems=" ;
-        int size = getOrderItems().size();
-        for(int i = 0 ; i < size; i++){
-            String newVal = orderItems.get(i).getName();
+        String value = "Order: ";
+        //int size = getOrderItems().size();
+        for(MenuItem item: orderItems){
+            String newVal = "\n     " + item.getName();
             value = value + newVal;
         }
         return value;

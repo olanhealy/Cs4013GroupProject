@@ -44,9 +44,9 @@ public class Course {
      * @throws NullPointerException
      */
     public int getMenuItemPos (String menuItem) throws NullPointerException{
-        for (int i = 0; i < getItems().size(); i++){
-            if(menuItem.equals(getItems().get(i).getName())){
-                return items.indexOf(i);
+        for (MenuItem item : items){
+            if(menuItem.equals(item.getName())){
+                return items.indexOf(item);
             }
         }
         throw new NullPointerException();
