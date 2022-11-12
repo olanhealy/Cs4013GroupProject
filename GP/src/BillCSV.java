@@ -1,11 +1,8 @@
-
-package GP.src;
-
-
-
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.time.LocalDate;    
+import java.time.LocalDate;
+import java.util.ArrayList;    
 
 public class BillCSV {
 
@@ -13,21 +10,33 @@ public class BillCSV {
 	
 	private LocalDate date;
 	
-	public BillCSV(Bill bill, int year, int month, int day) {
-		this.bill = bill;
+	private ArrayList<Bill> bills = new ArrayList<Bill>();
+	
+	public BillCSV(int year, int month, int day) {
 		this.date = LocalDate.of(year, month, month);
 	}
 	
-	public void writeToCsv(String filename) {
-		try(PrintWriter pw = new PrintWriter(filename)){
-			
-			pw.write(date.toString() + ", ");
-			pw.write(bill.toString() + ", ");
-			
-			
-		}catch(FileNotFoundException e) {
-			System.out.print("Error creating file");
-			e.printStackTrace();
+	public void addBills(Bill bill) {
+		bills.add(bill);
+	}
+	
+	public void writeToCsv(String fileName){
+		
+		try {
+		File csvFile = new File(fileName);
+		PrintWriter out = new PrintWriter(csvFile);
+		
+		for(Bill bill : bills) {
+			out.println(date + bill.toString());
+			out.println("\n");
+		}
+		
+		out.close();
+		}catch(FileNotFoundException a) {
+		
 		}
 	}
 }
+	
+	
+
