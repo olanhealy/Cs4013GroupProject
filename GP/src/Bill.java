@@ -1,5 +1,5 @@
- package GP.src;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 public class Bill{
@@ -14,9 +14,10 @@ public class Bill{
 	
 	private double total;
 	
-	public Bill(Table table, String paymentMethod) {
+	public Bill(Table table, String paymentMethod, Course course) {
 		this.table = table;
 		this.paymentMethod = paymentMethod;
+		this.course = course;
 		for(int i = 0; i < course.getItems().size(); i++) {
 			item = course.getItems().get(i);
 			total = total + item.getPrice();
