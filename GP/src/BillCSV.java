@@ -1,43 +1,63 @@
-package GP.src;
-
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
+import java.io.FileWriter;
 import java.util.ArrayList;    
 
 public class BillCSV {
-
-	private Bill bill;
 	
-	private LocalDate date;
+	private int year;
+	
+	private int month;
+	
+	private int day;
 	
 	private ArrayList<Bill> bills = new ArrayList<Bill>();
 	
 	public BillCSV(int year, int month, int day) {
-		this.date = LocalDate.of(year, month, month);
+		this.year = year;
+		this.month = month;
+		this.day = day;
 	}
 	
 	public void addBills(Bill bill) {
 		bills.add(bill);
 	}
 	
-	public void writeToCsv(String fileName){
-		
+	public void writeToCsv(String fileName) {
 		try {
-		File csvFile = new File(fileName);
-		PrintWriter out = new PrintWriter(csvFile);
-		
-		for(Bill bill : bills) {
-			out.println(date + bill.toString());
-			out.println("\n");
+			FileWriter out = new FileWriter(fileName, true);
+			for(Bill bill : bills) {
+				out.write((day + "/"+ month +"/"+ year + ","+  bill.getTotal())+", \n");
+			}
+			
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		out.close();
-		}catch(FileNotFoundException a) {
-		
+	}
+	
+	public void readFromCSV(String fileName) {
+		String line = "";
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+			
+			while((line = br.readLine()) != null) {
+				String[] values = line.split(", ");
+				System.out.println("Date: " + values[0] + " Total: "+ values[1]);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
 		}
 	}
+	
 }
 	
 	
