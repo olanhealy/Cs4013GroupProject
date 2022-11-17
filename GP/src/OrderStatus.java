@@ -4,8 +4,8 @@ public class OrderStatus extends FoodOrder {
 
 	private String status;
 	
-	public OrderStatus(String status, int tableNum, ArrayList<String> Order) {
-		super(Order, tableNum);
+	public OrderStatus(String status) {
+		super(getOrder(), getTableNum());
 		this.status = status;
 	}
 	

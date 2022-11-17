@@ -2,30 +2,37 @@ import java.util.ArrayList;
 
 public class FoodOrder {
 	
-	private ArrayList<String> Order = new ArrayList<String>();
+	public MenuItem item;
 	
-	private int tableNum;
+	public static Table table;
 	
-	public FoodOrder(ArrayList<String> Order , int tableNum) {
+	private static ArrayList<MenuItem> Order = new ArrayList<MenuItem>();
+	
+	public FoodOrder(ArrayList<MenuItem> Order , Table table) {
 		this.Order = Order;
-		this.tableNum = tableNum;
-	}
-	
-	public String getOrder(ArrayList<String> Order) {
-		return Order.toString();
-	}
-	
-	public int getTableNum(int tableNum) {
-		return tableNum;
-	}
-	
-	public void setTableNum(int tableNum){
-		this.tableNum = tableNum;
+		this.table = table;
 	}
 	
 	public String toString() {
-		return Order.toString() + tableNum;
+		return getOrder().toString() + getTableNum();
 	}
+
+	public static ArrayList<MenuItem> getOrder() {
+		return Order;
+	}
+	
+	public static MenuItem getMenuItem(int i) {
+		return Order.get(i);
+	}
+
+	public void setOrder(ArrayList<MenuItem> order) {
+		Order = order;
+	}
+
+	public static Table getTableNum() {
+		return table;
+	}
+	
 }
 
 
