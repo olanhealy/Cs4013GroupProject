@@ -1,50 +1,49 @@
-//package GP.src;
-//import javafx.scene.control.Tab;
-//
-//import java.util.ArrayList;
-//import java.util.Scanner;
-//public class StaffLogin {
-//    Table t; //same as order
-//    Menu m; //same as order
-//    Order o; // not sure if needed but for viewing orders use .showOrder()??
-//    BookingsList b; //same as Order object
-//    Scanner staff = new Scanner(System.in);
-//    ArrayList<Staff> staffList = new ArrayList<Staff>(); //Olan had this as just as 'ArrayList<Staff> stafflist' but was getting
-//    // a null point exception error. changed it to  'ArrayList<Staff> staffList = new ArrayList<Staff>();' need to figure out why
-//
-//
-//
-//    public StaffLogin(ArrayList<Staff> staffList) {
-//        this.staffList = staffList;
-//
-//    }
-//
-//    public void addStaff(Staff staff) {
-//        staffList.add(staff);
-//        staffList.add(new Waiter("Kevin", 13, "imcool"));
-//        staffList.add(new Chef("Olan", 8, "githubmerchant"));
-//    }
-//
-//    public StaffLogin() {
-//
-//    }
-//
-//    /**
-//     *
-//     * @param id
-//     * @param password
-//     * @param staffList
-//     * @return true or false whether or not the staff id and password are correct
-//     * @author: Olan Healy
-//     */
-//    public boolean valid(String id, String password, ArrayList<Staff> staffList){
-//        for(Staff staff : staffList){
-//            if(staff.getName() == id && staff.getPassword().equals(password)){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+package GP.src;
+import javafx.scene.control.Tab;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+public class StaffLogin {
+    Table t; //same as order
+    Menu m; //same as order
+    Order o; // not sure if needed but for viewing orders use .showOrder()??
+    BookingsList b; //same as Order object
+    Scanner staff = new Scanner(System.in);
+    ArrayList<Staff> staffList = new ArrayList<Staff>(); //Olan had this as just as 'ArrayList<Staff> stafflist' but was getting
+    // a null point exception error. changed it to  'ArrayList<Staff> staffList = new ArrayList<Staff>();' need to figure out why
+
+
+    public StaffLogin(ArrayList<Staff> staffList) {
+        this.staffList = staffList;
+
+    }
+
+    public void addStaff(Staff staff) {
+        staffList.add(staff);
+        staffList.add(new Waiter("Kevin", 13, "imcool"));
+        staffList.add(new Chef("Olan", 8, "githubmerchant"));
+    }
+
+    public StaffLogin() {
+
+    }
+
+    /**
+     * @param id
+     * @param password
+     * @param staffList
+     * @return true or false whether or not the staff id and password are correct
+     * @author: Olan Healy
+     */
+    public boolean valid(String id, String password, ArrayList<Staff> staffList) {
+        for (Staff staff : staffList) {
+            if (staff.getName() == id && staff.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 //    /**
 //     * This method is used to login to the system with staff Id and password (added above in addStaff)
 //     * TODO: need to look at a way of having preset staff in the array already, not logical to add staff as you go

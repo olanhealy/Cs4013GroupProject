@@ -1,53 +1,53 @@
-<<<<<<< HEAD
+//
+//
+//public class Payment{
+//
+//	private MenuItem item;
+//
+//	private Table table;
+//
+//	private String paymentMethod;
+//
+//	private double total;
+//
+//	private double cash;
+//
+//	public Payment(Table table, String paymentMethod) {
+//		this.table = table;
+//		this.paymentMethod = paymentMethod;
+//	}
+//
+//	public double PaymentProcess(String paymentMethod) {
+//		if(paymentMethod == "Cash") {
+//			total = total - cash;
+//			if(total < 0) {
+//				//Customer change
+//				System.out.print("Customer change " + total);
+//				return total;
+//
+//				}else if(total == 0) {
+//					return 0;
+//				}else {
+//					System.out.print("Insufficent Cash");
+//				}
+//			}
+//		//Card Payment
+//		else if(paymentMethod == "Card"){
+//			System.out.print("Payment complete");
+//		}
+//		return 0;
+//	}
+//
+//	public void calculateTotal() {
+//		for(int i = 0; i < FoodOrder.getOrder().size(); i++) {
+//			item = FoodOrder.getMenuItem(i);
+//			total = total + item.getPrice();
+//		}
+//	}
+//
+//}
 
-public class Payment{
 
-	private MenuItem item;
-	
-	private Table table;
-	
-	private String paymentMethod;
-	
-	private double total;
-	
-	private double cash;
-	
-	public Payment(Table table, String paymentMethod) {
-		this.table = table;
-		this.paymentMethod = paymentMethod;
-	}
-	
-	public double PaymentProcess(String paymentMethod) {
-		if(paymentMethod == "Cash") {
-			total = total - cash;
-			if(total < 0) {
-				//Customer change
-				System.out.print("Customer change " + total);
-				return total;
-				
-				}else if(total == 0) {
-					return 0;
-				}else {
-					System.out.print("Insufficent Cash");
-				}
-			}
-		//Card Payment
-		else if(paymentMethod == "Card"){
-			System.out.print("Payment complete");
-		}
-		return 0;
-	}
-	
-	public void calculateTotal() {
-		for(int i = 0; i < FoodOrder.getOrder().size(); i++) {
-			item = FoodOrder.getMenuItem(i);
-			total = total + item.getPrice();
-		}
-	}
-
-}
-
-=======
 //TODO If I put in a constructor, I get an error in trying to run the class in test, Ive tried ways of initalizing
 //TODO order variables but wont work, need to find way to solve this as if can get price to show payment is pretty mich done
 package GP.src;
@@ -73,7 +73,7 @@ public class Payment {
         double total = 0;
         for (int i = 0; i < course.getItems().size(); i++) {
             item = course.getItems().get(i);
-            total = total + item.getPrice();
+           // total = total + item.getPrice();
         }
         return total;
     }
@@ -145,4 +145,4 @@ public class Payment {
             System.out.println("Change: " + (amount - getTotal));
         } */
 
->>>>>>> a6628d2da1b08ac4e6c160c45f38429cfff1b6a7
+
