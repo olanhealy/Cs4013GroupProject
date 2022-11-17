@@ -10,10 +10,18 @@ import java.io.IOException;
 public class Test {
     public static void main(String args[]) {
 
+    	
         // creates restaurant and bookilist
         Restaurant yumLimerick = new Restaurant(4);
         BookingsList Bookings = yumLimerick.addBookingsList();
 
+        //Creates CSV file class and date
+        BillCSV write = new BillCSV();
+        
+        //Reads CSV file data
+        write.readFromCSV("CSV files/PaymentRecords.csv");
+        System.out.println();
+        
         //Reads CSV file to create bookings
         String path = "CSV files/Bookings.csv";
         String line = "";
@@ -43,6 +51,7 @@ public class Test {
         }
 
 
+       
 
         //-------------------------------------------------------------------------------------------------
 
@@ -76,8 +85,17 @@ public class Test {
 
         Order order = new Order();
         order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
+        
+        
+        Bill a = new Bill("Card", order);
+        
+        
+        write.addBills(a);
+        write.writeToCsv("CSV files/PaymentRecords.csv");
+       
+        //write.readFromCSV("CSV files/PaymentRecords.csv");
 
-        System.out.println(order.toString());
+      
         //Payment payment = new Payment();
         //payment.pay(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
 

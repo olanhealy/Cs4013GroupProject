@@ -1,37 +1,47 @@
 package GP.src;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+/**
+ * 
+ * @author seanc
+ *
+ */
 public class Bill{
 	
-	private Course course;
+	private Order order;
 	
-	private MenuItem item;
-	
-	private Table table;
+	private Restaurant restaurant;
 	
 	private String paymentMethod;
 	
 	private double total;
 	
-	public Bill(Table table, String paymentMethod, Course course) {
-		this.table = table;
+	/**
+	 * 
+	 * @param paymentMethod Method of payment for Order, takes cash or card
+	 * @param order
+	 */
+	public Bill(String paymentMethod, Order order) {
 		this.paymentMethod = paymentMethod;
-		this.course = course;
-		for(int i = 0; i < course.getItems().size(); i++) {
-			item = course.getItems().get(i);
-			total = total + item.getPrice();
-		}
+		this.order = order;
+		this.total = order.getTotal();
 	}
 	
+	/**
+	 * 
+	 * @return Total value of the order
+	 */
 	public double getTotal() {
 		return total;
 	}
 	
+	/**
+	 * String representation 
+	 */
 	public String toString() {
-		return table.toString() +" "+ paymentMethod +  total;
+		return " "+paymentMethod + ", " + total + ", " +order.getOrderItems();
 	}
 	
 	public double Pay(double tender) {
