@@ -7,9 +7,9 @@ public class Staff {
 
 
 
-    public Staff(String name, int staffID, String password) {
+    public Staff(String name, int id, String password) {
         this.name = name;
-        this.id = staffID;
+        this.id = id;
         this.password = password;
     }
     public String getName() {
@@ -23,5 +23,8 @@ public class Staff {
     }
 
 
-
+    @Override
+    public String toString() {
+        return name + ": id =" + id + " : password=" + password;
+    }
 }

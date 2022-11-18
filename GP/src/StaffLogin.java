@@ -1,15 +1,15 @@
 package GP.src;
-//import javafx.scene.control.Tab;
+import javafx.scene.control.Tab;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 public class StaffLogin {
-    Table t; //same as order
-    Menu m; //same as order
-    Order o; // not sure if needed but for viewing orders use .showOrder()??
-    BookingsList b; //same as Order object
-    Scanner staff = new Scanner(System.in);
-    ArrayList<Staff> staffList = new ArrayList<Staff>(); //Olan had this as just as 'ArrayList<Staff> stafflist' but was getting
+    private Table t; //same as order
+    private Menu m; //same as order
+    private Order o; // not sure if needed but for viewing orders use .showOrder()??
+    private BookingsList b; //same as Order object
+    private Scanner staff = new Scanner(System.in);
+    private ArrayList<Staff> staffList = new ArrayList<Staff>(); //Olan had this as just as 'ArrayList<Staff> stafflist' but was getting
     // a null point exception error. changed it to  'ArrayList<Staff> staffList = new ArrayList<Staff>();' need to figure out why
 
 
@@ -20,8 +20,13 @@ public class StaffLogin {
 
     public void addStaff(Staff staff) {
         staffList.add(staff);
-        staffList.add(new Waiter("Kevin", 13, "imcool"));
-        staffList.add(new Chef("Olan", 8, "githubmerchant"));
+        staffList.add(new Waiter("Billy", 13, "HelterSkelter13"));
+        staffList.add(new Chef("Sally", 8, "Yum564"));
+
+    }
+
+    public void removeStaff(Staff staff) {
+        staffList.remove(staff);
     }
 
     public StaffLogin() {
@@ -35,146 +40,126 @@ public class StaffLogin {
      * @return true or false whether or not the staff id and password are correct
      * @author: Olan Healy
      */
-    public boolean valid(String id, String password, ArrayList<Staff> staffList) {
+    public boolean valid(int id, String password, ArrayList<Staff> staffList) {
         for (Staff staff : staffList) {
-            if (staff.getName() == id && staff.getPassword().equals(password)) {
+            if ((staff.getId() == id) && (staff.getPassword().equals(password))) {
                 return true;
             }
         }
         return false;
     }
+
+
+
+
+
+    public void system() {
+        while (true) {
+            System.out.println(staffList);
+            System.out.println("Enter staff ID");
+            int id = staff.nextInt();
+            System.out.println("Enter password");
+            String password = staff.next();
+            if (valid(id, password, staffList)) {
+
+                for (Staff s : staffList) {
+                    if (s.getId() == id) {
+                        System.out.println("Welcome, " + s.getName());
+                        if (s instanceof Manager) {
+                            System.out.println("Manager options");
+                            System.out.println("1. View bookings");
+                            System.out.println("2. View orders");
+                            System.out.println("3. View tables");
+                            System.out.println("4. View menu");
+                            System.out.println("5. Add staff");
+                            System.out.println("6. Remove staff");
+                            System.out.println("7. View Bills");
+                            System.out.println("7. Logout");
+                            int choice = staff.nextInt();
+                            switch (choice) {
+                                case 1 -> System.out.println(b);
+                                case 2 -> System.out.println(o);
+                                case 3 -> System.out.println(t);
+                                case 4 -> System.out.println(m);
+                                case 5 -> {
+                                    addStaff(s);
+                                    System.out.println("Enter staff name");
+                                    String name = staff.next();
+                                    System.out.println("Enter staff ID");
+                                    int staffId = staff.nextInt();
+                                    System.out.println("Enter staff password");
+                                    String staffPassword = staff.next();
+                                    System.out.println("Enter staff role");
+                                    String role = staff.next();
+                                    if (role.equals("waiter")) {
+                                        staffList.add(new Waiter(name, staffId, staffPassword));
+                                    } else if (role.equals("chef")) {
+                                        staffList.add(new Chef(name, staffId, staffPassword));
+                                    } else if (role.equals("manager")) {
+                                        staffList.add(new Manager(name, staffId, staffPassword));
+                                    } else {
+                                        System.out.println("Invalid role");
+                                    }
+                                }
+                                case 6 -> {
+                                    System.out.println("Enter staff ID");
+                                    int staffId1 = staff.nextInt();
+                                    for (Staff staff : staffList) {
+                                        if (staff.getId() == staffId1) {
+                                            staffList.remove(staff);
+                                        }
+
+                                    }
+                                }
+                                case 7 -> System.out.println("Logging out");
+                            }
+                        } else if (s instanceof Waiter) {
+                            System.out.println("A)dd order, V)iew order T)ake booking, S)ee bookings, P)ayment, Q)uit");
+                            String input = staff.next(); //why is this not working?
+                            switch (input) {
+                                case "A":
+                                    System.out.println("Add order");
+                                    // System.out.println(o.takeOrder( t,  m)); //TODO: need to figure out how to get order to work
+                                    break;
+                                case "V":
+                                    System.out.println("View order");
+                                    System.out.println(o.getOrders());
+                                    break;
+                                case "T":
+                                    System.out.println("Take booking");
+                                    //TODO: need to figure out how to get booking to work
+                                    break;
+                                case "S":
+                                    System.out.println("See bookings"); //Hopefully works
+                                    System.out.println(b.getBookingList());
+                                case "P":
+                                    System.out.println("Payment");
+                                    break; //TODO: need to figure out how to get payment to work
+                                case "Q":
+                                    System.out.println("Quit");
+                                    break;
+                                default:
+                                    System.out.println("Invalid input");
+                            }
+                        } else if (s instanceof Chef) {
+                            System.out.println("V)iew order N)ext order Q)uit");
+
+                            String choice = staff.next();
+                            switch (choice) {
+                                case "V":
+                                    System.out.println(o); //TODO: need to figure out how to get order to work
+                                    break;
+                                case "N": System.out.println("next order"); //TODO: need to figure out how to get order to work
+                                    break;
+                                case "Q": System.out.println("Quit");
+                                    break;
+                            }
+                        }
+                    }
+                }
+            } else {
+                System.out.println("Invalid ID or password");
+            }
+        }
+    }
 }
-//    /**
-//     * This method is used to login to the system with staff Id and password (added above in addStaff)
-//     * TODO: need to look at a way of having preset staff in the array already, not logical to add staff as you go
-//     *
-//     *
-//     *
-//     */
-//
-//    public void system() {
-//        System.out.println("Please enter your staff ID");
-//        int id = staff.nextInt();
-//        System.out.println("Please enter your password");
-//        String password = staff.next();
-//        for (Staff staff : staffList) {
-//            if (staff.getId() == id && staff.getPassword().equals(password)) {
-//                System.out.println("Welcome " + staff.getName()); //TODO: code is not getting to this line, stops after enter password
-//            } else {
-//                System.out.println("Incorrect password or ID");
-//
-//               /** if (staff instanceof Waiter) { //if staff is instance of waiter go to this
-//                    System.out.println("A)dd order, V)iew order T)ake booking, S)ee bookings, P)ayment, Q)uit");
-//                    String input = staff.next(); //why is this not working?
-//                    switch (input) {
-//                        case "A":
-//                            System.out.println("Add order");
-//                            System.out.println(o.takeOrder(Table t, Menu m)); //TODO: need to figure out how to get order to work
-//                            break;
-//                        case "V":
-//                            System.out.println("View order");
-//                            System.out.println(o.getOrders());
-//                            break;
-//                        case "T":
-//                            System.out.println("Take booking");
-//                            break;
-//                        case "S":
-//                            System.out.println("See bookings"); //Hopefully combine this with going to JavaFx of tables
-//                            System.out.println(b.getBookingList());
-//                        case "P":
-//                            System.out.println("Payment");
-//                            break;
-//                        case "Q":
-//                            System.out.println("Quit");
-//                            break;
-//                        default:
-//                            System.out.println("Invalid input");
-//                    }
-//
-//
-//                } else if (staff instanceof Chef) {
-//                    System.out.println("V)iew order, S)et order status, Q)uit");
-//                    String input = staff.next();
-//                    switch (input) {
-//                        case "V":
-//                            System.out.println("View order");
-//                            System.out.println(o.getOrders());
-//                            break;
-//                        case "S":
-//                            System.out.println("Set order status");
-//                            break;
-//                        case "Q":
-//                            System.out.println("Quit");
-//                            break;
-//                        default:
-//                            System.out.println("Invalid input");
-//                    }
-//
-//
-//                }
-//
-//                }
-//        }
-//    } */
-//    }
-//        }
-//    }
-//}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//    /** auto generated code just left here incase will need it later????
-//     if (staff instanceof Waiter) {
-//    Waiter waiter = (Waiter) staff;
-//     System.out.println("You are a waiter");
-//     System.out.println("Please enter the table number");
-//     int tableNumber = staff.nextInt();
-//     System.out.println("Please enter the order number");
-//     int orderNumber = staff.nextInt();
-//     System.out.println("Please enter the course number");
-//     int courseNumber = staff.nextInt();
-//     System.out.println("Please enter the food number");
-//     int foodNumber = staff.nextInt();
-//     System.out.println("Please enter the quantity");
-//     int quantity = staff.nextInt();
-//     System.out.println("Please enter the status");
-//     String status = staff.next();
-//     Order order = new Order(tableNumber, orderNumber, courseNumber, foodNumber, quantity, status);
-//     System.out.println("Order added");
-//     System.out.println("Please enter the course number");
-//     int courseNumber2 = staff.nextInt();
-//     System.out.println("Please enter the food number");
-//     int foodNumber2 = staff.nextInt();
-//     System.out.println("Please enter the quantity");
-//     int quantity2 = staff.nextInt();
-//     System.out.println("Please enter the status");
-//     String status2 = staff.next();
-//     Order order2 = new Order(tableNumber, orderNumber, courseNumber2, foodNumber2, quantity2, status2);
-//     System.out.println("Order added");
-//     System.out.println("Please enter the course number");
-//     int courseNumber3 = staff.nextInt();
-//     System.out.println("Please enter the food number");
-//     int foodNumber3 = staff.nextInt();
-//     System.out.println("Please enter the quantity");
-//     int quantity3 = staff.nextInt();
-//     System.out.println("Please enter the status");
-//     String status3 = staff.next();
-//     Order order3 = new Order(tableNumber, orderNumber, courseNumber3, foodNumber3, quantity3, status3);
-//     System.out.println("Order added");
-//     System.out.println("Please enter the course number");
-//     int courseNumber4 = staff.nextInt();
-//     System.out.println("Please enter the food number");
-//     int foodNumber4 = staff.nextInt();
-//     System.out.println("Please enter the quantity");
-//     int quantity4 = staff.nextInt();
-//     System.out.println("Please enter the status");
-//     String status4 = staff.next();
-//     Order order4 = new Order(tableNumber, orderNumber, courseNumber4, foodNumber4, quantity4, status4);
-//     System.out.println*/
