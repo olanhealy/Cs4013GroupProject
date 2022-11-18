@@ -85,11 +85,11 @@ public class Test {
       
         //Payment payment = new Payment();
         //payment.pay(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
-
+        StaffLogin login = new StaffLogin();
+        login.addStaff(new Manager("Eoin", 222, "Manager49"));
+        login.system();
     }
 
-        //StaffLogin login = new StaffLogin();
-        //login.system();
 
     }
 
