@@ -26,29 +26,6 @@ public class Restaurant {
     public ArrayList<Course> getCourselist (int menuId){ return getMenus().get(menuId).getCourses();}
     public ArrayList<MenuItem> getMenuItemList (int menuId, int courseID){ return getMenus().get(menuId).getCourses().get(courseID).getItems(); }
 
-    //TODO method to create tables as needed
-    /**
-     * Creates restaurant object
-     * @param numberOfTables tables needed for restaurant
-     */
-    public Restaurant(int numberOfTables) {
-
-        /*Random rand = new Random();//instance of random class
-        int upperbound = 8;
-
-        for(int i = 1; i <= numberOfTables; i++){
-            int int_random = (rand.nextInt(upperbound)) + 1;
-            addTable(i, int_random );
-        }*/
-
-        //temp tables for testing
-//        addTable(1, 1);
-//        addTable(2, 2);
-//        addTable(3, 3);
-//        addTable(4, 4);
-//        addTable(5, 5);
-    }
-
     /**
      * add tables with x number of seats to the Seat layout
      * @param tableNo number of tables with x number of deats

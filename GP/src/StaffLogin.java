@@ -1,5 +1,5 @@
 package GP.src;
-import javafx.scene.control.Tab;
+//import javafx.scene.control.Tab;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,8 +9,7 @@ public class StaffLogin {
     private Order o; // not sure if needed but for viewing orders use .showOrder()??
     private BookingsList b; //same as Order object
     private Scanner staff = new Scanner(System.in);
-    private ArrayList<Staff> staffList = new ArrayList<Staff>(); //Olan had this as just as 'ArrayList<Staff> stafflist' but was getting
-    // a null point exception error. changed it to  'ArrayList<Staff> staffList = new ArrayList<Staff>();' need to figure out why
+    private ArrayList<Staff> staffList = new ArrayList<Staff>(); //TODO Olan had this as just as 'ArrayList<Staff> stafflist' but was getting a null point exception error. changed it to  'ArrayList<Staff> staffList = new ArrayList<Staff>();' need to figure out why
 
 
     public StaffLogin(ArrayList<Staff> staffList) {

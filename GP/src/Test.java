@@ -12,7 +12,7 @@ public class Test {
 
     	
         // creates restaurant and bookilist
-        Restaurant yumLimerick = new Restaurant(4);
+        Restaurant yumLimerick = new Restaurant();
         BookingsList Bookings = yumLimerick.addBookingsList();
 
         //Creates CSV file class and date
@@ -20,7 +20,6 @@ public class Test {
         
         //Reads CSV file data
         write.readFromCSV("CSV files/PaymentRecords.csv");
-        System.out.println();
 
         CustomerInformationCSV readCI = new CustomerInformationCSV();
         readCI.readFromCSV("CSV files/Bookings.csv", Bookings);

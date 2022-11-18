@@ -35,7 +35,7 @@ public class TableAssignment {
     }
 
     /**
-     * Has additional functionality if time is required to be manually added (pre-seat)
+     * Has additional functionality if time is required to be manually added (pre-seat) for testing and example
      * @param restaurant restaurant in which takes place
      * @param customer customer that's being seated info
      * @param time manual time inputted inb
