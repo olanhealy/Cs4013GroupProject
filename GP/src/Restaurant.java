@@ -42,11 +42,11 @@ public class Restaurant {
         }*/
 
         //temp tables for testing
-        addTable(1, 1);
-        addTable(2, 2);
-        addTable(3, 3);
-        addTable(4, 4);
-        addTable(5, 5);
+//        addTable(1, 1);
+//        addTable(2, 2);
+//        addTable(3, 3);
+//        addTable(4, 4);
+//        addTable(5, 5);
     }
 
     /**

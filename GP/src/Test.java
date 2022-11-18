@@ -22,9 +22,13 @@ public class Test {
         write.readFromCSV("CSV files/PaymentRecords.csv");
         System.out.println();
 
-        CustomerInformationCSV read = new CustomerInformationCSV();
-        read.readFromCSV("CSV files/Bookings.csv", Bookings);
+        CustomerInformationCSV readCI = new CustomerInformationCSV();
+        readCI.readFromCSV("CSV files/Bookings.csv", Bookings);
 
+        TableCSV readTable = new TableCSV();
+        readTable.readFromCSV("CSV files/Tables.csv", yumLimerick);
+
+        System.out.println(yumLimerick.getSeatLayout());
         //takes walkin booking
         Bookings.addBooking(Bookings.takeWalkIn("5"));
         System.out.println(Bookings);
@@ -62,20 +66,19 @@ public class Test {
         yumLimerick.getCourse(0,3).addMenuItem(new MenuItem("Rioja",6.50));
 
         //shows menu
-        yumLimerick.getMenus().get(0).getCourses().get(0).showMenu();
-        yumLimerick.getMenus().get(0).getCourses().get(1).showMenu();
-        yumLimerick.getMenus().get(0).getCourses().get(2).showMenu();
-        yumLimerick.getMenus().get(0).getCourses().get(3).showMenu();
+//        yumLimerick.getMenus().get(0).getCourses().get(0).showMenu();
+//        yumLimerick.getMenus().get(0).getCourses().get(1).showMenu();
+//        yumLimerick.getMenus().get(0).getCourses().get(2).showMenu();
+//        yumLimerick.getMenus().get(0).getCourses().get(3).showMenu();
 
-        Order order = new Order();
-        order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
+        //take order
+//        Order order = new Order();
+//        order.takeOrder(yumLimerick.getSeatLayout().get(0), yumLimerick.getMenus().get(0));
         
         
-        Bill a = new Bill("Card", order);
-
-        
-        write.addBills(a);
-        write.writeToCsv("CSV files/PaymentRecords.csv");
+//        Bill a = new Bill("Card", order);
+//        write.addBills(a);
+//        write.writeToCsv("CSV files/PaymentRecords.csv");
        
         //write.readFromCSV("CSV files/PaymentRecords.csv");
 
