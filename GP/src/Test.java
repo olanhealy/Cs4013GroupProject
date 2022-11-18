@@ -21,25 +21,9 @@ public class Test {
         //Reads CSV file data
         write.readFromCSV("CSV files/PaymentRecords.csv");
         System.out.println();
-        
-        //Reads CSV file to create bookings
-        String path = "CSV files/Bookings.csv";
-        String line = "";
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-
-            while((line = br.readLine()) != null) {
-
-                String[] values = line.split(",");
-                CustomerInformation booking = new CustomerInformation(values[0],values[1],values[2],values[3],values[4],values[5],values[6]);
-                Bookings.addBooking(booking);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        CustomerInformationCSV read = new CustomerInformationCSV();
+        read.readFromCSV("CSV files/Bookings.csv", Bookings);
 
         //takes walkin booking
         Bookings.addBooking(Bookings.takeWalkIn("5"));
@@ -68,14 +52,14 @@ public class Test {
         yumLimerick.getCourse(0,0).addMenuItem(new MenuItem("Soup",3.00 ));
         yumLimerick.getCourse(0,0).addMenuItem(new MenuItem("Prawns",5.00));
 
-        yumLimerick.getCourse(0,1).addMenuItem(new MenuItem("Steak",5.00));
-        yumLimerick.getCourse(0,1).addMenuItem(new MenuItem("Chicken",5.00));
+        yumLimerick.getCourse(0,1).addMenuItem(new MenuItem("Steak",22.00));
+        yumLimerick.getCourse(0,1).addMenuItem(new MenuItem("Chicken",16.00));
 
-        yumLimerick.getCourse(0,2).addMenuItem(new MenuItem("Brownie",5.00));
+        yumLimerick.getCourse(0,2).addMenuItem(new MenuItem("Brownie",6.00));
         yumLimerick.getCourse(0,2).addMenuItem(new MenuItem("Sundae",5.00));
 
         yumLimerick.getCourse(0,3).addMenuItem(new MenuItem("Guiness",5.00));
-        yumLimerick.getCourse(0,3).addMenuItem(new MenuItem("Rioja",5.00));
+        yumLimerick.getCourse(0,3).addMenuItem(new MenuItem("Rioja",6.50));
 
         //shows menu
         yumLimerick.getMenus().get(0).getCourses().get(0).showMenu();
@@ -88,7 +72,7 @@ public class Test {
         
         
         Bill a = new Bill("Card", order);
-        
+
         
         write.addBills(a);
         write.writeToCsv("CSV files/PaymentRecords.csv");

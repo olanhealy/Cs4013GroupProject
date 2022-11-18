@@ -37,7 +37,7 @@ public class BillCSV {
 		this.month = Integer.parseInt(dates[1]);
 		this.day = Integer.parseInt(dates[2]);
 		
-		/**
+		/*
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter year");
 		this.year = scanner.nextInt();

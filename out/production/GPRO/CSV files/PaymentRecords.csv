@@ -1,4 +1,14 @@
-2022-11-11, 
- Table{tableNo=2, numberOfSeats=3, available=true} 
-Cash
- $10.0, 
+15/11/2022, Card, 18.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Chicken', price=5.0}, FoodItem{name='Brownie', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+15/11/2022, Card, 18.0, [FoodItem{name='Prawns', price=5.0}, FoodItem{name='Steak', price=5.0}, FoodItem{name='Brownie', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+15/11/2022, Card, 18.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Steak', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=5.0}], 
+15/11/2022, Card, 18.0, [FoodItem{name='Prawns', price=5.0}, FoodItem{name='Chicken', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=5.0}], 
+16/11/2022, Card, 18.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Chicken', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=5.0}], 
+16/11/2022, Card, 18.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Steak', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+16/11/2022, Card, 18.0, [FoodItem{name='Prawns', price=5.0}, FoodItem{name='Steak', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+17/11/2022, Card, 18.0, [FoodItem{name='Prawns', price=5.0}, FoodItem{name='Chicken', price=5.0}, FoodItem{name='Brownie', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+17/11/2022, Card, 18.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Steak', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+17/11/2022, Card, 18.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Chicken', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+17/11/2022, Card, 18.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Chicken', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+18/11/2022, Card, 18.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Steak', price=5.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=5.0}], 
+18/11/2022, Card, 36.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Steak', price=22.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=6.5}], 
+18/11/2022, Card, 36.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Chicken', price=16.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=6.5}], 

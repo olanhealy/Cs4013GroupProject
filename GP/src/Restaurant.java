@@ -62,6 +62,7 @@ public class Restaurant {
      * adds menu to the restaurant
      * @param name menu name
      */
+
     public void addMenu(String name) {
         getMenus().add(new Menu(name));
     }
@@ -77,6 +78,12 @@ public class Restaurant {
 
     public ArrayList<Staff> getStaff() {
         return staff;
+    }
+
+    public void checkTablesAvailability(){
+        for (Table table : getSeatLayout()) {
+            System.out.println(table.getTableNumber() + ":" + table.getAvailability());
+        }
     }
 
     @Override
