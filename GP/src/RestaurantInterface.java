@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 public class RestaurantInterface {
 
+    /**
+     * This class is the main interface for the restaurant
+     * @param restaurant
+     * @param bookings
+     * @param write
+     */
     public void run (Restaurant restaurant, BookingsList bookings, BillCSV write){
             boolean more = true;
 
@@ -14,12 +20,18 @@ public class RestaurantInterface {
         System.out.println("B)ookings, T)ables, O)rder, E)xit");
 
         String input = scanner.nextLine();
-
+                /**
+                 * Bookings
+                 */
         if (input.equals("B")) {
 
+            //TODO add booking to CSV file
             System.out.println("A)dd Booking, V)iew Booking, C)ancel Booking, T)ake Walk-in");
             input = scanner.nextLine();
 
+            /**
+             * Add Booking
+             */
             if (input.equals("A")) {
                 System.out.println("Enter Customer Name: ");
                 String name = scanner.nextLine();
@@ -38,6 +50,10 @@ public class RestaurantInterface {
 
                 bookings.addBooking(new CustomerInformation(name, phoneNumber, time, numberOfGuests, occasion, allergies, requests));
                 //readCI.writeToCsv("CSV files/Bookings.csv", Bookings);
+
+                /**
+                 * View Booking
+                  */
             } else if (input.equals("V")) {
                 System.out.println("Name of Customer: ");
                 String name = scanner.nextLine();
@@ -45,23 +61,39 @@ public class RestaurantInterface {
                 String phoneNumber = scanner.nextLine();
 
                 bookings.checkBooking(name, phoneNumber);
+
+                //TODO remove booking from CSV file
+
+                /**
+                 * Cancel Booking
+                 */
             } else if (input.equals("C")) {
                 System.out.println("Name of Customer: ");
                 String name = scanner.nextLine();
                 System.out.println("Phone Number of Customer: ");
                 String phoneNumber = scanner.nextLine();
                 bookings.cancelBooking(name, phoneNumber);
+
+                /**
+                 * Take Walk-in
+                 */
             } else if (input.equals("T")) {
                 System.out.println("Enter number of guests: ");
                 String numberOfGuests = scanner.nextLine();
                 bookings.takeWalkIn(numberOfGuests);
             }
 
+            /**
+             * Tables
+             */
         } else if (input.equals("T")) {
 
             System.out.println("A)dd Table, S)eat Table, C)hange Table Availability, D)isplay all Table Availability");
-
             input = scanner.nextLine();
+
+            /**
+             * Add Table
+             */
             if (input.equals("A")) {
                 System.out.println("Enter Table Number: ");
                 int tableNumber = scanner.nextInt();
@@ -70,6 +102,9 @@ public class RestaurantInterface {
 
                 restaurant.addTable(tableNumber, tableCapacity);
 
+                /**
+                 * Seat Table
+                 */
             } else if (input.equals("C")) {
                 System.out.println("Enter Table Number: ");
                 int tableNumber = scanner.nextInt();
@@ -78,6 +113,9 @@ public class RestaurantInterface {
                 restaurant.getTable(tableNumber).setAvailable(tableAvailability);
 
 
+                /**
+                 * Change Table Availability
+                 */
             } else if (input.equals("S")) {
 
                 System.out.println("Enter Customer Name: ");
@@ -89,15 +127,28 @@ public class RestaurantInterface {
                 //assigns bookings to tables
                 TableAssignment assign = new TableAssignment(restaurant, bookings.getBookingList().get(pos), timeOfArrival);
 
+                /**
+                 * Display all Table Availability
+                 */
             } else if (input.equals("D")) {
                 restaurant.checkAllAvailability();
             }
 
+            /**
+             * Order
+             */
         } else if (input.equals("O")) {
 
+
+            //TODO add all payment method accesses
+
+            //TODO add Menu.showFullMenu access
             System.out.println("T)ake Order, V)iew Order");
             input = scanner.nextLine();
 
+            /**
+             * Take Order
+             */
             if (input.equals("T")) {
                 //take order
                 Order order = new Order();
@@ -111,10 +162,17 @@ public class RestaurantInterface {
                 write.addBills(a);
                 write.writeToCsv("CSV files/PaymentRecords.csv");
 
+                /**
+                 * View Order
+                 */
             } else if (input.equals("V")) {
                 //view order
 
             }
+
+            /**
+             * Exit
+             */
         } else if (input.equals("E")) {
 
             more = false;

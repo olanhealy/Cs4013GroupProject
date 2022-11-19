@@ -18,10 +18,10 @@ public class Order {
 
 
     //getters
+    //TODO add orders to order array/ have it viewable/ have it added to when order created and removed when order is complete
     public ArrayList getOrderItems() { return orderItems; }
     public ArrayList<Order> getOrders(){ return orders; }
 
-    //TODO decide on system of inputting/passing orders
     /**
      * Takes an order of MenuItems for each seat at the table
      * @param table Table at which order is being taken
@@ -130,8 +130,6 @@ public class Order {
     public boolean setStatus(String status) {
         return(status.equals("READY"));
     }
-
-
 
     @Override
     public String toString() {

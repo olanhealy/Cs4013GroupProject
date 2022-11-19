@@ -58,8 +58,6 @@ public class Restaurant {
         return staff;
     }
 
-
-
     public void checkAllAvailability(){
         for (Table table : getSeatLayout()) {
             System.out.println(table.getTableNumber() + ":" + table.getAvailability());
