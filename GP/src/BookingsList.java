@@ -41,7 +41,9 @@ public class BookingsList {
      */
     //adds a booking (CustomerInformation Object)
     public void addBooking(CustomerInformation booking) {
+
         customers.add(booking);
+      ;
     }
 
     /**
@@ -57,21 +59,37 @@ public class BookingsList {
             CustomerInformation booking = customers.get(i);
 
             if (booking.getName().equals(inputName) && booking.getPhoneNumber().equals(inputPhoneNumber))
+                System.out.println(booking.toString());
                 value = true;
         }
         // returns false if not in array
+
         return value;
+    }
+
+    public int getBooking(String inputName) {
+
+        // if its in array sets value return i
+        for(int i = 0; i < customers.size(); i++) {
+            CustomerInformation booking = customers.get(i);
+
+            if (booking.getName().equals(inputName))
+                return i;
+        }
+    // returns -1 if not in array
+        return -1;
     }
 
     /**
      * removes booking from BookingList
      * @param inputName customer's name
      */
-    public void cancelBooking(String inputName) {
+    public void cancelBooking(String inputName, String inputPhoneNumber) {
         for (int i = 0; i < customers.size(); i++) {
-            CustomerInformation t = customers.get(i);
-            if (t.getName().equals(inputName)) {
+            CustomerInformation booking = customers.get(i);
+            if (booking.getName().equals(inputName)  && booking.getPhoneNumber().equals(inputPhoneNumber)) {
                 customers.remove(i);
+                System.out.println(booking.getName() + "'s Booking Cancelled");
             }
         }
     }

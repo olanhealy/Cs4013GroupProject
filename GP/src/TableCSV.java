@@ -15,16 +15,7 @@ public class TableCSV {
     //read from CSV file
     public void readFromCSV(String filePath, Restaurant restaurant) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Read Tables Y/N");
-        String input = scanner.nextLine();
         String line = "";
-
-        if(input.equals("Y")) {
-
-            System.out.println("Enter 'A' to show all tables ");
-            input = scanner.nextLine();
-            if(input.equals("A")) {
 
                 try {
                     BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -43,5 +34,3 @@ public class TableCSV {
 
             }
         }
-    }
-}

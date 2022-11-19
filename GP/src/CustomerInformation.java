@@ -51,4 +51,8 @@ public class CustomerInformation {
                         + "\n"
                 ;
     }
+
+    public String toStringForFile() {
+        return name + "," + phoneNumber + "," + timeOfArrival + "," + numberOfGuests + "," + occasion + "," + allergies + "," + specialRequests;
+    }
 }

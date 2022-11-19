@@ -13,13 +13,13 @@ public class Order {
     private Table table;
     private Menu menu;
     private setStatus status; //OLAN: used for setting order status
-
+    private ArrayList<Order> orders = new ArrayList<>();
     private ArrayList<MenuItem> orderItems = new ArrayList<MenuItem>();
 
 
     //getters
     public ArrayList getOrderItems() { return orderItems; }
-    public ArrayList<MenuItem> getOrders(){ return getOrders(); }
+    public ArrayList<Order> getOrders(){ return orders; }
 
     //TODO decide on system of inputting/passing orders
     /**
@@ -37,6 +37,7 @@ public class Order {
 
         //for amount of seats at table
         for (int i = 0; i < table.getNumberOfSeats(); i++){
+            System.out.println(" \n Guest " + (i+1) + " Order: ");
             //for amount of courses
             for (int j = 0; j < courseAmt; j++){
                 //prints course name

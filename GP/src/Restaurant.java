@@ -20,7 +20,7 @@ public class Restaurant {
     //Different Accessors to access from restaurant object
     public ArrayList<Table> getSeatLayout() { return seatLayout; }
     public ArrayList<Menu> getMenus() { return menus; }
-    public Menu getMenu (int menuId){ return getMenus().get(menuId); }
+    public Menu getMenu (int menuId){ return getMenus().    get(menuId); }
     public Course getCourse (int menuId, int courseID){ return getMenus().get(menuId).getCourses().get(courseID); }
     public MenuItem getMenuItem (int menuId, int courseID, int menuItemID){ return getMenus().get(menuId).getCourses().get(courseID).getItems().get(menuItemID); }
     public ArrayList<Course> getCourselist (int menuId){ return getMenus().get(menuId).getCourses();}
@@ -60,7 +60,7 @@ public class Restaurant {
 
 
 
-    public void checkTablesAvailability(){
+    public void checkAllAvailability(){
         for (Table table : getSeatLayout()) {
             System.out.println(table.getTableNumber() + ":" + table.getAvailability());
         }
