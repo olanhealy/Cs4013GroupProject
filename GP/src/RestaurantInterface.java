@@ -143,6 +143,10 @@ public class RestaurantInterface {
             //TODO add all payment method accesses
 
             //TODO add Menu.showFullMenu access
+            //TODO add get Orders to get arraylist of orders
+            //TODO add Order complete method to remove it from order array
+            //TODO add check status on Orders
+
             System.out.println("T)ake Order, V)iew Order");
             input = scanner.nextLine();
 
@@ -166,6 +170,7 @@ public class RestaurantInterface {
                  * View Order
                  */
             } else if (input.equals("V")) {
+                //TODO view order
                 //view order
 
             }
