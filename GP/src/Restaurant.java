@@ -25,6 +25,7 @@ public class Restaurant {
     public MenuItem getMenuItem (int menuId, int courseID, int menuItemID){ return getMenus().get(menuId).getCourses().get(courseID).getItems().get(menuItemID); }
     public ArrayList<Course> getCourselist (int menuId){ return getMenus().get(menuId).getCourses();}
     public ArrayList<MenuItem> getMenuItemList (int menuId, int courseID){ return getMenus().get(menuId).getCourses().get(courseID).getItems(); }
+    public Table getTable (int TableNo){ return getSeatLayout().get(TableNo); }
 
     /**
      * add tables with x number of seats to the Seat layout
@@ -56,6 +57,8 @@ public class Restaurant {
     public ArrayList<Staff> getStaff() {
         return staff;
     }
+
+
 
     public void checkTablesAvailability(){
         for (Table table : getSeatLayout()) {

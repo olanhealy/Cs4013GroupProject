@@ -41,12 +41,14 @@ public class CustomerInformation {
     @Override
     public String toString() {
         return "CustomerInformation:" +
-                " Name = " + name +
-                " Time of Arrival " + timeOfArrival +
-                " Occasion " + occasion +
-                " Allergies = " + allergies +
-                " SpecialRequests = " + specialRequests +
-                " PhoneNumber = " + phoneNumber +
-                " NumberOfGuests = " + numberOfGuests + "\n";
+                "| Name : " + name +
+                "| PhoneNumber : " + phoneNumber +
+                "| Time of Arrival : " + timeOfArrival +
+                "| NumberOfGuests : " + numberOfGuests +
+                "| Occasion : " + occasion +
+                "| Allergies : " + allergies +
+                "| SpecialRequests : " + specialRequests
+                        + "\n"
+                ;
     }
 }
