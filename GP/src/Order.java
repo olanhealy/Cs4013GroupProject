@@ -20,7 +20,6 @@ public class Order {
     //getters
     //TODO add orders to order array/ have it viewable/ have it added to when order created and removed when order is complete
     public ArrayList getOrderItems() { return orderItems; }
-    public ArrayList<Order> getOrders(){ return orders; }
 
     /**
      * Takes an order of MenuItems for each seat at the table

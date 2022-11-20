@@ -16,6 +16,7 @@ public class Restaurant {
     private ArrayList<Table> seatLayout = new ArrayList<>();
     private ArrayList<Menu> menus = new ArrayList<>();
     private ArrayList<Staff> staff = new ArrayList<>();
+    private OrderList orderList = new OrderList();
 
     //Different Accessors to access from restaurant object
     public ArrayList<Table> getSeatLayout() { return seatLayout; }
@@ -26,6 +27,7 @@ public class Restaurant {
     public ArrayList<Course> getCourselist (int menuId){ return getMenus().get(menuId).getCourses();}
     public ArrayList<MenuItem> getMenuItemList (int menuId, int courseID){ return getMenus().get(menuId).getCourses().get(courseID).getItems(); }
     public Table getTable (int TableNo){ return getSeatLayout().get(TableNo); }
+    public OrderList getOrderList() {return orderList; }
 
     /**
      * add tables with x number of seats to the Seat layout

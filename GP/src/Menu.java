@@ -36,10 +36,12 @@ public class Menu {
         getCourses().add(new Course(name));
     }
 
-    public void showFullMenu(Restaurant restaurant, int menuId) {
+    public void showFullMenu() {
         //shows menu
             for (int i = 0; i <= (getCourses().size()-1); i++) {
-                restaurant.getMenus().get(menuId).getCourses().get(i).showMenu();
+                getCourses().get(i).showMenu();
             }
     }
+
+
 }
