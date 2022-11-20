@@ -14,6 +14,7 @@ public class Test {
         // creates restaurant and bookilist
         Restaurant yumLimerick = new Restaurant();
         BookingsList bookings = yumLimerick.addBookingsList();
+        Staff staff = new Waiter("Kevin", 1, "1");
         new MenuCreation(yumLimerick);
 
         //Creates CSV file class and date
@@ -28,7 +29,7 @@ public class Test {
         readTable.readFromCSV("CSV files/Tables.csv", yumLimerick);
 
         RestaurantInterface yum = new RestaurantInterface();
-        yum.run(yumLimerick, bookings, write);
+        yum.run(staff, yumLimerick, bookings, write);
 
 //        StaffLogin login = new StaffLogin();
 //        login.addStaff(new Manager("Eoin", 222, "Manager49"));
