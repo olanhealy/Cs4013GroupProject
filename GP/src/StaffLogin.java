@@ -122,7 +122,7 @@ public class StaffLogin {
                                     break;
                                 case "V":
                                     System.out.println("View order");
-                                    System.out.println(o.getOrders());
+//                                    System.out.println(o.getOrders());
                                     break;
                                 case "T":
                                     System.out.println("Take booking");

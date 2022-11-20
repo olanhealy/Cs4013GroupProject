@@ -29,8 +29,12 @@ public class Test {
         readTable.readFromCSV("CSV files/Tables.csv", yumLimerick);
 
         RestaurantInterface yum = new RestaurantInterface();
+<<<<<<< HEAD
         yum.staffLogin(staff, yumLimerick, bookings, write);
         //yum.run(staff, yumLimerick, bookings, write);
+=======
+        yum.run(yumLimerick, bookings, write);
+>>>>>>> 21693460348c785966392663a535506826ce4cde
 
 //        StaffLogin login = new StaffLogin();
 //        login.addStaff(new Manager("Eoin", 222, "Manager49"));
