@@ -14,7 +14,7 @@ public class Test {
         // creates restaurant and bookilist
         Restaurant yumLimerick = new Restaurant();
         BookingsList bookings = yumLimerick.addBookingsList();
-        Staff staff = new Waiter("Kevin", 1, "1");
+        Staff staff = new Staff("Olan", 11, "2");
         new MenuCreation(yumLimerick);
 
         //Creates CSV file class and date
