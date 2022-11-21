@@ -20,7 +20,7 @@ public class Test {
         //Creates CSV file class and date
         BillCSV write = new BillCSV();
         //Reads CSV file data
-        write.readFromCSV("CSV files/PaymentRecords.csv");
+        //write.readFromCSV("CSV files/PaymentRecords.csv");
 
         CustomerInformationCSV readCI = new CustomerInformationCSV();
         readCI.readFromCSV("CSV files/Bookings.csv", bookings);
@@ -30,10 +30,10 @@ public class Test {
 
         RestaurantInterface yum = new RestaurantInterface();
 
-        yum.staffLogin(staff);
-        //yum.run(staff, yumLimerick, bookings, write);
+        //yum.staffLogin(staff);
+       // yum.run(staff, yumLimerick, bookings, write);
 
-        //yum.run(yumLimerick, bookings, write);
+        yum.run(yumLimerick, bookings, write);
 
 
 //        StaffLogin login = new StaffLogin();

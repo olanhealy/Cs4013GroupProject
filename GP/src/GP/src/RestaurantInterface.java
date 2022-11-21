@@ -19,7 +19,7 @@ public class RestaurantInterface {
         {
 
             Scanner scanner = new Scanner(System.in);
-            System.out.println("B)ookings, T)ables, O)rder, E)xit");
+            System.out.println("B)ookings, T)ables, O)rder, P)ayment Records E)xit");
 
             String input = scanner.nextLine();
             /**
@@ -185,6 +185,22 @@ public class RestaurantInterface {
                 /**
                  * Exit
                  */
+            }else if(input.equals("P")) {
+            	System.out.println("A) for all Payment Records. D) for records on specified date");
+            	input = scanner.nextLine();
+            	
+            	if(input.equals("A")) {
+            		BillCSV read = new BillCSV();
+            		read.readFromCSV("CSV files/PaymentRecords.csv");
+            	}else if(input.equals("D")) {
+            		
+            		System.out.println("Press Enter to continue");
+            		BillCSV read = new BillCSV();
+            		read.readFromCSVByDate("CSV files/PaymentRecords.csv");
+            		
+            	}
+
+            	
             } else if (input.equals("E")) {
 
                 more = false;

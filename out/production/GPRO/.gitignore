@@ -1,0 +1,34 @@
+/.classpath
+/.idea/
+/.project
+/Bill.class
+/BillCSV.class
+/BookingsList.class
+/CS4013 Software Development Project.pdf
+/CSV files/
+/Chef.class
+/Course.class
+/CustomerInformation.class
+/CustomerInformationCSV.class
+/GP/
+/Manager.class
+/Menu.class
+/MenuCreation.class
+/MenuFXML.fxml
+/MenuItem.class
+/Order$setStatus.class
+/Order.class
+/OrderList.class
+/Payment.class
+/README.md
+/Restaurant.class
+/RestaurantInterface.class
+/Staff.class
+/StaffLogin.class
+/Table.class
+/TableAssignment.class
+/TableCSV.class
+/Test.class
+/Waiter.class
+/images/
+/out/

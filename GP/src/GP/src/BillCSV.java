@@ -91,11 +91,15 @@ public class BillCSV {
 					while ((line = br.readLine()) != null) {
 
 						String[] values = line.split(", ");
+						
+						System.out.println("Date: " + values[0] + " Total: €" + values[2] + " " + values[3] + " " + values[4]
+								+ " " + values[5] + " " + values[6] + " " + values[7] + " " + values[8] + " " + values[9]);
 
 						total = total + Double.parseDouble(values[2]);
 
 					}
 
+					System.out.println("Total sales: €" + total);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
@@ -133,7 +137,7 @@ public class BillCSV {
 				}
 
 			}
-			System.out.println("Total sales : €" + total);
+			System.out.println("Total sales for " + date + ": €" + total);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
