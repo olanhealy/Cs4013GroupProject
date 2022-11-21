@@ -33,7 +33,7 @@ public class Test {
         //yum.staffLogin(staff);
        // yum.run(staff, yumLimerick, bookings, write);
 
-        yum.run(yumLimerick, bookings, write);
+        yum.run(staff, yumLimerick, bookings, write);
 
 
 //        StaffLogin login = new StaffLogin();

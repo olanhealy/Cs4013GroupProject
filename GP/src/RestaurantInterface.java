@@ -7,19 +7,38 @@ public class RestaurantInterface {
 
     /**
      * This class is the main interface for the restaurant
+     *
      * @param restaurant
      * @param bookings
      * @param write
      */
-    public void run (Restaurant restaurant, BookingsList bookings, BillCSV write){
+    public void run(Staff staff, Restaurant restaurant, BookingsList bookings, BillCSV write) {
         boolean more = true;
+        Scanner scanner = new Scanner(System.in);
+        staff.addStaff(staff.getStaffList());
+        System.out.println(staff.getStaffList());
+        System.out.println("Enter your id");
+        int id = scanner.nextInt();
+        System.out.println("Enter your password");
+        String password = scanner.next();
+
+        boolean login = false;
+        if (staff.validStaff(id, password, staff.getStaffList())) {
+            for (Staff s : staff.getStaffList()) {
+                if (s.getId() == id) {
+                    System.out.println("Welcome, " + s.getName());
+                    login = true;
+                    break;
+
+                }
+            } more = false;
+        }
 
 
-        while (more)
-        {
+        while (login) {
 
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("B)ookings, T)ables, O)rder, P)ayment Records E)xit");
+
+            System.out.println("B)ookings, T)ables, O)rder, E)xit");
 
             String input = scanner.nextLine();
             /**
@@ -142,8 +161,6 @@ public class RestaurantInterface {
             } else if (input.equals("O")) {
 
 
-
-
                 //TODO add Menu.showFullMenu access
                 //TODO OLAN? add all payment method accesses
                 //TODO OLAN? add removal of order from order list when bill is paid
@@ -185,22 +202,6 @@ public class RestaurantInterface {
                 /**
                  * Exit
                  */
-            }else if(input.equals("P")) {
-            	System.out.println("A) for all Payment Records. D) for records on specified date");
-            	input = scanner.nextLine();
-            	
-            	if(input.equals("A")) {
-            		BillCSV read = new BillCSV();
-            		read.readFromCSV("CSV files/PaymentRecords.csv");
-            	}else if(input.equals("D")) {
-            		
-            		System.out.println("Press Enter to continue");
-            		BillCSV read = new BillCSV();
-            		read.readFromCSVByDate("CSV files/PaymentRecords.csv");
-            		
-            	}
-
-            	
             } else if (input.equals("E")) {
 
                 more = false;
