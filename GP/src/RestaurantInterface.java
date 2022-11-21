@@ -22,25 +22,30 @@ public class RestaurantInterface {
         System.out.println("Enter your password");
         String password = scanner.next();
 
-        boolean login = false;
+
         if (staff.validStaff(id, password, staff.getStaffList())) {
             for (Staff s : staff.getStaffList()) {
                 if (s.getId() == id) {
-                    System.out.println("Welcome, " + s.getName());
-                    login = true;
+                    System.out.println("Welcome, " + s.getName() + " ROLE: " + s.getClass().getSimpleName());
+
                     break;
 
+                } else if (!more) {
+                    more = false;
+
                 }
-            } more = false;
+            }
+
         }
 
 
-        while (login) {
 
+        while (more) {
+            String input = scanner.nextLine();
 
             System.out.println("B)ookings, T)ables, O)rder, E)xit");
 
-            String input = scanner.nextLine();
+
             /**
              * Bookings
              */
