@@ -112,7 +112,7 @@ public class RestaurantInterface {
                     int tableNumber = scanner.nextInt();
                     System.out.println("Enter Table Availability: true/false");
                     Boolean tableAvailability = scanner.nextBoolean();
-                    restaurant.getTable(tableNumber).setAvailable(tableAvailability);
+                    restaurant.getTable(tableNumber).setAvailable(tableAvailability); //
 
 
                     /**
