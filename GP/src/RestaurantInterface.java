@@ -25,6 +25,10 @@ public class RestaurantInterface {
 
         Staff worker = restaurant.getStaff().get(restaurant.validStaff(id, password));
 
+        StringBuilder sb = new StringBuilder();
+        sb.append("Welcome, " + worker.getName() + " role: " + worker.getStaffType());
+        System.out.println(sb);
+
         while (more) {
 
 
@@ -203,24 +207,26 @@ public class RestaurantInterface {
                     restaurant.getMenu(i).showFullMenu();
                 }
                 else if (input.equals("P")) {
-                    if (restaurant.getOrderList() == null) {
-                        System.out.println("No orders to pay for");
-                    } else {
+
                     System.out.println("Enter Table Number: ");
                     int tableNumber = scanner.nextInt();
-                    System.out.println("Enter Payment Method:  (Cash/Card) ");
-                    String paymentMethod = scanner.next();
-                    Bill bill = new Bill(paymentMethod, restaurant.getOrderList().getOrder(tableNumber));
-                    System.out.println(bill);
-                    System.out.println("Enter Amount Paid: ");
-                    double amountPaid = scanner.nextDouble();
-                    bill.pay(amountPaid);
-                    restaurant.getOrderList().removeOrder(tableNumber);
+                    if (restaurant.getOrderList().getOrder(tableNumber) == null) {
+                        System.out.println("No orders filed for this table");
+                    } else {
+                        System.out.println("Enter Payment Method:  (Cash/Card) ");
+                        String paymentMethod = scanner.next();
+                        Bill bill = new Bill(paymentMethod, restaurant.getOrderList().getOrder(tableNumber));
+                        System.out.println(bill);
+                        System.out.println("Enter Amount Paid: ");
+                        double amountPaid = scanner.nextDouble();
+                        bill.pay(amountPaid);
+                        restaurant.getOrderList().removeOrder(tableNumber);
 
-                    billTable.addBills(bill);
-                    billTable.writeToCsv("CSV files/PaymentRecords.csv");
+                        billTable.addBills(bill);
+                        billTable.writeToCsv("CSV files/PaymentRecords.csv");
+                    }
                 }
-                }
+
 
                 else if (input.equals("C")) {
                     System.out.println("Enter Table Number: ");

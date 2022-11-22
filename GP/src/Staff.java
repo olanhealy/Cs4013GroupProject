@@ -13,6 +13,18 @@ public class Staff {
         this.id = id;
         this.password = password;
     }
+
+    public String getStaffType() {
+        if (this instanceof Manager) {
+            return "Manager";
+        } else if (this instanceof Waiter) {
+            return "Waiter";
+        } else if (this instanceof Chef) {
+            return "Chef";
+        } else {
+            return "invalid";
+        }
+    }
     public String getName() {
         return name;
     }

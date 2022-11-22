@@ -1,8 +1,5 @@
 package GP.src;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+
 /**
  * 
  * @author seanc
@@ -44,17 +41,18 @@ public class Bill{
 		return " "+paymentMethod + ", " + total + ", " +order.getOrderItems();
 	}
 	
-	public double pay(double tender) {
+	public void pay(double tender) {
+
 		if(paymentMethod == "Cash") {
 			total = total - tender;
 			if(total < 0) {
 				//Customer change
 				total = -total;
 				System.out.println(" Customer change " + total);
-				return total;
+
 				
 				}else if(total == 0) {
-					return 0;
+					System.out.println(" No change required");
 				}else {
 					System.out.println(" Insufficent Cash");
 				}
@@ -65,8 +63,9 @@ public class Bill{
 		}else if(paymentMethod == "Card" && total > tender){
 			System.out.println("\n Card declined");
 		}
-		return 0;
+
 	}
+
 	
 }
 
