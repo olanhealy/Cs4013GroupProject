@@ -11,18 +11,10 @@ import java.util.Scanner;
 public class Test {
     public static void main(String args[]) {
 
-<<<<<<< HEAD
-        // creates restaurant and bookilist
-        Restaurant yumLimerick = new Restaurant();
-        BookingsList bookings = yumLimerick.addBookingsList();
-        Staff staff = new Staff("Olan", 11, "2");
-        new MenuCreation(yumLimerick);
-=======
             // creates restaurant and bookingList
             Restaurant yumLimerick = new Restaurant();
             BookingsList bookings = yumLimerick.addBookingsList();
             new MenuCreation(yumLimerick);
->>>>>>> 37ede91c8e528641541b132e873516fdc053dfd1
 
             //Creates CSV file class and date
             yumLimerick.setBillTable(new BillCSV());

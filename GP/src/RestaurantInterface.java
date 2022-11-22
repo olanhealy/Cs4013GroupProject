@@ -14,27 +14,6 @@ public class RestaurantInterface {
      */
     public void run(Restaurant restaurant, BookingsList bookings, BillCSV billTable) {
         boolean more = true;
-<<<<<<< HEAD
-        Scanner scannerMain = new Scanner(System.in);
-        staff.addStaff(staff.getStaffList());
-        System.out.println(staff.getStaffList());
-        System.out.println("Enter your id");
-        int id = scannerMain.nextInt();
-        System.out.println("Enter your password");
-        String password = scannerMain.next();
-
-
-        if (staff.validStaff(id, password, staff.getStaffList())) {
-            for (Staff s : staff.getStaffList()) {
-                if (s.getId() == id) {
-                    System.out.println("Welcome, " + s.getName() + " ROLE: " + s.getClass().getSimpleName());
-                    more = true;
-                    break;
-
-                }
-            }
-        }
-=======
 //        Scanner scannerMain = new Scanner(System.in);
 //        staff.addStaff(staff.getStaffList());
 //        System.out.println(staff.getStaffList());
@@ -54,7 +33,6 @@ public class RestaurantInterface {
 //                }
 //            }
 //        }
->>>>>>> 37ede91c8e528641541b132e873516fdc053dfd1
 
 
 
@@ -68,13 +46,9 @@ public class RestaurantInterface {
             /**
              * Bookings
              */
-<<<<<<< HEAD
-            if (input.equals("B") && (staff instanceof Waiter || staff instanceof Manager)) {
-=======
             if (input.equals("B")
  //                   && (staff instanceof Waiter || staff instanceof Manager)
             ) {
->>>>>>> 37ede91c8e528641541b132e873516fdc053dfd1
 
                 //TODO add booking to CSV file
                 System.out.println("A)dd Booking, V)iew Booking, S)how all bookings, C)ancel Booking, T)ake Walk-in");
@@ -143,13 +117,9 @@ public class RestaurantInterface {
                 /**
                  * Tables
                  */
-<<<<<<< HEAD
-            } else if (input.equals("T") && (staff instanceof Manager)) {
-=======
             } else if (input.equals("T")
                     //&& (staff instanceof Manager)
              ) {
->>>>>>> 37ede91c8e528641541b132e873516fdc053dfd1
 
                 System.out.println("A)dd Table, S)eat Table, C)hange Table Availability, D)isplay all Table Availability");
                 input = scanner.nextLine();
@@ -249,13 +219,8 @@ public class RestaurantInterface {
 
                 more = false;
 
-<<<<<<< HEAD
-            } else {
-                System.out.println("Access is not allowed to");
-=======
 //            } else {
 //                System.out.println("Access is not allowed. Request access from your manager");
->>>>>>> 37ede91c8e528641541b132e873516fdc053dfd1
             }
         }
     }
