@@ -26,16 +26,13 @@ public class CustomerInformationCSV {
                 }
             }
 
-    public void writeToCsv(String fileName, BookingsList bookings) {
+    public void writeToCsv(String fileName, CustomerInformation customer) {
         try {
             FileWriter out = new FileWriter(fileName, true);
-            for (CustomerInformation customer : bookings.getBookingList()) {
-                out.write((customer.toStringForFile()) + ", \n");
-            }
+            out.write((customer.toStringForFile()) + ", \n");
 
             out.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

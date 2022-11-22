@@ -63,7 +63,6 @@ public class Order {
         return menuItem;
     }
 
-    //TODO check if valid after class is finalized
     /**
      * Shows the Order for the table
      */
