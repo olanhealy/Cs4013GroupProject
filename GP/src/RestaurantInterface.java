@@ -32,14 +32,51 @@ public class RestaurantInterface {
         while (more) {
 
 
-            System.out.println("B)ookings, T)ables, O)rder, P)ayment Records, E)xit");
+            System.out.println("R)evise Staff B)ookings, T)ables, O)rder, P)ayment Records, E)xit");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
+
 
             /**
              * Bookings
              */
-            if (input.equals("B")
+            if (input.equals("R") && worker instanceof Manager) {
+                System.out.println("A)dd staff V)iew staff R)emove staff");
+                input = scanner.nextLine();
+                if (input.equals("A")) {
+                    System.out.println("Enter name");
+                    String name = scanner.nextLine();
+                    System.out.println("Enter id");
+                    int id1 = scanner.nextInt();
+                    System.out.println("Enter password");
+                    String password1 = scanner.next();
+                    System.out.println("Enter role: W)aiter, C)hef, M)anager");
+                    String choice = scanner.next();
+                    if (choice.equals("W")) {
+                        restaurant.getStaff().add(new Waiter(name, id1, password1));
+                    } else if (choice.equals("C")) {
+                        restaurant.getStaff().add(new Chef(name, id1, password1));
+                    } else if (choice.equals("M")) {
+                        restaurant.getStaff().add(new Manager(name, id1, password1));
+                    }
+
+                } else if (input.equals("V")) {
+                    System.out.println(restaurant.getStaff());
+                } else if (input.equals("R")) {
+                    System.out.println("Enter name");
+                    String name = scanner.next();
+                    System.out.println("Enter password");
+                    String password1 = scanner.next();
+                    restaurant.removeStaff(name, password1);
+                }
+
+            }
+
+            /**
+             * Bookings
+             */
+
+             else if (input.equals("B")
                     && (worker instanceof Waiter || worker instanceof Manager)
             ) {
 

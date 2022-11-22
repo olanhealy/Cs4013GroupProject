@@ -102,4 +102,13 @@ public class Restaurant {
                 "seatLayout=" + seatLayout +
                 '}';
     }
+
+
+    public void removeStaff(String name, String password1) {
+        for (Staff staff : getStaff()) {
+            if ((staff.getName().equals(name) ) && (staff.getPassword().equals(password1))) {
+                getStaff().remove(staff);
+            }
+        }
+    }
 }
