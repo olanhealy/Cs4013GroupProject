@@ -77,37 +77,77 @@ public class BillCSV {
 
 	/**
 	 * @param fileName String that holds the file path to PaymentRecords.csv
+	 * Method read CSV data and holds it in array values
+	 *
 	 */
-	public void readFromCSV(String fileName) {
+	public String[] readFromCSV(String fileName) {
 
 		String line = "";
 		double total = 0;
 
-				try {
+		String[] empty = new String[0];
+		try {
 
-					BufferedReader br = new BufferedReader(new FileReader(fileName));
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
 
 
-					while ((line = br.readLine()) != null) {
+			while ((line = br.readLine()) != null) {
 
-						String[] values = line.split(", ");
-						
-						System.out.println("Date: " + values[0] + " Total: €" + values[2] + " " + values[3] + " " + values[4]
-								+ " " + values[5] + " " + values[6] + " " + values[7] + " " + values[8] + " " + values[9]);
+				//Stores CSV elements in array values
+				String[] values = line.split(", ");
 
-						total = total + Double.parseDouble(values[2]);
+				total = total + Double.parseDouble(values[2]);
 
-					}
+				//returns an array of values
+				return values;
+			}
 
-					System.out.println("Total sales: €" + total);
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//return empty array if file not read
+		return empty;
+	}
+
+	/**
+	 *
+	 * @param fileName String that holds the file path to PaymentRecords.csv
+	 * Method prints CSV file data to the console
+	 */
+	public void displayCSV(String fileName){
+
+		String line = "";
+		double total = 0;
+
+		try {
+
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+
+
+			while ((line = br.readLine()) != null) {
+
+				String[] values = line.split(", ");
+
+				//Prints CSV elements to console
+				System.out.println("Date: " + values[0] + " Total: €" + values[2] + " " + values[3] + " " + values[4]
+						+ " " + values[5] + " " + values[6] + " " + values[7] + " " + values[8] + " " + values[9]);
+
+				total = total + Double.parseDouble(values[2]);
 
 			}
 
+			System.out.println("Total sales: €" + total);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+			}
 
 	public void readFromCSVByDate(String fileName) {
 

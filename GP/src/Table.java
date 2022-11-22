@@ -9,6 +9,7 @@ public class Table {
 
     private int tableNo, numberOfSeats;
     private boolean available;
+    private Order order;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -44,5 +45,10 @@ public class Table {
                 "tableNo=" + tableNo +
                 ", numberOfSeats=" + numberOfSeats +
                 ", available=" + available + "}";
+    }
+
+    public Order getOrder() {
+
+        return order;
     }
 }

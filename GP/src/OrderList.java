@@ -22,6 +22,9 @@ public class OrderList {
     public void addOrder(Order order, int tableId) {
         getOrders()[tableId] = order;
     }
+    public void removeOrder( int tableId) {
+        getOrders()[tableId]  = null;
+    }
 
     @Override
     public String toString() {

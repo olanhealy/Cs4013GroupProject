@@ -25,7 +25,7 @@ public class Restaurant {
     //Different Accessors to access from restaurant object
     public ArrayList<Table> getSeatLayout() { return seatLayout; }
     public ArrayList<Menu> getMenus() { return menus; }
-    public Menu getMenu (int menuId){ return getMenus().    get(menuId); }
+    public Menu getMenu (int menuId){ return getMenus().get(menuId); }
     public Course getCourse (int menuId, int courseID){ return getMenus().get(menuId).getCourses().get(courseID); }
     public MenuItem getMenuItem (int menuId, int courseID, int menuItemID){ return getMenus().get(menuId).getCourses().get(courseID).getItems().get(menuItemID); }
     public ArrayList<Course> getCourselist (int menuId){ return getMenus().get(menuId).getCourses();}
@@ -67,6 +67,23 @@ public class Restaurant {
     public BookingsList addBookingsList(){
         BookingsList booking = new BookingsList();
         return booking;
+    }
+    public boolean validStaff(int id, String password, ArrayList<Staff> staffList) {
+        for (Staff staff : staffList) {
+            if ((staff.getId() == id) && (staff.getPassword().equals(password))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public void addStaff(ArrayList<Staff> staffList) {
+
+        staffList.add(new Waiter("Billy", 13, "Helt23"));
+        staffList.add(new Chef("Sally", 8, "Yu564"));
+        staffList.add(new Manager("Bobby", 1, "Y"));
+
     }
 
     public ArrayList<Staff> getStaff() {

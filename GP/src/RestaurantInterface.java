@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RestaurantInterface {
+    private ArrayList<Staff> staff = new ArrayList();
 
     /**
      * This class is the main interface for the restaurant
@@ -14,30 +15,30 @@ public class RestaurantInterface {
      */
     public void run(Restaurant restaurant, BookingsList bookings, BillCSV billTable) {
         boolean more = true;
-//        Scanner scannerMain = new Scanner(System.in);
-//        staff.addStaff(staff.getStaffList());
-//        System.out.println(staff.getStaffList());
-//        System.out.println("Enter your id");
-//        int id = scannerMain.nextInt();
-//        System.out.println("Enter your password");
-//        String password = scannerMain.next();
-//
-//
-//        if (staff.validStaff(id, password, staff.getStaffList())) {
-//            for (Staff s : staff.getStaffList()) {
-//                if (s.getId() == id) {
-//                    System.out.println("Welcome, " + s.getName());
-//                    more = true;
-//                    break;
-//
-//                }
-//            }
-//        }
+            Scanner scannerMain = new Scanner(System.in);
+            restaurant.addStaff(staff);
+
+            System.out.println(staff);
+            System.out.println("Enter your id");
+            int id = scannerMain.nextInt();
+            System.out.println("Enter your password");
+            String password = scannerMain.next();
+            if (restaurant.validStaff(id, password, restaurant.getStaff())) {
+                for (Staff s : restaurant.getStaff()) {
+
+                    if (s.getId() == id) {
+
+
+                    }
+
+                }
+
+            }
 
 
 
-        while (more) {
 
+            while (more) {
 
             System.out.println("B)ookings, T)ables, O)rder, P)ayment Records, E)xit");
             Scanner scanner = new Scanner(System.in);
@@ -179,7 +180,7 @@ public class RestaurantInterface {
                 //TODO OLAN? add removal of order from order list when bill is paid
                 //TODO OLAN? add check status on Orders
 
-                System.out.println("S)how Menu, T)ake Order, V)iew Order");
+                System.out.println("S)how Menu, T)ake Order, V)iew Order, P)ay Bill, C)heck Status");
                 input = scanner.nextLine();
 
                 /**
@@ -215,6 +216,31 @@ public class RestaurantInterface {
                     int i = scanner.nextInt();
                     restaurant.getMenu(i).showFullMenu();
                 }
+                else if (input.equals("P")) {
+                    if (restaurant.getOrderList() == null) {
+                        System.out.println("No orders to pay for");
+                    } else {
+                    System.out.println("Enter Table Number: ");
+                    int tableNumber = scanner.nextInt();
+                    System.out.println("Enter Payment Method:  (Cash/Card) ");
+                    String paymentMethod = scanner.next();
+                    Bill bill = new Bill(paymentMethod, restaurant.getOrderList().getOrder(tableNumber));
+                    System.out.println(bill);
+                    System.out.println("Enter Amount Paid: ");
+                    double amountPaid = scanner.nextDouble();
+                    bill.pay(amountPaid);
+                    restaurant.getOrderList().removeOrder(tableNumber);
+
+                    billTable.addBills(bill);
+                    billTable.writeToCsv("CSV files/PaymentRecords.csv");
+                }
+                }
+
+                else if (input.equals("C")) {
+                    System.out.println("Enter Table Number: ");
+                    int tableNumber = scanner.nextInt();
+                    System.out.println(restaurant.getOrderList().getOrder(tableNumber).checkStatusChef("Chef"));
+                }
 
                 /**
                  * Exit
@@ -224,7 +250,7 @@ public class RestaurantInterface {
             	input = scanner.nextLine();
             	if(input.equals("A")) {
             		BillCSV read = new BillCSV();
-            		read.readFromCSV("CSV files/PaymentRecords.csv");
+            		read.displayCSV("CSV files/PaymentRecords.csv");
             	}else if(input.equals("D")) {
             		BillCSV read = new BillCSV();
             		System.out.println("Press Enter to continue");
