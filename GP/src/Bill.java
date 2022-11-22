@@ -44,7 +44,7 @@ public class Bill{
 		return " "+paymentMethod + ", " + total + ", " +order.getOrderItems();
 	}
 	
-	public double Pay(double tender) {
+	public double pay(double tender) {
 		if(paymentMethod == "Cash") {
 			total = total - tender;
 			if(total < 0) {

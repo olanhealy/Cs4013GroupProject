@@ -13,3 +13,4 @@
 18/11/2022, Card, 36.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Steak', price=22.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=6.5}], 
 18/11/2022, Card, 36.0, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Chicken', price=16.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=6.5}], 
 19/11/2022, Card, 68.5, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Steak', price=22.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=6.5}, FoodItem{name='Soup', price=3.0}, FoodItem{name='Steak', price=22.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Guiness', price=5.0}], 
+22/11/2022, Card, 67.4, [FoodItem{name='Soup', price=3.0}, FoodItem{name='Chicken', price=16.0}, FoodItem{name='Sundae', price=5.0}, FoodItem{name='Rioja', price=6.5}], 

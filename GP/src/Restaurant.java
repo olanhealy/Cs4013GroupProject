@@ -68,6 +68,23 @@ public class Restaurant {
         BookingsList booking = new BookingsList();
         return booking;
     }
+    public boolean validStaff(int id, String password, ArrayList<Staff> staffList) {
+        for (Staff staff : staffList) {
+            if ((staff.getId() == id) && (staff.getPassword().equals(password))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public void addStaff(ArrayList<Staff> staffList) {
+
+        staffList.add(new Waiter("Billy", 13, "Helt23"));
+        staffList.add(new Chef("Sally", 8, "Yu564"));
+        staffList.add(new Manager("Bobby", 1, "Y"));
+
+    }
 
     public ArrayList<Staff> getStaff() {
         return staff;
