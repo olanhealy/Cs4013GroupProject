@@ -68,15 +68,15 @@ public class Restaurant {
         BookingsList booking = new BookingsList();
         return booking;
     }
-    public boolean validStaff(int id, String password, ArrayList<Staff> staffList) {
-        for (Staff staff : staffList) {
+    public int validStaff(int id, String password) {
+        for (Staff staff : getStaff()) {
             if ((staff.getId() == id) && (staff.getPassword().equals(password))) {
-                return true;
+                int pos = getStaff().indexOf(staff);
+                return pos;
             }
         }
-        return false;
+        return -1;
     }
-
 
     public void addStaff(ArrayList<Staff> staffList) {
 

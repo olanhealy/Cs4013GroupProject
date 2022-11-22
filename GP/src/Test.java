@@ -32,6 +32,8 @@ public class Test {
             yumLimerick.setRestaurantInterface(new RestaurantInterface());
             RestaurantInterface yum = yumLimerick.getRestaurantInterface();
 
+            yumLimerick.addStaff(yumLimerick.getStaff());
+
             //yum.staffLogin(staff);
             // yum.run(staff, yumLimerick, bookings, write);
             yum.run(yumLimerick, bookings, billTable);

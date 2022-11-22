@@ -23,15 +23,8 @@ public class Staff {
         return password;
     }
 
-
-
-
-
-
     @Override
     public String toString() {
         return name + ": id =" + id + " : password=" + password;
     }
-
-
 }
