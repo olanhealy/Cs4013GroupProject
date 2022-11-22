@@ -26,7 +26,7 @@ public class Order {
      * @param table Table at which order is being taken
      * @param menu Menu in which order taken from
      */
-    public void takeOrder(Table table, Menu menu){
+    public void takeOrder(Table table, Menu menu,  int numberOfGuests){
         this.table = table;
         this.menu = menu;
 
@@ -35,7 +35,7 @@ public class Order {
         Scanner scanner = new Scanner(System.in);
 
         //for amount of seats at table
-        for (int i = 0; i < table.getNumberOfSeats(); i++){
+        for (int i = 0; i < numberOfGuests; i++){
             System.out.println(" \n Guest " + (i+1) + " Order: ");
             //for amount of courses
             for (int j = 0; j < courseAmt; j++){

@@ -76,11 +76,12 @@ public class TableAssignment {
     public TableAssignment(Restaurant restaurant,CustomerInformation customer,int time){
         Scanner scanner = new Scanner(System.in);
         boolean tableFound = false;
-        this.time = time;
-            if (getTime() == customer.getTimeOfArrival()) {
+
+            if (time == customer.getTimeOfArrival()) {
                 for (int i = 0; i < restaurant.getSeatLayout().size(); i++) {
                     if (customer.getNumberOfGuests() == restaurant.getSeatLayout().get(i).getNumberOfSeats()){
                         seatTable(customer, restaurant.getSeatLayout().get(i));
+                        tableFound = true;
                         break;
                     }
                 }

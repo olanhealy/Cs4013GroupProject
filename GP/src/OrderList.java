@@ -4,24 +4,23 @@ import java.util.ArrayList;
 
 public class OrderList {
 
-    private ArrayList<Order> orders = new ArrayList();
+    private Order[] orders = new Order[100];
 
     public OrderList() {
         this.orders = orders;
     }
 
-    public ArrayList<Order> getOrders() {
+    public Order[] getOrders() {
         return orders;
-
     }
 
     public Order getOrder(int tableId) {
-        return orders.get(tableId);
+        return orders[tableId];
     }
 
 
     public void addOrder(Order order, int tableId) {
-        getOrders().add(tableId, order);
+        getOrders()[tableId] = order;
     }
 
     @Override

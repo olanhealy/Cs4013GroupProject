@@ -8,8 +8,6 @@ public class Staff {
     private String password;
     private ArrayList<Staff> staffList = new ArrayList<Staff>();
 
-
-
     public Staff(String name, int id, String password) {
         this.name = name;
         this.id = id;

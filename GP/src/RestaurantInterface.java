@@ -155,11 +155,11 @@ public class RestaurantInterface {
                     System.out.println("Enter Customer Name: ");
                     String name = scanner.nextLine();
                     int pos = bookings.getBooking(name);
-//                    System.out.println("Enter Time of Arrival: ");
-//                    int timeOfArrival = scanner.nextInt();
+                    System.out.println("Enter Time of Arrival: ");
+                    int timeOfArrival = scanner.nextInt();
 
                     //assigns bookings to tables
-                    TableAssignment assign = new TableAssignment(restaurant, bookings.getBookingList().get(pos));
+                    TableAssignment assign = new TableAssignment(restaurant, bookings.getBookingList().get(pos), timeOfArrival);
 
                     /**
                      * Display all Table Availability
@@ -187,12 +187,16 @@ public class RestaurantInterface {
                  */
                 if (input.equals("T")) {
                     //take order
+
                     Order order = new Order();
                     System.out.println("Enter table number: ");
                     int tableNumber = scanner.nextInt();
                     System.out.println("Enter menuId: ");
                     int menuId = scanner.nextInt();
-                    order.takeOrder(restaurant.getTable(tableNumber), restaurant.getMenu(menuId));
+                    System.out.println("Enter number of Guests: ");
+                    int numberOfGuests = scanner.nextInt();
+
+                    order.takeOrder(restaurant.getTable(tableNumber), restaurant.getMenu(menuId), numberOfGuests);
                     restaurant.getOrderList().addOrder(order, tableNumber);
 
                     Bill a = new Bill("Card", order);
