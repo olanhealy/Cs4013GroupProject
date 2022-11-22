@@ -250,7 +250,7 @@ public class RestaurantInterface {
             	input = scanner.nextLine();
             	if(input.equals("A")) {
             		BillCSV read = new BillCSV();
-            		read.readFromCSV("CSV files/PaymentRecords.csv");
+            		read.displayCSV("CSV files/PaymentRecords.csv");
             	}else if(input.equals("D")) {
             		BillCSV read = new BillCSV();
             		System.out.println("Press Enter to continue");
