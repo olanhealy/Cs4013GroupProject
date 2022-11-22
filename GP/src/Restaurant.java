@@ -17,6 +17,10 @@ public class Restaurant {
     private ArrayList<Menu> menus = new ArrayList<>();
     private ArrayList<Staff> staff = new ArrayList<>();
     private OrderList orderList = new OrderList();
+    private BillCSV billTable = new BillCSV();
+    private CustomerInformationCSV customerTable = new CustomerInformationCSV();
+    private TableCSV tablesTable = new TableCSV();
+    private RestaurantInterface restaurantInterface = new RestaurantInterface();
 
     //Different Accessors to access from restaurant object
     public ArrayList<Table> getSeatLayout() { return seatLayout; }
@@ -28,6 +32,15 @@ public class Restaurant {
     public ArrayList<MenuItem> getMenuItemList (int menuId, int courseID){ return getMenus().get(menuId).getCourses().get(courseID).getItems(); }
     public Table getTable (int TableNo){ return getSeatLayout().get(TableNo); }
     public OrderList getOrderList() {return orderList; }
+    public BillCSV getBillTable() { return billTable; }
+    public CustomerInformationCSV getCustomerTable() { return customerTable; }
+    public TableCSV getTablesTable() { return tablesTable; }
+    public RestaurantInterface getRestaurantInterface() { return restaurantInterface; }
+
+    public void setBillTable(BillCSV billTable) { this.billTable = billTable; }
+    public void setCustomerTable(CustomerInformationCSV customerTable) { this.customerTable = customerTable; }
+    public void setTablesTable(TableCSV tablesTable) { this.tablesTable = tablesTable; }
+    public void setRestaurantInterface(RestaurantInterface restaurantInterface) { this.restaurantInterface = restaurantInterface; }
 
     /**
      * add tables with x number of seats to the Seat layout

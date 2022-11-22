@@ -10,9 +10,9 @@ public class RestaurantInterface {
      *
      * @param restaurant
      * @param bookings
-     * @param write
+     * @param billTable
      */
-    public void run(Restaurant restaurant, BookingsList bookings, BillCSV write) {
+    public void run(Restaurant restaurant, BookingsList bookings, BillCSV billTable) {
         boolean more = true;
 //        Scanner scannerMain = new Scanner(System.in);
 //        staff.addStaff(staff.getStaffList());
@@ -74,7 +74,7 @@ public class RestaurantInterface {
                     String requests = scanner.nextLine();
 
                     bookings.addBooking(new CustomerInformation(name, phoneNumber, time, numberOfGuests, occasion, allergies, requests));
-                    //readCI.writeToCsv("CSV files/Bookings.csv", Bookings);
+
 
                     /**
                      * View Booking
@@ -196,8 +196,8 @@ public class RestaurantInterface {
                     restaurant.getOrderList().addOrder(order, tableNumber);
 
                     Bill a = new Bill("Card", order);
-                    write.addBills(a);
-                    write.writeToCsv("CSV files/PaymentRecords.csv");
+                    billTable.addBills(a);
+                    billTable.writeToCsv("CSV files/PaymentRecords.csv");
 
                     /**
                      * View Order
