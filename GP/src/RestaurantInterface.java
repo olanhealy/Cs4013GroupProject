@@ -12,27 +12,27 @@ public class RestaurantInterface {
      * @param bookings
      * @param write
      */
-    public void run(Staff staff, Restaurant restaurant, BookingsList bookings, BillCSV write) {
+    public void run(Restaurant restaurant, BookingsList bookings, BillCSV write) {
         boolean more = true;
-        Scanner scannerMain = new Scanner(System.in);
-        staff.addStaff(staff.getStaffList());
-        System.out.println(staff.getStaffList());
-        System.out.println("Enter your id");
-        int id = scannerMain.nextInt();
-        System.out.println("Enter your password");
-        String password = scannerMain.next();
-
-
-        if (staff.validStaff(id, password, staff.getStaffList())) {
-            for (Staff s : staff.getStaffList()) {
-                if (s.getId() == id) {
-                    System.out.println("Welcome, " + s.getName());
-                    more = true;
-                    break;
-
-                }
-            }
-        }
+//        Scanner scannerMain = new Scanner(System.in);
+//        staff.addStaff(staff.getStaffList());
+//        System.out.println(staff.getStaffList());
+//        System.out.println("Enter your id");
+//        int id = scannerMain.nextInt();
+//        System.out.println("Enter your password");
+//        String password = scannerMain.next();
+//
+//
+//        if (staff.validStaff(id, password, staff.getStaffList())) {
+//            for (Staff s : staff.getStaffList()) {
+//                if (s.getId() == id) {
+//                    System.out.println("Welcome, " + s.getName());
+//                    more = true;
+//                    break;
+//
+//                }
+//            }
+//        }
 
 
 
@@ -46,10 +46,12 @@ public class RestaurantInterface {
             /**
              * Bookings
              */
-            if (input.equals("B") && (staff instanceof Waiter || staff instanceof Manager)) {
+            if (input.equals("B")
+ //                   && (staff instanceof Waiter || staff instanceof Manager)
+            ) {
 
                 //TODO add booking to CSV file
-                System.out.println("A)dd Booking, V)iew Booking, C)ancel Booking, T)ake Walk-in");
+                System.out.println("A)dd Booking, V)iew Booking, S)how all bookings, C)ancel Booking, T)ake Walk-in");
                 input = scanner.nextLine();
 
                 /**
@@ -88,6 +90,12 @@ public class RestaurantInterface {
                     //TODO remove booking from CSV file
 
                     /**
+                     * Show all bookings
+                     */
+                }else if(input.equals("S")){
+                    System.out.println(bookings.getBookingList().toString());
+
+                    /**
                      * Cancel Booking
                      */
                 } else if (input.equals("C")) {
@@ -109,7 +117,9 @@ public class RestaurantInterface {
                 /**
                  * Tables
                  */
-            } else if (input.equals("T") && (staff instanceof Manager)) {
+            } else if (input.equals("T")
+                    //&& (staff instanceof Manager)
+             ) {
 
                 System.out.println("A)dd Table, S)eat Table, C)hange Table Availability, D)isplay all Table Availability");
                 input = scanner.nextLine();
@@ -125,30 +135,31 @@ public class RestaurantInterface {
 
                     restaurant.addTable(tableNumber, tableCapacity);
 
+
                     /**
-                     * Seat Table
+                     * Change Table Availability
                      */
                 } else if (input.equals("C")) {
                     System.out.println("Enter Table Number: ");
                     int tableNumber = scanner.nextInt();
                     System.out.println("Enter Table Availability: true/false");
                     Boolean tableAvailability = scanner.nextBoolean();
-                    restaurant.getTable(tableNumber).setAvailable(tableAvailability); //
+                    restaurant.getTable(tableNumber - 1).setAvailable(tableAvailability); //
 
 
                     /**
-                     * Change Table Availability
+                     * Seat Table
                      */
                 } else if (input.equals("S")) {
 
                     System.out.println("Enter Customer Name: ");
                     String name = scanner.nextLine();
                     int pos = bookings.getBooking(name);
-                    System.out.println("Enter Time of Arrival: ");
-                    int timeOfArrival = scanner.nextInt();
+//                    System.out.println("Enter Time of Arrival: ");
+//                    int timeOfArrival = scanner.nextInt();
 
                     //assigns bookings to tables
-                    TableAssignment assign = new TableAssignment(restaurant, bookings.getBookingList().get(pos), timeOfArrival);
+                    TableAssignment assign = new TableAssignment(restaurant, bookings.getBookingList().get(pos));
 
                     /**
                      * Display all Table Availability
@@ -208,8 +219,8 @@ public class RestaurantInterface {
 
                 more = false;
 
-            } else {
-                System.out.println("Access is not allowed to");
+//            } else {
+//                System.out.println("Access is not allowed. Request access from your manager");
             }
         }
     }

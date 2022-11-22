@@ -33,7 +33,7 @@ public class Course {
      * Creates Course Object
      * @param name String name of Course
      */
-    public Course(String name){ //TODO Optimize: See if a 'extends' can be adopted between Menu and Course
+    public Course(String name){
         this.name = name;
     }
 
