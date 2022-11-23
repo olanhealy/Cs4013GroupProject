@@ -15,7 +15,8 @@ public class RestaurantInterface {
     public void run(Restaurant restaurant, BookingsList bookings, BillCSV billTable) {
         boolean more = true;
 
-        Scanner scannerMain = new Scanner(System.in);;
+        Scanner scannerMain = new Scanner(System.in);
+
 
         System.out.println(restaurant.getStaff());
         System.out.println("Enter your id");
@@ -23,22 +24,35 @@ public class RestaurantInterface {
         System.out.println("Enter your password");
         String password = scannerMain.next();
 
+
         Staff worker = restaurant.getStaff().get(restaurant.validStaff(id, password));
+        String placeHolder = null;
+        if (worker.getStaffType() == "Manager") {
+            placeHolder = "You have access to: R)evise Staff B)ookings, T)ables, O)rder, P)ayment Records, E)xit ";
+        } else if (worker.getStaffType() == "Waiter") {
+            placeHolder = "You have access to: B)ookings, T)ables, O)rder, E)xit ";
+        } else if (worker.getStaffType() == "Chef") {
+            placeHolder = "You have access to: O)rder, E)xit ";
+        }
+
+
 
         StringBuilder sb = new StringBuilder();
         sb.append("Welcome, " + worker.getName() + " role: " + worker.getStaffType());
         System.out.println(sb);
+        System.out.println(placeHolder);
 
         while (more) {
-
+            /**
+             * This is the main running for the restaurant
+             */
 
             System.out.println("R)evise Staff B)ookings, T)ables, O)rder, P)ayment Records, E)xit");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
 
-
             /**
-             * Bookings
+             * Olan: allows to add, remove or view staff of the restaurant
              */
             if (input.equals("R") && worker instanceof Manager) {
                 System.out.println("A)dd staff V)iew staff R)emove staff");
@@ -76,9 +90,7 @@ public class RestaurantInterface {
              * Bookings
              */
 
-             else if (input.equals("B")
-                    && (worker instanceof Waiter || worker instanceof Manager)
-            ) {
+            else if (input.equals("B") && (worker instanceof Waiter || worker instanceof Manager)) {
 
                 //TODO add booking to CSV file
                 System.out.println("A)dd Booking, V)iew Booking, S)how all bookings, C)ancel Booking, T)ake Walk-in");
@@ -122,7 +134,7 @@ public class RestaurantInterface {
                     /**
                      * Show all bookings
                      */
-                }else if(input.equals("S")){
+                } else if (input.equals("S")) {
                     System.out.println(bookings.getBookingList().toString());
 
                     /**
@@ -199,7 +211,7 @@ public class RestaurantInterface {
                 /**
                  * Order
                  */
-            } else if (input.equals("O")) {
+            } else if (input.equals("O") && worker instanceof Waiter || worker instanceof Manager || worker instanceof Chef) {
 
 
                 //TODO add Menu.showFullMenu access
@@ -227,7 +239,7 @@ public class RestaurantInterface {
                     order.takeOrder(restaurant.getTable(tableNumber), restaurant.getMenu(menuId), numberOfGuests);
                     restaurant.getOrderList().addOrder(order, tableNumber);
 
-                    Bill a = new Bill("Card", order);
+                    Bill a = new Bill(order);
                     billTable.addBills(a);
                     billTable.writeToCsv("CSV files/PaymentRecords.csv");
 
@@ -237,14 +249,17 @@ public class RestaurantInterface {
                 } else if (input.equals("V")) {
                     System.out.println("Enter table number: ");
                     int tableNumber = scanner.nextInt();
-                    System.out.println(restaurant.getOrderList().getOrder(tableNumber).toString());
+                    if (restaurant.getOrderList().getOrder(tableNumber) == null) {
+                        System.out.println("No orders for this table");
+                    } else {
+                        System.out.println(restaurant.getOrderList().getOrder(tableNumber).toString());
+                    }
+
                 } else if (input.equals("S")) {
                     System.out.println("Enter menuId: ");
                     int i = scanner.nextInt();
                     restaurant.getMenu(i).showFullMenu();
-                }
-                else if (input.equals("P")) {
-
+                } else if (input.equals("P")) {
                     System.out.println("Enter Table Number: ");
                     int tableNumber = scanner.nextInt();
                     if (restaurant.getOrderList().getOrder(tableNumber) == null) {
@@ -252,41 +267,41 @@ public class RestaurantInterface {
                     } else {
                         System.out.println("Enter Payment Method:  (Cash/Card) ");
                         String paymentMethod = scanner.next();
-                        Bill bill = new Bill(paymentMethod, restaurant.getOrderList().getOrder(tableNumber));
-                        System.out.println(bill);
-                        System.out.println("Enter Amount Paid: ");
-                        double amountPaid = scanner.nextDouble();
-                        bill.pay(amountPaid);
-                        restaurant.getOrderList().removeOrder(tableNumber);
-
-                        billTable.addBills(bill);
-                        billTable.writeToCsv("CSV files/PaymentRecords.csv");
+                        if (paymentMethod.equals("Cash") || paymentMethod.equals("Card")) {
+                            Bill bill = new Bill(restaurant.getOrderList().getOrder(tableNumber));
+                            System.out.println(bill);
+                            System.out.println("Enter Amount Paid: ");
+                            double amountPaid = scanner.nextDouble();
+                            bill.pay(amountPaid);
+                            billTable.addBills(bill);
+                            if (amountPaid >= bill.getTotalPrice()) {
+                                restaurant.getOrderList().removeOrder(tableNumber);
+                            }
+                            billTable.writeToCsv("CSV files/PaymentRecords.csv");
+                        } else {
+                            System.out.println("Invalid Payment Method");
+                        }
                     }
-                }
-
-
-                else if (input.equals("C")) {
+                } else if (input.equals("C")) {
                     System.out.println("Enter Table Number: ");
                     int tableNumber = scanner.nextInt();
                     System.out.println(restaurant.getOrderList().getOrder(tableNumber).checkStatusChef("Chef"));
                 }
-
                 /**
                  * Exit
                  */
-            }else if(input.equals("P")) {
-            	System.out.println("A) for all records or D) for record on specified date");
-            	input = scanner.nextLine();
-            	if(input.equals("A")) {
-            		BillCSV read = new BillCSV();
-            		read.displayCSV("CSV files/PaymentRecords.csv");
-            	}else if(input.equals("D")) {
-            		BillCSV read = new BillCSV();
-            		System.out.println("Press Enter to continue");
-            		read.readFromCSVByDate("CSV files/PaymentRecords.csv");
-            	}
+            } else if  (input.equals("P") && (worker instanceof Manager)) {
+                System.out.println("A) for all records or D) for record on specified date");
+                input = scanner.nextLine();
+                if (input.equals("A")) {
+                    BillCSV read = new BillCSV();
+                    read.displayCSV("CSV files/PaymentRecords.csv");
+                } else if (input.equals("D")) {
+                    BillCSV read = new BillCSV();
+                    System.out.println("Press Enter to continue");
+                    read.readFromCSVByDate("CSV files/PaymentRecords.csv");
+                }
             } else if (input.equals("E")) {
-
                 more = false;
 
             } else {

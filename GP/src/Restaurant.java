@@ -111,4 +111,9 @@ public class Restaurant {
             }
         }
     }
+    public void invalidStaff() {
+       if (staff != getStaff()) {
+           System.out.println("Invalid Staff");
+       }
+    }
 }
