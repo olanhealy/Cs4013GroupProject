@@ -51,5 +51,9 @@ public class Table {
                 ", available=" + available + "}";
     }
 
+    public String toStringForFile() {
+        return tableNo + "," + numberOfSeats;
+    }
+
 
 }

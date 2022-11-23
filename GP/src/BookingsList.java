@@ -43,6 +43,7 @@ public class BookingsList {
     public void addBooking(CustomerInformation booking) {
 
         customers.add(booking);
+
       ;
     }
 

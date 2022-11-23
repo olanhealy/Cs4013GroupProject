@@ -103,12 +103,13 @@ public class RestaurantInterface {
                     System.out.println("Enter Special Requests: ");
                     String requests = scanner.nextLine();
 
-                    bookings.addBooking(new CustomerInformation(name, phoneNumber, time, numberOfGuests, occasion, allergies, requests));
+                    CustomerInformation customer = new CustomerInformation(name, phoneNumber, time, numberOfGuests, occasion, allergies, requests);
+                    bookings.addBooking(customer);
+                    restaurant.getCustomerTable().writeToCsv("CSV files/Bookings.csv", customer);
 
-
-                    /**
-                     * View Booking
-                     */
+                            /**
+                             * View Booking
+                             */
                 } else if (input.equals("V")) {
                     System.out.println("Name of Customer: ");
                     String name = scanner.nextLine();
@@ -141,7 +142,7 @@ public class RestaurantInterface {
                 } else if (input.equals("T")) {
                     System.out.println("Enter number of guests: ");
                     String numberOfGuests = scanner.nextLine();
-                    bookings.takeWalkIn(numberOfGuests);
+                    bookings.addBooking(bookings.takeWalkIn(numberOfGuests));
                 }
 
                 /**
@@ -161,8 +162,9 @@ public class RestaurantInterface {
                     System.out.println("Enter Table Capacity: ");
                     int tableCapacity = scanner.nextInt();
 
+                    Table table = new Table(tableNumber, tableCapacity);
                     restaurant.addTable(tableNumber, tableCapacity);
-
+                    restaurant.getTablesTable().writeToCsv("CSV files/Tables.csv", table);
 
                     /**
                      * Change Table Availability

@@ -1,9 +1,6 @@
 package GP.src;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class TableCSV {
@@ -33,4 +30,16 @@ public class TableCSV {
                 }
 
             }
+
+    public void writeToCsv(String fileName, Table table) {
+        try {
+            FileWriter out = new FileWriter(fileName, true);
+            out.write((table.toStringForFile()) + ", \n");
+
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
         }
