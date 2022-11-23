@@ -188,7 +188,6 @@ public class RestaurantInterface {
 
                     //assigns bookings to tables
                     TableAssignment assign = new TableAssignment(restaurant, bookings.getBookingList().get(pos), timeOfArrival);
-
                     /**
                      * Display all Table Availability
                      */

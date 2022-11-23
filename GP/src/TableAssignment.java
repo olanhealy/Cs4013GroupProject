@@ -38,26 +38,26 @@ public class TableAssignment {
 
             if (!tableFound) {
 
-            System.out.println("No tables available for " + customer.getNumberOfGuests() + " guests");
-            System.out.println("Search other size tables? (Y/N)");
+                System.out.println("No tables available for " + customer.getNumberOfGuests() + " guests");
+                System.out.println("Search other size tables? (Y/N)");
 
-            if (scanner.nextLine().equalsIgnoreCase("y")) {
-                for (int i = 0; i < restaurant.getSeatLayout().size(); i++) {
-                    if (restaurant.getSeatLayout().get(i).getNumberOfSeats() > customer.getNumberOfGuests()) {
-                        System.out.println("Table " + restaurant.getSeatLayout().get(i).getTableNumber() + " is available");
-                    }
-                }
-                System.out.println("Would you like to be seated at a larger table? (Y/N)");
                 if (scanner.nextLine().equalsIgnoreCase("y")) {
-                    System.out.println("Which table would you like to be seated at?");
-                    int tableNo = scanner.nextInt();
                     for (int i = 0; i < restaurant.getSeatLayout().size(); i++) {
-                        if (restaurant.getSeatLayout().get(i).getTableNumber() == tableNo) {
-                            seatTable(customer, restaurant.getSeatLayout().get(i));
-                            break;
+                        if (restaurant.getSeatLayout().get(i).getNumberOfSeats() > customer.getNumberOfGuests()) {
+                            System.out.println("Table " + restaurant.getSeatLayout().get(i).getTableNumber() + " is available");
                         }
                     }
-                }
+                    System.out.println("Would you like to be seated at a larger table? (Y/N)");
+                    if (scanner.nextLine().equalsIgnoreCase("y")) {
+                        System.out.println("Which table would you like to be seated at?");
+                        int tableNo = scanner.nextInt();
+                        for (int i = 0; i < restaurant.getSeatLayout().size(); i++) {
+                            if (restaurant.getSeatLayout().get(i).getTableNumber() == tableNo) {
+                                seatTable(customer, restaurant.getSeatLayout().get(i));
+                                break;
+                            }
+                        }
+                    }
 
                 }
             }
@@ -77,15 +77,15 @@ public class TableAssignment {
         Scanner scanner = new Scanner(System.in);
         boolean tableFound = false;
 
-            if (time == customer.getTimeOfArrival()) {
-                for (int i = 0; i < restaurant.getSeatLayout().size(); i++) {
-                    if (customer.getNumberOfGuests() == restaurant.getSeatLayout().get(i).getNumberOfSeats()){
-                        seatTable(customer, restaurant.getSeatLayout().get(i));
-                        tableFound = true;
-                        break;
-                    }
+        if (time == customer.getTimeOfArrival()) {
+            for (int i = 0; i < restaurant.getSeatLayout().size(); i++) {
+                if (customer.getNumberOfGuests() == restaurant.getSeatLayout().get(i).getNumberOfSeats() && restaurant.getSeatLayout().get(i).getAvailability()){
+                    seatTable(customer, restaurant.getSeatLayout().get(i));
+                    tableFound = true;
+                    break;
                 }
             }
+        }
         if (!tableFound) {
 
             System.out.println("No tables available for " + customer.getNumberOfGuests() + " guests");
@@ -111,7 +111,7 @@ public class TableAssignment {
 
             }
         }
-        }
+    }
 
     /**
      * Seats table if available  and guests can fit
