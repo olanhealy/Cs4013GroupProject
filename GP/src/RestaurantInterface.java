@@ -229,8 +229,8 @@ public class RestaurantInterface {
                     restaurant.getOrderList().addOrder(order, tableNumber);
 
                     Bill a = new Bill(order);
-                    billTable.addBills(a);
-                    billTable.writeToCsv("CSV files/PaymentRecords.csv");
+                    restaurant.getBillTable().addBills(a);
+                    restaurant.getBillTable().writeToCsv("CSV files/PaymentRecords.csv");
 
                     /**
                      * View Order
@@ -246,30 +246,7 @@ public class RestaurantInterface {
                     }
 
 
-                } else if (input.equals("P")) {
-                    System.out.println("Enter Table Number: ");
-                    int tableNumber = scanner.nextInt();
-                    if (restaurant.getOrderList().getOrder(tableNumber) == null) {
-                        System.out.println("No orders filed for this table");
-                    } else {
-                        System.out.println("Enter Payment Method:  (Cash/Card) ");
-                        String paymentMethod = scanner.next();
-                        if (paymentMethod.equals("Cash") || paymentMethod.equals("Card")) {
-                            Bill bill = new Bill(restaurant.getOrderList().getOrder(tableNumber));
-                            System.out.println(bill);
-                            System.out.println("Enter Amount Paid: ");
-                            double amountPaid = scanner.nextDouble();
-                            bill.pay(amountPaid);
-                            billTable.addBills(bill);
-                            if (amountPaid >= bill.getTotalPrice()) {
-                                restaurant.getOrderList().removeOrder(tableNumber);
-                            }
-                            billTable.writeToCsv("CSV files/PaymentRecords.csv");
-                        } else {
-                            System.out.println("Invalid Payment Method");
-                        }
-                    }
-                } else if (input.equals("S")) {
+                }  else if (input.equals("S")) {
                     System.out.println("Enter menuId: ");
                     int i = scanner.nextInt();
                     restaurant.getMenu(i).showFullMenu();
