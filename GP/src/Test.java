@@ -11,34 +11,56 @@ import java.util.Scanner;
 public class Test {
         public static void main(String args[]) {
 
+//                // creates restaurant and bookingList
+//                Restaurant yumLimerick = new Restaurant();
+//                BookingsList bookings = yumLimerick.addBookingsList();
+//                new MenuCreation(yumLimerick);
+//
+//                //Creates CSV file class and date
+//                yumLimerick.setBillTable(new BillCSV());
+//                BillCSV billTable = yumLimerick.getBillTable();
+//                billTable.readFromCSV("CSV files/PaymentRecords.csv");
+//
+//                yumLimerick.setCustomerTable(new CustomerInformationCSV());
+//                CustomerInformationCSV customerTable = yumLimerick.getCustomerTable();
+//                customerTable.readFromCSV("CSV files/Bookings.csv", bookings);
+//
+//                yumLimerick.setTablesTable(new TableCSV());
+//                TableCSV tablesTable = yumLimerick.getTablesTable();
+//                tablesTable.readFromCSV("CSV files/Tables.csv", yumLimerick);
+//
+//                yumLimerick.setRestaurantInterface(new RestaurantInterface());
+//                RestaurantInterface yum = yumLimerick.getRestaurantInterface();
+//
+//                yumLimerick.addStaff(yumLimerick.getStaff());
+//
+//                yum.run(yumLimerick, bookings, "CSV files/PaymentRecords.csv", "CSV files/Bookings.csv", "CSV files/Tables.csv");
+
+                //----------------------------------------------------------------------------------
+
                 // creates restaurant and bookingList
-                Restaurant yumLimerick = new Restaurant();
-                BookingsList bookings = yumLimerick.addBookingsList();
-                new MenuCreation(yumLimerick);
+                Restaurant yumGalway = new Restaurant();
+                BookingsList bookings2 = yumGalway.addBookingsList();
+                new MenuCreation(yumGalway);
 
                 //Creates CSV file class and date
-                yumLimerick.setBillTable(new BillCSV());
-                BillCSV billTable = yumLimerick.getBillTable();
-                //    billTable.readFromCSV("CSV files/PaymentRecords.csv");
+                yumGalway.setBillTable(new BillCSV());
+                BillCSV billTable2 = yumGalway.getBillTable();
 
-                yumLimerick.setCustomerTable(new CustomerInformationCSV());
-                CustomerInformationCSV customerTable = yumLimerick.getCustomerTable();
-                customerTable.readFromCSV("CSV files/Bookings.csv", bookings);
+                yumGalway.setCustomerTable(new CustomerInformationCSV());
+                CustomerInformationCSV customerTable2 = yumGalway.getCustomerTable();
+                customerTable2.readFromCSV("CSV files/BookingsGalway.csv", bookings2);
 
-                yumLimerick.setTablesTable(new TableCSV());
-                TableCSV tablesTable = yumLimerick.getTablesTable();
-                tablesTable.readFromCSV("CSV files/Tables.csv", yumLimerick);
+                yumGalway.setTablesTable(new TableCSV());
+                TableCSV tablesTable2 = yumGalway.getTablesTable();
+                tablesTable2.readFromCSV("CSV files/TablesGalway.csv", yumGalway);
 
-                yumLimerick.setRestaurantInterface(new RestaurantInterface());
-                RestaurantInterface yum = yumLimerick.getRestaurantInterface();
+                yumGalway.setRestaurantInterface(new RestaurantInterface());
+                RestaurantInterface yum2 = yumGalway.getRestaurantInterface();
 
-                yumLimerick.addStaff(yumLimerick.getStaff());
+                yumGalway.addStaff(yumGalway.getStaff());
 
-                //yum.staffLogin(staff);
-                // yum.run(staff, yumLimerick, bookings, write);
-                yum.run(yumLimerick, bookings, billTable);
-//        StaffLogin login = new StaffLogin();
-//        login.addStaff(new Manager("Eoin", 222, "Manager49"));
-//        login.system();
+                yum2.run(yumGalway, bookings2, "CSV files/PaymentRecordsGalway.csv", "CSV files/BookingsGalway.csv", "CSV files/TablesGalway.csv");
+
         }
 }

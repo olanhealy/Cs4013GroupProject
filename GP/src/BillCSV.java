@@ -79,38 +79,7 @@ public class BillCSV {
 	 * Method read CSV data and holds it in array values
 	 *
 	 */
-	public String[] readFromCSV(String fileName) {
 
-		String line = "";
-		double total = 0;
-
-		String[] empty = new String[0];
-		try {
-
-			BufferedReader br = new BufferedReader(new FileReader(fileName));
-
-
-			while ((line = br.readLine()) != null) {
-
-				//Stores CSV elements in array values
-				String[] values = line.split(", ");
-
-				total = total + Double.parseDouble(values[1]);
-
-				//returns an array of values
-				return values;
-			}
-
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		//return empty array if file not read
-		return empty;
-	}
 
 	/**
 	 *
