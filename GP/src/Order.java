@@ -79,6 +79,7 @@ public class Order {
         return total;
     }
 
+
     /**
      *enum used as these variables are unchangeable and are used to set the status of the order
      *@author Olan Healy
@@ -91,30 +92,17 @@ public class Order {
      * @author Olan Healy
      */
     public setStatus getStatus() {
+        if (status == null) {
+            status = setStatus.ORDERED;
+        }
         return status;
     }
 
 
-    /**
-     *
-     * @param status
-     * @return status for chef to know to start cooking food
-     *@author Olan Healy
-     */
 
-    public boolean checkStatusChef(String status) {
-        return(status.equals("ORDERED")); //links to chef
-    }
-    /**
-     *
-     * @param status
-     * @return status for waiter to know to serve food
-     *@author Olan Healy
-     */
 
-    public boolean setStatus(String status) {
-        return(status.equals("READY"));
-    }
+
+
 
     @Override
     public String toString() {

@@ -285,9 +285,14 @@ public class RestaurantInterface {
                     }else if(input.equals("C")) {
                     System.out.println("Enter Table Number: ");
                     int tableNumber = scanner.nextInt();
-//                    System.out.println(restaurant.getOrderList().getOrderStatus());;
+                    if (restaurant.getOrderList().getOrder(tableNumber) == null) {
+                        System.out.println("No orders filed for this table");
+                    } else {
+                        System.out.println(restaurant.getOrderList().getOrder(tableNumber).getStatus());
+                    }
 
                 }
+
 
 
                 /**

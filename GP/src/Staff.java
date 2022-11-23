@@ -8,11 +8,13 @@ public class Staff {
     private String password;
 
 
+
     public Staff(String name, int id, String password) {
         this.name = name;
         this.id = id;
         this.password = password;
     }
+
 
     public String getStaffType() {
         if (this instanceof Manager) {
@@ -39,4 +41,8 @@ public class Staff {
     public String toString() {
         return name + ": id =" + id + " : password=" + password;
     }
+
+
+
 }
+
