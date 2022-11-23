@@ -235,9 +235,7 @@ public class RestaurantInterface {
                     order.takeOrder(restaurant.getTable(tableNumber), restaurant.getMenu(menuId), numberOfGuests);
                     restaurant.getOrderList().addOrder(order, tableNumber);
 
-                    Bill a = new Bill(order);
-                    restaurant.getBillTable().addBills(a);
-                    restaurant.getBillTable().writeToCsv("CSV files/PaymentRecords.csv");
+
 
                     /**
                      * View Order

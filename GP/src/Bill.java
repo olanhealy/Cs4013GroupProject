@@ -40,34 +40,6 @@ public class Bill {
 	 */
 
 
-//	public void pay(String paymentMethod, double tender) {
-//
-//		if (paymentMethod == "Cash") {
-//			total = total - tender;
-//			if (total < 0) {
-//				//Customer change
-//				total = -total;
-//				System.out.println(" Customer change " + total);
-//
-//
-//			} else if (total == 0) {
-//				System.out.println(" No change required");
-//			} else {
-//				System.out.println(" Insufficent Cash");
-//			}
-//		}
-//		//Card Payment
-//		if (paymentMethod == "Card" && total < tender) {
-//			System.out.println("\n Payment complete");
-//			payed();
-//		} else if (paymentMethod == "Card" && total > tender) {
-//			System.out.println("\n Card declined");
-//		} else {
-//			if (paymentMethod != "Card" || paymentMethod != "Cash") {
-//				System.out.println("Invalid payment method");
-//			}
-//		}
-//	}
 
 
 	public void pay(double amountPaid) {
@@ -97,7 +69,7 @@ public class Bill {
 					System.out.println("How much did they tip?");
 					tipAmt = Scanner.nextDouble();
 					this.tip = tipAmt;
-					System.out.println("Tip of " + tipAmt + " added to bill");
+					System.out.println("Tip of $" + tipAmt + " added to bill amount for sotring records");
 						run = false;
 
 				} else if (tip.equals("N")) {
@@ -116,7 +88,10 @@ public class Bill {
 		return total;
 	}
 	public String toString() {
-		return " " + total + ", " + tip;
+		return "Bill: $" +  total ;
+	}
+	public String toStringForFile() {
+		return " " + (total  + tip) + ", " + tip ;
 	}
 }
 

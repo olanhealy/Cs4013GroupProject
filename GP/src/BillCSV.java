@@ -63,7 +63,7 @@ public class BillCSV {
 		try {
 			FileWriter out = new FileWriter(fileName, true);
 			for (Bill bill : bills) {
-				out.write((day + "/" + month + "/" + year + "," + bill.toString()) + ", \n");
+				out.write((day + "/" + month + "/" + year + "," + bill.toStringForFile()) + ", \n");
 			}
 
 			out.close();
@@ -132,13 +132,13 @@ public class BillCSV {
 				String[] values = line.split(", ");
 
 				//Prints CSV elements to console
-				System.out.println("Date: " + values[0] + " Total: €" + values[1]);
+				System.out.println("Date: " + values[0] + " Total: $" + values[1]);
 
 				total = total + Double.parseDouble(values[1]);
 
 			}
 
-			System.out.println("Total sales: €" + total);
+			System.out.println("Total sales: $" + total);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -179,11 +179,11 @@ public class BillCSV {
 				String[] values = dates.get(i).split(", ");
 				int day2 = Integer.parseInt(values[0].substring(0,2));
 				if((values[0].equals(date) || values[0].equals(endDate) == false) && day2 > day1 && day2 < day3){
-					System.out.println("Date: " + values[0] + " Total: €" + values[1]);
+					System.out.println("Date: " + values[0] + " Total: $" + values[1]);
 					total = total + Double.parseDouble(values[1]);
 				}
 			}
-			System.out.println("Total sales in this period €" + total);
+			System.out.println("Total sales in this period $" + total);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

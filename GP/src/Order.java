@@ -71,11 +71,10 @@ public class Order {
 
     public double getTotal() {
         double total = 0;
-        for (int i = 0; i < this.table.getNumberOfSeats(); i++) {
-            for (int j = 0; j < this.menu.getCourses().size(); j++) {
-                total += this.menu.getCourses().get(j).getItems().get(i).getPrice();
+        for (MenuItem item : orderItems) {
+            total += item.getPrice();
             }
-        }
+
         return total;
     }
 
@@ -85,7 +84,7 @@ public class Order {
      *@author Olan Healy
      */
     public enum setStatus {
-        ORDERED, READY, SERVED
+        ORDERED
     }
     /**
      * Sets the status of the order
