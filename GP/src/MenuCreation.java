@@ -36,5 +36,26 @@ public class MenuCreation {
         restaurant.getCourse(0,3).addMenuItem(new MenuItem("Malbec",8.00));
         restaurant.getCourse(0,3).addMenuItem(new MenuItem("Prosecco",10.00));
 
+        //adds menu
+        restaurant.addMenu("Set Menu");
+
+        //adds course
+        restaurant.getMenus().get(1).addCourse("Starters");
+        restaurant.getMenus().get(1).addCourse("Mains");
+        restaurant.getMenus().get(1).addCourse("Desserts");
+
+        //adds foodItems
+        restaurant.getCourse(1,0).addMenuItem(new MenuItem("Soup",4.00 ));
+        restaurant.getCourse(1,0).addMenuItem(new MenuItem("Prawns",4.00));
+
+
+        restaurant.getCourse(1,1).addMenuItem(new MenuItem("Ribeye Steak",20.00));
+        restaurant.getCourse(1,1).addMenuItem(new MenuItem("Chicken",20.00));
+        restaurant.getCourse(1,1).addMenuItem(new MenuItem("Pork Chop",20.00));
+
+        restaurant.getCourse(1,2).addMenuItem(new MenuItem("Brownie",6.00));
+        restaurant.getCourse(1,2).addMenuItem(new MenuItem("Sundae",6.00));
+
+
     }
 }
