@@ -1,14 +1,15 @@
 package GP.src;
 import java.io.BufferedReader;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileWriter;
-import java.util.ArrayList;    
+import java.util.ArrayList;
 /**
- * 
+ *
  * @author seanc
  *
  */
@@ -23,6 +24,7 @@ public class BillCSV {
 	private ArrayList<Bill> bills = new ArrayList<Bill>();
 
 	private LocalDate date = LocalDate.now();
+	private static final DecimalFormat df = new DecimalFormat("0.00");
 
 	/**
 	 * Creates date for data being written to CSV file
@@ -36,7 +38,7 @@ public class BillCSV {
 		this.year = Integer.parseInt(dates[0]);
 		this.month = Integer.parseInt(dates[1]);
 		this.day = Integer.parseInt(dates[2]);
-		
+
 		/*
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter year");
@@ -77,8 +79,7 @@ public class BillCSV {
 
 	/**
 	 * @param fileName String that holds the file path to PaymentRecords.csv
-	 * Method read CSV data and holds it in array values
-	 *
+	 *                 Method read CSV data and holds it in array values
 	 */
 	public String[] readFromCSV(String fileName) {
 
@@ -114,11 +115,10 @@ public class BillCSV {
 	}
 
 	/**
-	 *
 	 * @param fileName String that holds the file path to PaymentRecords.csv
-	 * Method prints CSV file data to the console
+	 *                 Method prints CSV file data to the console
 	 */
-	public void displayCSV(String fileName){
+	public void displayCSV(String fileName) {
 
 		String line = "";
 		double total = 0;
@@ -133,58 +133,62 @@ public class BillCSV {
 				String[] values = line.split(", ");
 
 				//Prints CSV elements to console
-				System.out.println("Date: " + values[0] + " Total: €" + values[2] + " " + values[3] + " " + values[4]
-						+ " " + values[5] + " " + values[6] + " " + values[7] + " " + values[8] + " " + values[9]);
+				System.out.println("Date: " + values[0] + " Total: €" + values[1] + " " + values[2] + " " + values[3]
+						+ " " + values[4] + " " + values[5] + " " + values[6] + " " + values[7] + " " + values[8]);
 
-				total = total + Double.parseDouble(values[2]);
+				total = total + Double.parseDouble(values[1]);
+
 
 			}
 
-			System.out.println("Total sales: €" + total);
+			System.out.println("Total sales: €" + df.format(total));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-			}
+	}
 
 	public void readFromCSVByDate(String fileName) {
-
+		LocalDate dateNow = LocalDate.now();
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.nextLine();
 		String line = "";
 		double total = 0;
 		System.out.print("Please Enter Date dd/mm/yy");
 		String date = scanner.nextLine();
-		try {
+			try {
 
 
-			BufferedReader br = new BufferedReader(new FileReader(fileName));
+				BufferedReader br = new BufferedReader(new FileReader(fileName));
 
 
-			while ((line = br.readLine()) != null) {
+				while ((line = br.readLine()) != null) {
 
-				String[] values = line.split(", ");
+					String[] values = line.split(", ");
 
-				if (values[0].equals(date)) {
+					if (values[0].equals(date)) {
 
-					System.out.println("Date: " + values[0] + " Total: €" + values[2] + " " + values[3] + " " + values[4]
-							+ " " + values[5] + " " + values[6] + " " + values[7] + " " + values[8] + " " + values[9]);
+						System.out.println("Date: " + values[0] + " Total: €" + values[2] + " " + values[3] + " " + values[4]
+								+ " " + values[5] + " " + values[6] + " " + values[7] + " " + values[8] + " " + values[9]);
 
-					total = total + Double.parseDouble(values[2]);
+						total = total + Double.parseDouble(values[2]);
+						df.format(total);
+
+					}
 
 				}
-
+				System.out.println("Total sales for " + date + ": €" + total);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-			System.out.println("Total sales for " + date + ": €" + total);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
-}
+
+
 
 	
 

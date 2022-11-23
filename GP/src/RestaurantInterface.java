@@ -24,10 +24,18 @@ public class RestaurantInterface {
         String password = scannerMain.next();
 
         Staff worker = restaurant.getStaff().get(restaurant.validStaff(id, password));
+        String placeHolder = null;
+        if (worker.getStaffType() == "Manager") {
+            placeHolder = "You have access to: R)evise Staff B)ookings, T)ables, O)rder, P)ayment Records, E)xit ";
+        } else if (worker.getStaffType() == "Waiter") {
+            placeHolder = "You have access to: B)ookings, T)ables, O)rder, E)xit ";
+        } else {
+            placeHolder = "You have access to: O)rder, E)xit ";
+        }
 
         StringBuilder sb = new StringBuilder();
         sb.append("Welcome, " + worker.getName() + " role: " + worker.getStaffType());
-        System.out.println(sb);
+        System.out.println(sb + "\n" + placeHolder);
 
         while (more) {
 
@@ -76,8 +84,7 @@ public class RestaurantInterface {
              * Bookings
              */
 
-            else if (input.equals("B")
-                    && (worker instanceof Waiter || worker instanceof Manager)
+            else if (input.equals("B") && (worker instanceof Waiter || worker instanceof Manager)
             ) {
 
                 //TODO add booking to CSV file
@@ -148,7 +155,7 @@ public class RestaurantInterface {
                 /**
                  * Tables
                  */
-            } else if (input.equals("T") && (worker instanceof Manager)) {
+            } else if (input.equals("T") && (worker instanceof Manager || worker instanceof Waiter)) {
 
                 System.out.println("A)dd Table, S)eat Table, C)hange Table Availability, D)isplay all Table Availability");
                 input = scanner.nextLine();
@@ -200,7 +207,7 @@ public class RestaurantInterface {
                 /**
                  * Order
                  */
-            } else if (input.equals("O")) {
+            } else if (input.equals("O") ) {
 
 
                 //TODO add Menu.showFullMenu access
@@ -236,7 +243,6 @@ public class RestaurantInterface {
                      * View Order
                      */
                 } else if (input.equals("V")) {
-
                     System.out.println("Enter table number: ");
                     int tableNumber = scanner.nextInt();
                     if (restaurant.getOrderList().getOrder(tableNumber) == null) {
@@ -248,6 +254,7 @@ public class RestaurantInterface {
 
                 }  else if (input.equals("S")) {
                     System.out.println("Enter menuId: ");
+
                     int i = scanner.nextInt();
                     restaurant.getMenu(i).showFullMenu();
 
@@ -278,13 +285,15 @@ public class RestaurantInterface {
                     }else if(input.equals("C")) {
                     System.out.println("Enter Table Number: ");
                     int tableNumber = scanner.nextInt();
-                    System.out.println(restaurant.getOrderList().getOrder(tableNumber).checkStatusChef("Chef"));
+                    System.out.println(restaurant.getOrderList().getOrderStatus());;
+
                 }
+
 
                 /**
                  * Exit
                  */
-            }else if(input.equals("P")) {
+            }else if(input.equals("P") && (worker instanceof Manager)) {
                 System.out.println("A) for all records or D) for record on specified date");
                 input = scanner.nextLine();
                 if(input.equals("A")) {
