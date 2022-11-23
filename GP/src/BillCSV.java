@@ -158,6 +158,7 @@ public class BillCSV {
 		int day1 = Integer.parseInt(date.substring(0, 2));
 		System.out.println("Please Enter End Date dd/mm/yyyy (non-inclusive)");
 		String endDate = scanner.nextLine();
+		int day3 = Integer.parseInt(endDate.substring(0, 2));
 
 
 		ArrayList<String> dates = new ArrayList<>();
@@ -177,7 +178,7 @@ public class BillCSV {
 			for(int i = 0; i < dates.size(); i ++){
 				String[] values = dates.get(i).split(", ");
 				int day2 = Integer.parseInt(values[0].substring(0,2));
-				if((values[0].equals(date) || values[0].equals(endDate) == false) && day2 > day1){
+				if((values[0].equals(date) || values[0].equals(endDate) == false) && day2 > day1 && day2 < day3){
 					System.out.println("Date: " + values[0] + " Total: €" + values[1]);
 					total = total + Double.parseDouble(values[1]);
 				}
