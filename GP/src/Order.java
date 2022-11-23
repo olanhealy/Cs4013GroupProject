@@ -43,7 +43,7 @@ public class Order {
                 System.out.println("Order: " + menu.getCourses().get(j).getName());
                 try {
                     //seaches for item in course
-                    String itemSearch = scanner.next();
+                    String itemSearch = scanner.nextLine();
                     //returns item index in course
                     int check = menu.getCourses().get(j).getMenuItemPos(itemSearch);
                     //adds item to order array
