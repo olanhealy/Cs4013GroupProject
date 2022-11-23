@@ -114,10 +114,12 @@ public class Bill {
 	public double getTotalPrice() {
 		return total;
 	}
-	public String toString() {
-		return "Bill total= " + total;
+
+		public String toString() {
+			return " "+ ", " + total + ", " +order.getOrderItems();
+		}
 	}
-}
+
 
 
 	
