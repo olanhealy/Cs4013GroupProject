@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 /**
  * 
  * @author seanc
@@ -152,10 +153,14 @@ public class BillCSV {
 		String input = scanner.nextLine();
 		String line = "";
 		double total = 0;
-		System.out.print("Please Enter Start Date dd/mm/yy");
+		System.out.print("Please Enter Start Date dd/mm/yy (non-inclusive)");
 		String date = scanner.nextLine();
+		int day1 = Integer.parseInt(date.substring(0, 2));
 		System.out.println("Please Enter End Date dd/mm/yyyy (non-inclusive)");
 		String endDate = scanner.nextLine();
+
+
+		ArrayList<String> dates = new ArrayList<>();
 		try {
 
 
@@ -166,20 +171,18 @@ public class BillCSV {
 
 				String[] values = line.split(", ");
 
-				if (values[0].equals(date) || values[0].equals(endDate) == false) {
-
-					System.out.println("Date: " + values[0] + " Total: €" + values[1]);
-
-					total = total + Double.parseDouble(values[1]);
-
-					if(values[0].equals(endDate) == true){
-						System.out.println("Total sales in this period €" + total);
-						return;
-					}
-				}
+				dates.add(values[0] + ", " + values[1]);
 
 			}
-
+			for(int i = 0; i < dates.size(); i ++){
+				String[] values = dates.get(i).split(", ");
+				int day2 = Integer.parseInt(values[0].substring(0,2));
+				if((values[0].equals(date) || values[0].equals(endDate) == false) && day2 > day1){
+					System.out.println("Date: " + values[0] + " Total: €" + values[1]);
+					total = total + Double.parseDouble(values[1]);
+				}
+			}
+			System.out.println("Total sales in this period €" + total);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
