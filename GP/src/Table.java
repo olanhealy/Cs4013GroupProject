@@ -11,7 +11,7 @@ public class Table {
     private boolean available;
     private Order order;
 
-    Scanner scanner = new Scanner(System.in);
+
 
     public Table(int tableNo, int numberOfSeats) {
         this.tableNo = tableNo;
@@ -38,6 +38,10 @@ public class Table {
      * Used to mark a table as empty
      */
     public void setTableEmpty() { this.available = true; }
+    public Order getOrder() {
+
+        return order;
+    }
 
     @Override
     public String toString() {
@@ -47,8 +51,5 @@ public class Table {
                 ", available=" + available + "}";
     }
 
-    public Order getOrder() {
 
-        return order;
-    }
 }

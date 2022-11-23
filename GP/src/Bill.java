@@ -68,9 +68,7 @@ public class Bill {
 //			}
 //		}
 //	}
-	public String toString() {
-		return "Bill total= " + total;
-	}
+
 
 	public void pay(double amountPaid) {
 		Scanner Scanner = new Scanner(System.in);
@@ -115,6 +113,9 @@ public class Bill {
 
 	public double getTotalPrice() {
 		return total;
+	}
+	public String toString() {
+		return "Bill total= " + total;
 	}
 }
 

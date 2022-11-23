@@ -63,19 +63,6 @@ public class Order {
         return menuItem;
     }
 
-    /**
-     * Shows the Order for the table
-     */
-    public void showOrder() {
-        System.out.println("Order for table " + this.table.getTableNumber());
-        for (int i = 0; i < this.table.getNumberOfSeats(); i++) {
-            for (int j = 0; j < this.menu.getCourses().size(); j++) {
-                System.out.println(this.menu.getCourses().get(j).getName());
-                System.out.println(this.menu.getCourses().get(j).getItems().get(i));
-                status = setStatus.ORDERED; //OLAN: sets status to ordered as food is being shown as ordered
-            }
-        }
-    }
 
     /**
      *

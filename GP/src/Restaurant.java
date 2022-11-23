@@ -95,6 +95,13 @@ public class Restaurant {
             System.out.println(table.getTableNumber() + ":" + table.getAvailability());
         }
     }
+    public void removeStaff(String name, String password1) {
+        for (Staff staff : getStaff()) {
+            if ((staff.getName().equals(name) ) && (staff.getPassword().equals(password1))) {
+                getStaff().remove(staff);
+            }
+        }
+    }
 
     @Override
     public String toString() {
@@ -104,16 +111,6 @@ public class Restaurant {
     }
 
 
-    public void removeStaff(String name, String password1) {
-        for (Staff staff : getStaff()) {
-            if ((staff.getName().equals(name) ) && (staff.getPassword().equals(password1))) {
-                getStaff().remove(staff);
-            }
-        }
-    }
-    public void invalidStaff() {
-       if (staff != getStaff()) {
-           System.out.println("Invalid Staff");
-       }
-    }
+
+
 }
