@@ -14,12 +14,12 @@ public class Bill {
 
 	private Restaurant restaurant;
 	private static final DecimalFormat df = new DecimalFormat("0.00");
-
+	private double tip;
 
 	private double total;
 
 	/**
-	 * @param paymentMethod Method of payment for Order, takes cash or card
+	 *
 	 * @param order
 	 */
 	public Bill(Order order) {
@@ -96,6 +96,7 @@ public class Bill {
 				if (tip.equals("Y")) {
 					System.out.println("How much did they tip?");
 					tipAmt = Scanner.nextDouble();
+					this.tip = tipAmt;
 					System.out.println("Tip of " + tipAmt + " added to bill");
 						run = false;
 
@@ -114,12 +115,10 @@ public class Bill {
 	public double getTotalPrice() {
 		return total;
 	}
-
-		public String toString() {
-			return " "+ ", " + total + ", " +order.getOrderItems();
-		}
+	public String toString() {
+		return " " + total + ", " + tip;
 	}
-
+}
 
 
 	
