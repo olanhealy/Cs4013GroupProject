@@ -18,8 +18,9 @@ There are many requirements when managing a restaurant chain. Some ones we will 
 7. They will need to have a waiting list for customer who wish to take up any available cancellations.
 8. They will need to have a system so as they customers can pay by cash or card.
 9. They will need to have a system which keeps track of reservations in case any walk in customers can be seated
-
-
+------------------------------------------------
+## UML Diagram
+![](images/UML_Diagram1stDraft.drawio.png)
 ------------------------------------------------
 ## Use case 
 
