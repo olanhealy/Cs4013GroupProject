@@ -2,22 +2,20 @@
 ## Team Members:
 1. Olan Healy:    21318204
 2. Kevin Collins: 21344256
-3. Adam Clarke:   20228805 //gone dropped out
+3. Mohammad Islam 21304599
 4. Sean Capilis:  21342342
-
 
 ----------------------------------------------
 ## System Requirements
 There are many requirements when managing a restaurant chain. Some ones we will look at are:
-1. They will need to be able to manage how many free tables there are on specific dates/ the time they are available at.
+1. They will need to be able to manage how many free tables there are at a time they are available at.
 2. They will need be able to manage how to take in the details of each customer to notify them about the availability of their booking.
 3. They will need to be able to take in the orders from the customers and deliver them to the kitchen staff.
 4. They will need to be able to supply a menu for the customer, so they can pick what they want to eat.
 5. They will need to keep track of how much each table needs to pay for the food they consume.
 6. They will need to have a cancellation system for their customers if they can no longer attend.
-7. They will need to have a waiting list for customer who wish to take up any available cancellations.
-8. They will need to have a system so as they customers can pay by cash or card.
-9. They will need to have a system which keeps track of reservations in case any walk in customers can be seated
+7. They will need to have a system so as they customers can pay by cash or card.
+8. They will need to have a system which keeps track of reservations in case any walk in customers can be seated
 ------------------------------------------------
 ## UML Diagram
 ![](images/UML_Diagram1stDraft.drawio.png)
@@ -36,9 +34,7 @@ __Chef:__ Mainly responsible for cooking the food ordered by the customers.
 2. __Set Tables:__ Make sure the correct number of seats for required customers are there.
 3. __Book table:__ Add in a table booking.
 4. __Order food:__ Customer orders food and order is sent to Chef via waiter/ess.
-5. __Cook food:__ Cook the customers food. 
-6. __Eat food:__ Customer eats the food cooked by the chef and distributed by the waiter/ess.
-7. __Pay for food:__ Customer pays for the food they consumed on their table.
+5. __Pay for food:__ Customer pays for the food they consumed on their table.
 ![](images/UseCase_.png)
 ------------------------------------------------
 ## CRC diagrams
