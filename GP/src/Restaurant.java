@@ -78,11 +78,19 @@ public class Restaurant {
         return -1;
     }
 
-    public void addStaff(ArrayList<Staff> staffList) {
+    public void addLimerickStaff(ArrayList<Staff> staffList) {
 
-        staffList.add(new Waiter("Billy", 13, "Helt23"));
+        staffList.add(new Waiter("Billy", 13, "2023"));
         staffList.add(new Chef("Sally", 8, "Yu564"));
         staffList.add(new Manager("Bobby", 1, "Y"));
+
+    }
+
+    public void addGalwayStaff(ArrayList<Staff> staffList) {
+
+        staffList.add(new Waiter("John", 13, "RedRose"));
+        staffList.add(new Chef("Mary", 8, "Choco"));
+        staffList.add(new Manager("Jay", 1, "4321"));
 
     }
 

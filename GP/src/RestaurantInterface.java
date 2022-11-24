@@ -297,12 +297,12 @@ public class RestaurantInterface {
                 System.out.println("A) for all records or D) for record on specified date");
                 input = scanner.nextLine();
                 if(input.equals("A")) {
-                    BillCSV read = new BillCSV();
-                    read.displayCSV(billFile);
+
+                    restaurant.getBillTable().displayCSV(billFile);
                 }else if(input.equals("D")) {
-                    BillCSV read = new BillCSV();
+
                     System.out.println("Press Enter to continue");
-                    read.readFromCSVByDate(billFile);
+                    restaurant.getBillTable().readFromCSVByDate(billFile);
                 }
             } else if (input.equals("E")) {
 

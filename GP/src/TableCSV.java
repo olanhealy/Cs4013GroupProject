@@ -20,6 +20,10 @@ public class TableCSV {
                     while((line = br.readLine()) != null) {
 
                         String[] values = line.split(",");
+                        final String UTF8_BOM = "\uFEFF";
+                        while(values[0].startsWith(UTF8_BOM)) {
+                            values[0] = values[0].substring(1);
+                        }
                         Table table = new Table(Integer.parseInt(values[0]),Integer.parseInt(values[1]));
                         restaurant.addTable(table.getTableNumber(), table.getNumberOfSeats());
                     }
