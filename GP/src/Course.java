@@ -15,7 +15,6 @@ public class Course {
     private String name ;
     private ArrayList<MenuItem> items = new ArrayList();
 
-
     public ArrayList<MenuItem> getItems() { return items; }
     public String getName() { return name; }
 

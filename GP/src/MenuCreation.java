@@ -2,6 +2,10 @@ package GP.src;
 
 public class MenuCreation {
 
+    /**
+     * Creates menu required for the restaurant
+     * @param restaurant the restaurant to create the menu for
+     */
     public MenuCreation(Restaurant restaurant){
         //adds menu
         restaurant.addMenu("Al la Carte");

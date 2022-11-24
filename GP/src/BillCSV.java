@@ -7,20 +7,16 @@ import java.util.Scanner;
 
 
 /**
- * 
+ * Class reads and writes to BILL.csv
  * @author seanc
  *
  */
 public class BillCSV {
 
 	private int year;
-
 	private int month;
-
 	private int day;
-
 	private ArrayList<Bill> bills = new ArrayList<Bill>();
-
 	private LocalDate date = LocalDate.now();
 
 	/**
@@ -29,22 +25,11 @@ public class BillCSV {
 	public BillCSV() {
 
 		String dateToString = date.toString();
-
 		String dates[] = dateToString.split("-");
 
 		this.year = Integer.parseInt(dates[0]);
 		this.month = Integer.parseInt(dates[1]);
 		this.day = Integer.parseInt(dates[2]);
-		
-		/*
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter year");
-		this.year = scanner.nextInt();
-		System.out.println("Enter Month");
-		this.month = scanner.nextInt();
-		System.out.println("Enter day");
-		this.day = scanner.nextInt();
-		*/
 	}
 
 	/**
@@ -56,7 +41,6 @@ public class BillCSV {
 
 	/**
 	 * Writes bill infromation to CSV file
-	 *
 	 * @param fileName String for CSV filepath
 	 */
 	public void writeToCsv(String fileName) {
@@ -68,7 +52,6 @@ public class BillCSV {
 
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -148,10 +131,14 @@ public class BillCSV {
 
 			}
 
+
+	/**
+	 * Used to get payments between two dates
+	 * @param fileName String that holds the file path to PaymentRecords.csv
+	 */
 	public void readFromCSVByDate(String fileName) {
 
 		Scanner scanner = new Scanner(System.in);
-		String input = scanner.nextLine();
 		String line = "";
 		double total = 0;
 		System.out.print("Please Enter Start Date dd/mm/yy (non-inclusive)");
@@ -161,18 +148,14 @@ public class BillCSV {
 		String endDate = scanner.nextLine();
 		int day3 = Integer.parseInt(endDate.substring(0, 2));
 
-
 		ArrayList<String> dates = new ArrayList<>();
 		try {
 
-
 			BufferedReader br = new BufferedReader(new FileReader(fileName));
-
 
 			while ((line = br.readLine()) != null) {
 
 				String[] values = line.split(", ");
-
 				dates.add(values[0] + ", " + values[1]);
 
 			}

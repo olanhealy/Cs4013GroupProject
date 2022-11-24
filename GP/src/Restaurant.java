@@ -7,9 +7,9 @@ import java.util.Random;
 /**
  * Class creates restaurant (used for multiple restaurants in a chain)
  * <p>
- *
+ *  Class used to add and remove different aspects of the restaurant (staff, table)
  * </p>
- * @author Kevin Collins
+ * @author Kevin Collins && Olan Healy
  */
 public class Restaurant {
 
@@ -37,6 +37,7 @@ public class Restaurant {
     public TableCSV getTablesTable() { return tablesTable; }
     public RestaurantInterface getRestaurantInterface() { return restaurantInterface; }
 
+    //setters
     public void setBillTable(BillCSV billTable) { this.billTable = billTable; }
     public void setCustomerTable(CustomerInformationCSV customerTable) { this.customerTable = customerTable; }
     public void setTablesTable(TableCSV tablesTable) { this.tablesTable = tablesTable; }
@@ -55,7 +56,6 @@ public class Restaurant {
      * adds menu to the restaurant
      * @param name menu name
      */
-
     public void addMenu(String name) {
         getMenus().add(new Menu(name));
     }
@@ -68,6 +68,13 @@ public class Restaurant {
         BookingsList booking = new BookingsList();
         return booking;
     }
+
+    /**
+     * check if password and id are correct for staff memeber
+     * @param id staff id
+     * @param password staff password
+     * @return position of staff member in staff arraylist
+     */
     public int validStaff(int id, String password) {
         for (Staff staff : getStaff()) {
             if ((staff.getId() == id) && (staff.getPassword().equals(password))) {
@@ -78,6 +85,10 @@ public class Restaurant {
         return -1;
     }
 
+    /**
+     * Adds staff to Limerick restaurant
+     * @param staffList list of staff
+     */
     public void addLimerickStaff(ArrayList<Staff> staffList) {
 
         staffList.add(new Waiter("Billy", 13, "2023"));
@@ -86,26 +97,42 @@ public class Restaurant {
 
     }
 
+    /**
+     * Adds staff to Galway restaurant
+     * @param staffList staff list
+     */
     public void addGalwayStaff(ArrayList<Staff> staffList) {
 
         staffList.add(new Waiter("John", 13, "RedRose"));
         staffList.add(new Chef("Mary", 8, "Choco"));
         staffList.add(new Manager("Jay", 1, "4321"));
-
     }
 
+    /**
+     *
+     * @return list of staff
+     */
     public ArrayList<Staff> getStaff() {
         return staff;
     }
 
+    /**
+     * Prints out table id and availability for each table
+     */
     public void checkAllAvailability(){
         for (Table table : getSeatLayout()) {
             System.out.println(table.getTableNumber() + ":" + table.getAvailability());
         }
     }
-    public void removeStaff(String name, String password1) {
+
+    /**
+     * Removes staff
+     * @param name staff name
+     * @param passwordRem staff password
+     */
+    public void removeStaff(String name, String passwordRem) {
         for (Staff staff : getStaff()) {
-            if ((staff.getName().equals(name) ) && (staff.getPassword().equals(password1))) {
+            if ((staff.getName().equals(name) ) && (staff.getPassword().equals(passwordRem))) {
                 getStaff().remove(staff);
             }
         }
@@ -117,8 +144,4 @@ public class Restaurant {
                 "seatLayout=" + seatLayout +
                 '}';
     }
-
-
-
-
 }

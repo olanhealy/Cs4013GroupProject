@@ -4,23 +4,26 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
- * 
- * @author seanc
+ * This class deals with the bill of the order
+ * <p>
+ *     Class calculates the total price of the order
+ *     Class pays order
+ *     Class removes order from array
+ * </p>
+ * @author Sean Caplis & Olan Healy
  *
  */
 public class Bill {
 
 	private Order order;
-
 	private Restaurant restaurant;
 	private static final DecimalFormat df = new DecimalFormat("0.00");
 	private double tip;
-
 	private double total;
 
 	/**
-	 *
-	 * @param order
+	 * Creates Bill Object
+	 * @param order Order Object
 	 */
 	public Bill(Order order) {
 
@@ -29,19 +32,9 @@ public class Bill {
 	}
 
 	/**
-	 * @return Total value of the order
+	 * Pays the order
+	 * @param amountPaid Amount paid by customer
 	 */
-	public double getTotal() {
-		return total;
-	}
-
-	/**
-	 * String representation
-	 */
-
-
-
-
 	public void pay(double amountPaid) {
 		Scanner Scanner = new Scanner(System.in);
 		boolean run = true;
@@ -81,12 +74,14 @@ public class Bill {
 		}
 	}
 
-
-
-
+	/**
+	 * gets the total of the order
+	 * @return total
+	 */
 	public double getTotalPrice() {
 		return total;
 	}
+
 	public String toString() {
 		return "Bill: $" +  total ;
 	}

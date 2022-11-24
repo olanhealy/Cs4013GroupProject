@@ -6,8 +6,7 @@ import java.util.ArrayList;
  * This class creates menuItem objects (food or drink)
  * @author Kevin Collins
  */
-public class
-MenuItem {
+public class MenuItem {
     private String name;
     private double price;
     private ArrayList<Course> Menu = new ArrayList<>();

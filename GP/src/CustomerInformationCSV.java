@@ -2,13 +2,24 @@ package GP.src;
 
 import java.io.*;
 import java.util.Scanner;
-
+/**
+ * This class is used to read the customer information from a CSV file and store it in an array.
+ * @author Kevin Collins
+ * <p>
+ *     This class is used to read the customer information from a CSV file and store it in an array.
+ *     This class can write new customer information to the CSV file.
+ * </p>
+ */
 public class CustomerInformationCSV {
 
+    /**
+     * This method is used to read the customer information from a CSV file and store it in an array.
+     * @param filePath The path of the CSV file.
+     * @param Bookings The array that the customer information will be stored in.
+     */
     public void readFromCSV(String filePath, BookingsList Bookings) {
 
         String line = "";
-        double total = 0;
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -26,9 +37,14 @@ public class CustomerInformationCSV {
         }
     }
 
-    public void writeToCsv(String fileName, CustomerInformation customer) {
+    /**
+     * This method is used to write new customer information to the CSV file.
+     * @param filePath The path of the CSV file.
+     * @param CustomerInformation The customer information that will be written to the CSV file.
+     */
+    public void writeToCsv(String filePath, CustomerInformation customer) {
         try {
-            FileWriter out = new FileWriter(fileName, true);
+            FileWriter out = new FileWriter(filePath, true);
             out.write((customer.toStringForFile()) + ", \n");
 
             out.close();

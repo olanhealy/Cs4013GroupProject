@@ -15,11 +15,7 @@ import java.util.ArrayList;
  */
 public class BookingsList {
 
-
     private ArrayList<CustomerInformation> customers;
-
-    // default constructor to create new Arraylist
-    //stores Customer information object
 
     /**
      * default constructor
@@ -43,8 +39,6 @@ public class BookingsList {
     public void addBooking(CustomerInformation booking) {
 
         customers.add(booking);
-
-      ;
     }
 
     /**
@@ -68,6 +62,11 @@ public class BookingsList {
         return value;
     }
 
+    /**
+     * gets position of booking in array list
+     * @param inputName name of customer
+     * @return position of booking in array list
+     */
     public int getBooking(String inputName) {
 
         // if its in array sets value return i

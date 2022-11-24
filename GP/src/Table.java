@@ -11,23 +11,28 @@ public class Table {
     private boolean available;
     private Order order;
 
-
-
-    public Table(int tableNo, int numberOfSeats) {
-        this.tableNo = tableNo;
-        this.numberOfSeats = numberOfSeats;
-        this.available = true;
-    }
-
     //getters
     public int getTableNumber() { return this.tableNo; }
     public int getNumberOfSeats() { return this.numberOfSeats; }
     public boolean getAvailability() {return this.available;}
+    public Order getOrder() {return order;}
 
     //setters
     public void setTableNumber(int tableNo) { this.tableNo = tableNo; }
     public void setNumberOfSeats(int numberOfSeats) { this.numberOfSeats = numberOfSeats; }
     public void setAvailable(boolean available) { this.available = available; }
+
+
+    /**
+     * Constructor for the table class
+     * @param tableNo table number
+     * @param numberOfSeats number of seats at the table
+     */
+    public Table(int tableNo, int numberOfSeats) {
+        this.tableNo = tableNo;
+        this.numberOfSeats = numberOfSeats;
+        this.available = true;
+    }
 
     /**
      * Used to mark a table as full
@@ -38,10 +43,7 @@ public class Table {
      * Used to mark a table as empty
      */
     public void setTableEmpty() { this.available = true; }
-    public Order getOrder() {
 
-        return order;
-    }
 
     @Override
     public String toString() {

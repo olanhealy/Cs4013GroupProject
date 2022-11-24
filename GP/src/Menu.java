@@ -13,7 +13,6 @@ public class Menu {
 
     /**
      * Creates Menu Object
-     *
      * @param name Name of menu e.g. A la Carte
      */
     public Menu(String name) {
@@ -29,19 +28,19 @@ public class Menu {
 
     /**
      * Adds course to the Courses array
-     *
      * @param name name of Course
      */
     public void addCourse(String name) {
         getCourses().add(new Course(name));
     }
 
+    /**
+     * Shows the full menu using showMenu method
+     */
     public void showFullMenu() {
-        //shows menu
+
         for (int i = 0; i <= (getCourses().size()-1); i++) {
             getCourses().get(i).showMenu();
         }
     }
-
-
 }

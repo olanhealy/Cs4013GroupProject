@@ -1,13 +1,11 @@
 package GP.src;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
 
-//Yum Restaurant
-
+/**
+ * Test class for the GP.src.Restaurant class.
+ * @author Kevin Collins & Olan Healy
+ */
 public class Test {
         public static void main(String args[]) {
 
@@ -46,31 +44,31 @@ public class Test {
 
 
                 } else if ( input.equals("2")){
-                // creates restaurant and bookingList
-                Restaurant yumGalway = new Restaurant();
-                BookingsList bookings2 = yumGalway.addBookingsList();
-                new MenuCreation(yumGalway);
 
-                //Creates CSV file class and date
-                BillCSV billTable2 = yumGalway.getBillTable();
-                yumGalway.setBillTable(billTable2);
-                billTable2.readFromCSV("CSV files/PaymentRecordsGalway.csv");
+                        // creates restaurant and bookingList
+                        Restaurant yumGalway = new Restaurant();
+                        BookingsList bookings2 = yumGalway.addBookingsList();
+                        new MenuCreation(yumGalway);
 
-                yumGalway.setCustomerTable(new CustomerInformationCSV());
-                CustomerInformationCSV customerTable = yumGalway.getCustomerTable();
-                customerTable.readFromCSV("CSV files/BookingsGalway.csv", bookings2);
+                        //Creates CSV file class and date
+                        BillCSV billTable2 = yumGalway.getBillTable();
+                        yumGalway.setBillTable(billTable2);
+                        billTable2.readFromCSV("CSV files/PaymentRecordsGalway.csv");
 
-                yumGalway.setTablesTable(new TableCSV());
-                TableCSV tablesTable2 = yumGalway.getTablesTable();
-                tablesTable2.readFromCSV("CSV files/TablesGalway.csv", yumGalway);
+                        yumGalway.setCustomerTable(new CustomerInformationCSV());
+                        CustomerInformationCSV customerTable = yumGalway.getCustomerTable();
+                        customerTable.readFromCSV("CSV files/BookingsGalway.csv", bookings2);
 
-                yumGalway.setRestaurantInterface(new RestaurantInterface());
-                RestaurantInterface yum2 = yumGalway.getRestaurantInterface();
+                        yumGalway.setTablesTable(new TableCSV());
+                        TableCSV tablesTable2 = yumGalway.getTablesTable();
+                        tablesTable2.readFromCSV("CSV files/TablesGalway.csv", yumGalway);
 
-                yumGalway.addGalwayStaff(yumGalway.getStaff());
+                        yumGalway.setRestaurantInterface(new RestaurantInterface());
+                        RestaurantInterface yum2 = yumGalway.getRestaurantInterface();
 
+                        yumGalway.addGalwayStaff(yumGalway.getStaff());
 
-                yum2.run(yumGalway, bookings2, "CSV files/BookingsGalway.csv","CSV files/PaymentRecordsGalway.csv", "CSV files/TablesGalway.csv");
+                        yum2.run(yumGalway, bookings2, "CSV files/BookingsGalway.csv","CSV files/PaymentRecordsGalway.csv", "CSV files/TablesGalway.csv");
 
         }
 }

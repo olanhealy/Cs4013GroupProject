@@ -9,20 +9,27 @@ public class OrderList {
     public OrderList() {
         this.orders = orders;
     }
-
     public Order[] getOrders() {
         return orders;
     }
-
     public Order getOrder(int tableId) {
         return orders[tableId];
     }
 
-
+    /**
+     * adds the order to the order list at the table
+     * @param order the order to be added
+     * @param tableId the table id
+     */
     public void addOrder(Order order, int tableId) {
         getOrders()[tableId] = order;
     }
-    public void removeOrder( int tableId) {
+
+    /**
+     * removes the order from the order list at the table
+     * @param tableId the table id
+     */
+    public void removeOrder(int tableId) {
         getOrders()[tableId]  = null;
     }
 

@@ -1,15 +1,19 @@
 package GP.src;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RestaurantInterface {
-
     /**
      * This class is the main interface for the restaurant
-     *
-     * @param restaurant
-     * @param bookings
+     * <p>
+     *     Scanner's are used to input data into methods
+     *     Most methods in the project are accessible from the terminal menu
+     * </p>
+     * @param restaurant Restaurant to run the program in
+     * @param bookings list of bookings
+     * @param billFile file to save bills to
+     * @param bookingFile file to save bookings to
+     * @param tableFile file to save tables to
      */
     public void run(Restaurant restaurant, BookingsList bookings, String bookingFile, String billFile, String tableFile) {
         boolean more = true;
@@ -25,7 +29,7 @@ public class RestaurantInterface {
         Staff worker = restaurant.getStaff().get(restaurant.validStaff(id, password));
         String placeHolder = null;
         if (worker.getStaffType() == "Manager") {
-            placeHolder = "You have access to: R)evise Staff B)ookings, T)ables, O)rder, P)ayment Records, E)xit ";
+            placeHolder = "You have access to: R)evise Staff, B)ookings, T)ables, O)rder, P)ayment Records, E)xit ";
         } else if (worker.getStaffType() == "Waiter") {
             placeHolder = "You have access to: B)ookings, T)ables, O)rder, E)xit ";
         } else {
@@ -39,7 +43,7 @@ public class RestaurantInterface {
         while (more) {
 
 
-            System.out.println("R)evise Staff B)ookings, T)ables, O)rder, P)ayment Records, E)xit");
+            System.out.println("R)evise Staff, B)ookings, T)ables, O)rder, P)ayment Records, E)xit");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
 
@@ -86,7 +90,6 @@ public class RestaurantInterface {
             else if (input.equals("B") && (worker instanceof Waiter || worker instanceof Manager)
             ) {
 
-                //TODO add booking to CSV file
                 System.out.println("A)dd Booking, V)iew Booking, S)how all bookings, C)ancel Booking, T)ake Walk-in");
                 input = scanner.nextLine();
 
@@ -123,8 +126,6 @@ public class RestaurantInterface {
                     String phoneNumber = scanner.nextLine();
 
                     bookings.checkBooking(name, phoneNumber);
-
-                    //TODO remove booking from CSV file
 
                     /**
                      * Show all bookings
@@ -208,12 +209,6 @@ public class RestaurantInterface {
                  */
             } else if (input.equals("O") ) {
 
-
-                //TODO add Menu.showFullMenu access
-                //TODO OLAN? add all payment method accesses
-                //TODO OLAN? add removal of order from order list when bill is paid
-                //TODO OLAN? add check status on Orders
-
                 System.out.println("S)how Menu, T)ake Order, V)iew Order, P)ay Bill, C)heck Status");
                 input = scanner.nextLine();
 
@@ -234,8 +229,6 @@ public class RestaurantInterface {
                     order.takeOrder(restaurant.getTable(tableNumber), restaurant.getMenu(menuId), numberOfGuests);
                     restaurant.getOrderList().addOrder(order, tableNumber);
 
-
-
                     /**
                      * View Order
                      */
@@ -247,7 +240,6 @@ public class RestaurantInterface {
                     } else {
                         System.out.println(restaurant.getOrderList().getOrder(tableNumber).toString());
                     }
-
 
                 }  else if (input.equals("S")) {
                     System.out.println("Enter menuId: ");

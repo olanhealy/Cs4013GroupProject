@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * Class deals with taking Orders and checking on order status
- * @author Kevin Collins
+ * @author Kevin Collins & Olan Healy
  */
 public class Order {
 
@@ -18,20 +18,19 @@ public class Order {
 
 
     //getters
-    //TODO add orders to order array/ have it viewable/ have it added to when order created and removed when order is complete
     public ArrayList getOrderItems() { return orderItems; }
 
     /**
-     * Takes an order of MenuItems for each seat at the table
+     * Takes an order of MenuItems for each person at the table
      * @param table Table at which order is being taken
      * @param menu Menu in which order taken from
+     * @param numberOfGuests Number of guests at the table
      */
     public void takeOrder(Table table, Menu menu,  int numberOfGuests){
         this.table = table;
         this.menu = menu;
 
         int courseAmt = menu.getCourses().size();
-        MenuItem[][] customerOrders = new MenuItem[table.getNumberOfSeats()][courseAmt];
         Scanner scanner = new Scanner(System.in);
 
         //for amount of seats at table
@@ -48,16 +47,22 @@ public class Order {
                     int check = menu.getCourses().get(j).getMenuItemPos(itemSearch);
                     //adds item to order array
                     MenuItem clone = getMenuItem(menu, j, check);
-                    orderItems.add(clone);//getOrderItems().add(menu.getCourses().get(j).getItems().get(check));
+                    orderItems.add(clone);
                 } catch (NullPointerException ne){
                     System.out.println("Item not in menu");
                     j--;
                 }
             }
         }
-
     }
 
+    /**
+     * Get menuItem object from menu
+     * @param menu Menu to search
+     * @param j Course to search
+     * @param item Item to search
+     * @return MenuItem object
+     */
     public MenuItem getMenuItem(Menu menu , int j, int item){
         MenuItem menuItem = menu.getCourses().get(j).getItems().get(item);
         return menuItem;
@@ -65,27 +70,23 @@ public class Order {
 
 
     /**
-     *
-     * @return
+     * Gets Total price of order
+     * @return Total price of order
      */
-
     public double getTotal() {
         double total = 0;
         for (MenuItem item : orderItems) {
             total += item.getPrice();
             }
-
         return total;
     }
 
 
     /**
      *enum used as these variables are unchangeable and are used to set the status of the order
-     *@author Olan Healy
      */
-    public enum setStatus {
-        ORDERED
-    }
+    public enum setStatus {ORDERED}
+
     /**
      * Sets the status of the order
      * @author Olan Healy
@@ -97,21 +98,14 @@ public class Order {
         return status;
     }
 
-
-
-
-
-
-
     @Override
     public String toString() {
         String value = "Order: ";
-        //int size = getOrderItems().size();
+
         for(MenuItem item: orderItems){
             String newVal = "\n     " + item.getName();
             value = value + newVal;
         }
         return value;
     }
-
 }
