@@ -25,19 +25,20 @@ public class RestaurantInterface {
         int id = scannerMain.nextInt();
         System.out.println("Enter your password");
         String password = scannerMain.next();
+        System.out.println();
 
         Staff worker = restaurant.getStaff().get(restaurant.validStaff(id, password));
         String placeHolder = null;
         if (worker.getStaffType() == "Manager") {
-            placeHolder = "You have access to: R)evise Staff, B)ookings, T)ables, O)rder, P)ayment Records, E)xit ";
+            placeHolder = "You have access to: R)evise Staff, B)ookings, T)ables, O)rder, P)ayment Records, E)xit \n";
         } else if (worker.getStaffType() == "Waiter") {
-            placeHolder = "You have access to: B)ookings, T)ables, O)rder, E)xit ";
+            placeHolder = "You have access to: B)ookings, T)ables, O)rder, E)xit \n";
         } else {
-            placeHolder = "You have access to: O)rder, E)xit ";
+            placeHolder = "You have access to: O)rder, E)xit \n";
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Welcome, " + worker.getName() + " role: " + worker.getStaffType());
+        sb.append("Welcome " + worker.getName() + ", role: " + worker.getStaffType());
         System.out.println(sb + "\n" + placeHolder);
 
         while (more) {

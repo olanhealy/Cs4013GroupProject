@@ -18,6 +18,7 @@ public class TableAssignment {
      * Assigns guest to a table
      * <p>
      *     If the current time equals time of booking then assigns table
+     *     This would be system adopted in restaurant however is impractical for testing
      * </p>
      * @param restaurant restaurant in which takes place
      * @param customer customer that's being seated info
@@ -71,7 +72,7 @@ public class TableAssignment {
      * Has additional functionality if time is required to be manually added (pre-seat) for testing and example
      * @param restaurant restaurant in which takes place
      * @param customer customer that's being seated info
-     * @param time manual time inputted inb
+     * @param time the "current" time (for testing)
      */
     public TableAssignment(Restaurant restaurant,CustomerInformation customer,int time){
         Scanner scanner = new Scanner(System.in);
