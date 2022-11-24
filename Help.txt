@@ -1,7 +1,7 @@
 How to run:
 - Download File
 - Unzip
-- Open the "Submission" folder in your desired IDE (we used Intelleji)
+- Open the "GPRO" folder in your desired IDE (we used Intelleji)
 - Open GP/src in the IDE
 - Setup JDK (we used version 19)
 - Run from Test class
@@ -20,4 +20,3 @@ https://github.com/olanhealy/Cs4013GroupProject
 
 
 - If any issues please email 
-
