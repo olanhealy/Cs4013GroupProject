@@ -10,6 +10,9 @@ public class Menu {
 
     private String name;
     private ArrayList<Course> courses = new ArrayList();
+    public String getName() {
+        return name;
+    }
 
     /**
      * Creates Menu Object

@@ -59,6 +59,13 @@ public class Restaurant {
     public void addMenu(String name) {
         getMenus().add(new Menu(name));
     }
+    public String menuIDsToString(){
+        String menuIDs = "";
+        for(int i = 0; i < getMenus().size(); i++){
+            menuIDs += "MenuID:" + i + " Menu Name: " + getMenus().get(i).getName() + "\n";
+        }
+        return menuIDs;
+    }
 
     /**
      * adds a list of bookings to the restaurant

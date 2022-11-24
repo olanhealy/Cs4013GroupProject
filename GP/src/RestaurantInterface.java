@@ -230,6 +230,7 @@ public class RestaurantInterface {
                     Order order = new Order();
                     System.out.println("Enter table number: ");
                     int tableNumber = scanner.nextInt();
+                    System.out.println(restaurant.menuIDsToString());
                     System.out.println("Enter menuId: ");
                     int menuId = scanner.nextInt();
                     System.out.println("Enter number of Guests: ");
@@ -251,6 +252,7 @@ public class RestaurantInterface {
                     }
 
                 }  else if (input.equals("S")) {
+                    System.out.println(restaurant.menuIDsToString());
                     System.out.println("Enter menuId: ");
 
                     int i = scanner.nextInt();
