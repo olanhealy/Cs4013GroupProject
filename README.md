@@ -18,7 +18,7 @@ There are many requirements when managing a restaurant chain. Some ones we will 
 8. They will need to have a system which keeps track of reservations in case any walk in customers can be seated
 ------------------------------------------------
 ## UML Diagram
-![](images/UML_Diagram1stDraft.drawio.png)
+![](images/UML_diagram.png.png)
 ------------------------------------------------
 ## Use case 
 
@@ -39,7 +39,7 @@ __Chef:__ Mainly responsible for cooking the food ordered by the customers.
 ------------------------------------------------
 ## CRC diagrams
 
-![](images/CRC_cards.png)
+![](images/CRC_Cards.png)
 ------------------------------------------------
 ## Activity Diagrams
 1. PLACE ORDER: steps required to place an order in the restaurant
