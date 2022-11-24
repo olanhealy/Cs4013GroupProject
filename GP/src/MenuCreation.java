@@ -1,5 +1,8 @@
 package GP.src;
 
+/**
+ * Creates Menus for restaurant
+ */
 public class MenuCreation {
 
     /**

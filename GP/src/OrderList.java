@@ -1,7 +1,8 @@
 package GP.src;
 
-import java.util.ArrayList;
-
+/**
+ * Creates a place to store orders and remove them when complete
+ */
 public class OrderList {
 
     private Order[] orders = new Order[100];

@@ -1,10 +1,16 @@
 package GP.src;
 
 import java.util.Scanner;
-
+/**
+ * This class is the interface for the restaurant. It allows the user to choose
+ * from a list of options and then calls the appropriate method to perform the
+ * action.
+ *
+ * @author Kevin Collins & Olan Healy
+ */
 public class RestaurantInterface {
     /**
-     * This class is the main interface for the restaurant
+     * Class is the main interface for the restaurant
      * <p>
      *     Scanner's are used to input data into methods
      *     Most methods in the project are accessible from the terminal menu
