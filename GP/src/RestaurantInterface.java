@@ -193,10 +193,12 @@ public class RestaurantInterface {
                     String name = scanner.nextLine();
                     int pos = bookings.getBooking(name);
                     System.out.println("Enter Time of Arrival: ");
-                    int timeOfArrival = scanner.nextInt();
+                    String timeOfArrival = scanner.nextLine();
+                    String[] splitTime = timeOfArrival.split(":");
+                    int hour = Integer.parseInt(splitTime[0]);
 
                     //assigns bookings to tables
-                    TableAssignment assign = new TableAssignment(restaurant, bookings.getBookingList().get(pos), timeOfArrival);
+                    TableAssignment assign = new TableAssignment(restaurant, bookings.getBookingList().get(pos), hour);
                     /**
                      * Display all Table Availability
                      */

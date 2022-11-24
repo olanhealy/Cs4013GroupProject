@@ -37,7 +37,6 @@ public class BookingsList {
      */
     //adds a booking (CustomerInformation Object)
     public void addBooking(CustomerInformation booking) {
-
         customers.add(booking);
     }
 

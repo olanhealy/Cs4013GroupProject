@@ -14,7 +14,12 @@ public class CustomerInformation {
     public String getName() { return name; }
     public String getPhoneNumber() { return phoneNumber; }
     public int getNumberOfGuests() { return parseInt(numberOfGuests); }
-    public int getTimeOfArrival() { return parseInt(timeOfArrival); }
+    public int getTimeOfArrival() {
+        String time = timeOfArrival;
+        String[] timeSplit = time.split(":");
+        int timeInt = parseInt(timeSplit[0]);
+        return timeInt;
+    }
 
     /**
      *
